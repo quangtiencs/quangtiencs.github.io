@@ -2,22 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>quangtiencs</title>
-    <link>https://quangtiencs.github.io/</link>
+    <link>https://quangtiencs.com/</link>
     <description>Recent content on quangtiencs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Nov 2020 00:07:58 +0530</lastBuildDate>
+    <copyright>quangtiencs 2020</copyright>
+    <lastBuildDate>Wed, 12 Aug 2020 07:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://quangtiencs.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://quangtiencs.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>About</title>
-      <link>https://quangtiencs.github.io/about/</link>
-      <pubDate>Sat, 14 Nov 2020 00:07:58 +0530</pubDate>
+      <title>About me</title>
+      <link>https://quangtiencs.com/about/</link>
+      <pubDate>Wed, 12 Aug 2020 07:00:00 +0000</pubDate>
       
-      <guid>https://quangtiencs.github.io/about/</guid>
-      <description>I am Tien Le-Quang (quangtiencs), a computer scientist and data scientist. I am on the road to become a world-class engineer, a good statistician&amp;hellip; and a wonderful father (btw i don&amp;rsquo;t have a girlfriend at the present :D).</description>
+      <guid>https://quangtiencs.com/about/</guid>
+      <description>Hello, this is quangtiencs&amp;rsquo;s log, a homepage of my engineering life.
+I&amp;rsquo;m Tien Le-Quang (Lê Quang Tiến), a computer scientist and data scientist. I like to write scalable algorithms to solve real-world problems, learning from massive datasets to understand data. As a young engineer with full energy, i am on the road to become a world-class engineer, a good statistician… and a wonderful father (btw i don’t have a girlfriend at the present :D).</description>
     </item>
     
   </channel>

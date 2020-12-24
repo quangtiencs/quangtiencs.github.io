@@ -65,8 +65,7 @@ textarea {
 
 blockquote {
     margin-left: 1rem;
-    font-style: italic;
-    font-size: 1.4rem;
+    font-size: 1.0em;
     font-family: 'Source Code Pro',Georgia,bitstream charter,serif;
     border-left: 3px solid;
     border-color: #12239E;
@@ -135,7 +134,7 @@ h6 {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 865px;
 }
 
 ul {
@@ -195,7 +194,7 @@ ul {
 }
 
 .wrapper {
-    max-width: 760px;
+    max-width: 825px;
     margin: 0 auto;
 }
 
@@ -289,8 +288,9 @@ ul {
     border: 1px solid #c7c7cc;
     color: black;
     margin: 0;
+    text-align: center;
     padding: 8px;
-    font-size: 22px;
+    font-size: 1.6em;
     background: #fffae6;
 }
 
@@ -392,7 +392,7 @@ table th, table td {
     border: 1px solid #dddddd;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 832px) {
     body {
         padding: 20px;
     }

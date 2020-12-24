@@ -1,5 +1,5 @@
-/* PrismJS 1.20.0
-https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+bash+c+cpp+cmake+go+graphql+java+javadoc+javadoclike+javastacktrace+julia+latex+makefile+powershell+prolog+python+r+rust+scala+sql+swift+xml-doc&plugins=line-highlight+line-numbers+command-line+normalize-whitespace+toolbar+copy-to-clipboard+treeview */
+/* PrismJS 1.22.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+c+cpp+cmake+docker+glsl+go+haskell+java+json+json5+julia+kotlin+latex+makefile+matlab+plsql+powershell+prolog+python+r+rust+scala+sql+stan+swift+xml-doc+yaml&plugins=line-highlight+line-numbers+command-line+normalize-whitespace+toolbar+copy-to-clipboard+treeview */
 /**
  * prism.js default theme for JavaScript, CSS and HTML
  * Based on dabblet (http://dabblet.com)
@@ -11,8 +11,8 @@ pre[class*="language-"] {
 	color: black;
 	background: none;
 	text-shadow: 0 1px white;
-	font-family: Source Code Pro, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-	font-size: 16px;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
@@ -108,6 +108,7 @@ pre[class*="language-"] {
 .language-css .token.string,
 .style .token.string {
 	color: #9a6e3a;
+	/* This background color was intended by the author of this theme. */
 	background: hsla(0, 0%, 100%, .5);
 }
 
