@@ -5,14 +5,13 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
  * Based on dabblet (http://dabblet.com)
  * @author Lea Verou
  */
-
 code[class*="language-"],
 pre[class*="language-"] {
 	color: black;
 	background: none;
 	text-shadow: 0 1px white;
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-	font-size: 1em;
+	font-family: 'Jetbrains Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 0.9em;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
@@ -58,7 +57,8 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	background: #f5f2f0;
+	border: 1px dashed #CCC;
+	background: #f8f8f8;
 }
 
 /* Inline code */
@@ -325,7 +325,7 @@ div.code-toolbar > .toolbar span {
 	color: #bbb;
 	font-size: .8em;
 	padding: 0 .5em;
-	background: #f5f2f0;
+	background: #f8f8f8;
 	background: rgba(224, 224, 224, 0.2);
 	box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
 	border-radius: .5em;

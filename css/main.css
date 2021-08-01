@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 body {
     font-family: 'Source Sans Pro',"ubuntu", sans-serif;
     font-weight: 400;
-    color: #333;
+    color: #212121;
     line-height: 1.4;
     font-size: 18px;
 }
@@ -66,7 +66,7 @@ textarea {
 blockquote {
     margin-left: 1rem;
     font-size: 1.0em;
-    font-family: 'Source Code Pro',Georgia,bitstream charter,serif;
+    font-family: 'Source Serif Pro',Georgia,bitstream charter,serif;
     border-left: 3px solid;
     border-color: #12239E;
     padding-left: 20px;
@@ -82,7 +82,7 @@ blockquote em {
 }
 
 a,a:hover {
-    color: #12239E;
+    color: #00796B;
     text-decoration: none
 }
 
@@ -91,7 +91,7 @@ a:hover {
 }
 
 h1,h2,h3,h4,h5,h6 {
-    font-family: 'Source Sans Pro',raleway,sans-serif;
+    font-family: 'Source Serif Pro',raleway,sans-serif;
     line-height: 1.2;
     color: black;
     font-weight: 600;
@@ -199,12 +199,12 @@ ul {
 }
 
 .container {
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .header {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
 }
 
 .header h1,
@@ -220,7 +220,7 @@ ul {
 }
 
 .header nav {
-    margin-top: 20px;
+    margin-top: 10px;
     border-top: 1px dashed #CCCCCC;
 }
 
@@ -285,13 +285,12 @@ ul {
 }
 
 .post .post-header .title {
-    border: 1px solid #c7c7cc;
+    border-bottom: 2px dashed #c7c7cc;
     color: black;
     margin: 0;
     text-align: center;
-    padding: 8px;
-    font-size: 1.6em;
-    background: #fffae6;
+    padding: 30px 0px 12px 0px;
+    font-size: 1.8em;
 }
 
 .post-tags a {
