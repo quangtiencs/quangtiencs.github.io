@@ -13,8 +13,8 @@
       <pubDate>Wed, 12 Aug 2020 07:00:00 +0000</pubDate>
       
       <guid>https://quangtiencs.com/about/</guid>
-      <description>Hi, this is quangtiencs’s log, a homepage of my engineering life. I write down my learning notes in this blog. As a critical thinker, my opinions are always subject to rethinking and revision. If you find any mistakes, please do not hesitate to give me feedback.
-In this busy society, I love learning through doing. Writing is not only to create a note but also to be a small project. Let sharing to learn from others!</description>
+      <description>pwd /home/quangtiencs/about tldr_root_folder/ |-- social_network/ | |-- linkedin.pdf | |-- github.js | |-- twitter.txt | |-- telegram.txt | `-- thetalog.com `-- README.md Hi, this is quangtiencs’s log, a homepage of my engineering life. I write down my learning notes in this blog. As a critical thinker, my opinions are always subject to rethinking and revision. If you find any mistakes, please do not hesitate to give me feedback.
+In this busy society, I love learning through doing.</description>
     </item>
     
   </channel>
