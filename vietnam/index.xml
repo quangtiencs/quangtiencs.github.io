@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>quangtiencs</title>
-    <link>https://quangtiencs.com/</link>
-    <description>Recent content on quangtiencs</description>
+    <title>Vietnams on quangtiencs</title>
+    <link>https://quangtiencs.com/vietnam/</link>
+    <description>Recent content in Vietnams on quangtiencs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>quangtiencs ➤ to be a kite dancing in a hurricane</copyright>
-    <lastBuildDate>Thu, 08 Apr 2021 00:00:00 +0530</lastBuildDate><atom:link href="https://quangtiencs.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Apr 2021 00:00:00 +0530</lastBuildDate><atom:link href="https://quangtiencs.com/vietnam/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rửa chén</title>
       <link>https://quangtiencs.com/vietnam/rua_chen/</link>
@@ -29,16 +29,6 @@ Giờ chẳng nhẽ nhận thêm việc rửa chén bán thời gian cho tăng n
 Đặt cược tất cả vào bản thân mình&amp;hellip; để chiến đấu với mọi thử thách.
 Có / Không thôi nhé? Đây là một câu hỏi khó &amp;amp; cần một lời giải chân phương&amp;hellip;
 Lê Quang Tiến - viết vào ngày 23 tháng 09 năm 2020</description>
-    </item>
-    
-    <item>
-      <title>About me</title>
-      <link>https://quangtiencs.com/about/</link>
-      <pubDate>Wed, 12 Aug 2020 07:00:00 +0000</pubDate>
-      
-      <guid>https://quangtiencs.com/about/</guid>
-      <description>Hi, this is quangtiencs’s log, a homepage of my engineering life. I decided to start writing down my learning notes when I learn something new. As a critical thinker, my opinions are always subject to rethinking and revision. If you find any mistakes, please do not hesitate to give me feedback.
-As a lifelong learner, I am on the road to becoming a world-class engineer, a magical statistician, and such a wonderful father :D (btw I don’t have a girlfriend at the present).</description>
     </item>
     
   </channel>
