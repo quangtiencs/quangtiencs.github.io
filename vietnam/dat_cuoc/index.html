@@ -25,6 +25,7 @@
 	<script src="https://quangtiencs.com/js/main.js"></script>
 	<script src="https://quangtiencs.com/js/jquery.min.js"></script>
 	<script src="https://quangtiencs.com/js/jquery-ui.min.js"></script>
+	<script src="https://quangtiencs.com/js/jquery.smartmenus.min.js"></script>
 	<script src="https://quangtiencs.com/js/prism.js"></script>
 </head>
 
@@ -102,24 +103,55 @@
       </a>
    </div>
 
-   <nav class="nav">
-      <div style="font-family: 'Jetbrains Mono';padding: 10px 10px 10px 10px;background-color: #f8f8f8;" class="flat"
-         align="center">
-         
-         <a style="font-weight: bold;color: #5D4037;padding-left: 7px;padding-right: 7px" href="/">[HOME]</a>
-         
-         <a style="font-weight: bold;color: #5D4037;padding-left: 7px;padding-right: 7px" href="/posts">[BLOG]</a>
-         
-         <a style="font-weight: bold;color: #5D4037;padding-left: 7px;padding-right: 7px" href="/project">[PROJECT]</a>
-         
-         <a style="font-weight: bold;color: #5D4037;padding-left: 7px;padding-right: 7px" href="/topic">[TOPIC]</a>
-         
-         <a style="font-weight: bold;color: #5D4037;padding-left: 7px;padding-right: 7px" href="/vietnam">[VIETNAM]</a>
-         
-         <a style="font-weight: bold;color: #5D4037;padding-left: 7px;padding-right: 7px" href="/about">[ABOUT]</a>
-         
-      </div>
+   
+   <nav class="main-nav" role="navigation">
+   
+      
+      <input id="main-menu-state" type="checkbox" />
+      <label class="main-menu-btn" for="main-menu-state">
+         <span class="main-menu-btn-icon"></span>
+      </label>
+
+      <h2 class="nav-brand"><a>terminal :: ~></a></h2>
+
+      <ul id="main-menu" class="sm sm-mint">
+         <li><a href="/">home</a></li>
+         <li><a href="/posts">blog</a></li>
+         <li><a href="/project">project</a></li>
+         <li><a href="/vietnam">vietnam</a></li>
+         <li><a href="/about">about</a></li>
+      </ul>
    </nav>
+   <script>
+      $(function () {
+         $('#main-menu').smartmenus({
+            mainMenuSubOffsetX: -1,
+            subMenusSubOffsetX: 10,
+            subMenusSubOffsetY: 0
+         });
+      });
+
+      
+      $(function () {
+         var $mainMenuState = $('#main-menu-state');
+         if ($mainMenuState.length) {
+            
+            $mainMenuState.change(function (e) {
+               var $menu = $('#main-menu');
+               if (this.checked) {
+                  $menu.hide().slideDown(250, function () { $menu.css('display', ''); });
+               } else {
+                  $menu.show().slideUp(250, function () { $menu.css('display', ''); });
+               }
+            });
+            
+            $(window).bind('beforeunload unload', function () {
+               if ($mainMenuState[0].checked) {
+                  $mainMenuState[0].click();
+               }
+            });
+         }
+      });</script>
 </div>
 
 		<div class="post-header">
