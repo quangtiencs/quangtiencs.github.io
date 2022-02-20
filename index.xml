@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
-    <lastBuildDate>Thu, 08 Apr 2021 00:00:00 +0530</lastBuildDate><atom:link href="https://quangtiencs.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Feb 2022 00:00:00 +0530</lastBuildDate><atom:link href="https://quangtiencs.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bayesian Multi-Logit Regression implemented in Tensorflow Probability</title>
+      <link>https://quangtiencs.com/posts/bayesian_logistics_tensorflow_probability/</link>
+      <pubDate>Sun, 20 Feb 2022 00:00:00 +0530</pubDate>
+      
+      <guid>https://quangtiencs.com/posts/bayesian_logistics_tensorflow_probability/</guid>
+      <description>Bayesian Multi-Logit Regression is a probabilistic model for multiclass classification. This tutorial will make a prototype model in Tensorflow Probability and fit it with No-U-Turn Sampler.
+Let&amp;rsquo;s start!
+1. Model specification: Multi-Logit regression for \(K\) classes has the following form:
+$$p(y | x, \beta) = \text{Categorical}(y| \text{softmax}(x \beta))$$
+With:
+ \(x \): input features (row) vector \(x = [x_1,&amp;hellip; x_D] \in R^D \) \(y \): the predicted outcome of the class label \(\beta \): weight matrix for \(K\) classes and \(D\) dimensions  The bayesian version of this model with pior:</description>
+    </item>
+    
     <item>
       <title>About me</title>
       <link>https://quangtiencs.com/about/</link>
