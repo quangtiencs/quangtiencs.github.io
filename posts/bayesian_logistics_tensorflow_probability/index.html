@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Bayesian Multi-Logit Regression implemented in Tensorflow Probability - quangtiencs</title><link rel="icon" type="image/png" href=/icon/quangtiencs_hawk.png /><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta property="og:title" content="Bayesian Multi-Logit Regression implemented in Tensorflow Probability" />
-<meta property="og:description" content="run no-u-turn sampler for bayesian logistic regression" />
+<meta property="og:description" content="run no-u-turn sampler for bayesian multi-logit regression" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://quangtiencs.com/posts/bayesian_logistics_tensorflow_probability/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-02-20T00:00:00+05:30" />
@@ -12,7 +12,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Bayesian Multi-Logit Regression implemented in Tensorflow Probability"/>
-<meta name="twitter:description" content="run no-u-turn sampler for bayesian logistic regression"/>
+<meta name="twitter:description" content="run no-u-turn sampler for bayesian multi-logit regression"/>
 <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" media="screen" href="https://quangtiencs.com/css/normalize.css" />
@@ -215,7 +215,7 @@ print(f&quot;Tensorflow {tf.__version__}&quot;)
 print(f&quot;Tensorflow  Probability {tfp.__version__}&quot;)
 </code></pre>
 <pre><code>Tensorflow 2.8.0
-Tensorflow  Probability 0.15.0
+Tensorflow  Probability 0.16.0
 </code></pre>
 <h3 id="21-make-synthetic-data">2.1 Make synthetic data</h3>
 <pre><code class="language-python">def make_synthetic_data(train_ratio=0.6, val_ratio=0.2, n_samples_class=800):
@@ -345,7 +345,7 @@ arviz_dict = az.from_dict(
 <pre><code class="language-python">az.plot_posterior(arviz_dict)
 </code></pre>
 <p><img src="/images/bayesian_multi_logit/beta.png" alt="Posterior plot"></p>
-<h3 id="26-posteirior_predictive">2.6 Posteirior_predictive</h3>
+<h3 id="26-posteirior-predictive">2.6 Posteirior predictive</h3>
 <pre><code class="language-python">def posteirior_predictive(model, x_vec, samples):
     beta_samples = samples[0].numpy()
     y_hat_prob = tf.math.softmax(x_vec @ beta_samples, axis=2)
@@ -368,6 +368,10 @@ y_pred_test = classify(bayesian_multi_logit_model, x_test, samples)
 <pre><code class="language-python">print(f&quot;Train Accuracy {(y_pred_train==y_train).mean()}&quot;)
 print(f&quot;Validation Accuracy {(y_pred_val==y_val).mean()}&quot;)
 print(f&quot;Test Accuracy {(y_pred_test==y_test).mean()}&quot;)
+</code></pre>
+<pre><code>Train Accuracy 0.8666666666666667
+Validation Accuracy 0.8604166666666667
+Test Accuracy 0.8604166666666667
 </code></pre>
 <h3 id="27-visualize-decision-boundary">2.7 Visualize decision boundary</h3>
 <pre><code class="language-python">def visualize_decision_boundary(x=x_train, y=y_train):
