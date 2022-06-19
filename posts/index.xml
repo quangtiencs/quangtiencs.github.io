@@ -19,7 +19,7 @@ Let&amp;rsquo;s start!
 1. Model specification: Multi-Logit regression for \(K\) classes has the following form:
 $$p(y | x, \beta) = \text{Categorical}(y| \text{softmax}(x \beta))$$
 With:
- \(x \): input features (row) vector \(x = [x_1,&amp;hellip; x_D] \in R^D \) \(y \): the predicted outcome of the class label \(\beta \): weight matrix for \(K\) classes and \(D\) dimensions  The bayesian version of this model with pior:</description>
+\(x \): input features (row) vector \(x = [x_1,&amp;hellip; x_D] \in R^D \) \(y \): the predicted outcome of the class label \(\beta \): weight matrix for \(K\) classes and \(D\) dimensions The bayesian version of this model with pior:</description>
     </item>
     
   </channel>
