@@ -7,14 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
-    <lastBuildDate>Sun, 10 Jul 2022 00:00:00 +0530</lastBuildDate><atom:link href="https://quangtiencs.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Sep 2022 00:00:00 +0530</lastBuildDate><atom:link href="https://quangtiencs.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tensorflow.Js &amp; Typescript [1]: Quick Start</title>
+      <link>https://quangtiencs.com/posts/tensorflowjs_typescript_01/</link>
+      <pubDate>Tue, 27 Sep 2022 00:00:00 +0530</pubDate>
+      
+      <guid>https://quangtiencs.com/posts/tensorflowjs_typescript_01/</guid>
+      <description>Create project directory
+mkdir tensorflowjs_typescript cd tensorflowjs_typescript Initialize a new project. Follow the prompts of npm (nodejs package manager)
+npm init Install typescript compiler and more!
+npm install --save-dev typescript tslint @types/node TSC (Typescript Compiler) init
+npx tsc --init NodeJS Evironment: Edit tsconfig.json and add these lines:
+{ &#34;compilerOptions&#34;: { &#34;target&#34;: &#34;es2016&#34;, &#34;module&#34;: &#34;commonjs&#34;, &#34;outDir&#34;: &#34;&#34;, &#34;esModuleInterop&#34;: true, &#34;forceConsistentCasingInFileNames&#34;: true, &#34;strict&#34;: true, &#34;skipLibCheck&#34;: true }, &#34;include&#34;: [ &#34;src&#34; ] } Install Tensorflow.</description>
+    </item>
+    
     <item>
       <title>Julia Language - Euler Project</title>
       <link>https://quangtiencs.com/posts/julia_euler_project/</link>
       <pubDate>Sun, 10 Jul 2022 00:00:00 +0530</pubDate>
       
       <guid>https://quangtiencs.com/posts/julia_euler_project/</guid>
-      <description>Github: https://github.com/quangtiencs/julia_project_euler Project Euler 6: Sum square difference HackerRank: https://www.hackerrank.com/contests/projecteuler/challenges/euler006 Euler: https://projecteuler.net/problem=6 function solution_euler_006(n::Int64)::Int64 return div((3 * n^4 + 2 * n^3 - 3 * n^2 - 2 * n), 12) end function main() t = parse(Int64, readline()) for i in 1:t n = parse(Int64, readline()) result = solution_euler_006(n) println(result) end end main() Project Euler 5: Smallest multiple HackerRank: https://www.hackerrank.com/contests/projecteuler/challenges/euler005 Euler: https://projecteuler.net/problem=5 function solution_euler_005(n::Int64)::Int64 smallest_multiple = 1 for i in 1:n current_gcd = gcd(smallest_multiple, i) unique_1 = div(smallest_multiple, current_gcd) unique_2 = div(i, current_gcd) smallest_multiple = unique_1 * current_gcd * unique_2 end return smallest_multiple end function main() t = parse(Int64, readline()) for i in 1:t n = parse(Int64, readline()) result = solution_euler_005(n) println(result) end end main() Project Euler 4: Largest palindrome product HackerRank: https://www.</description>
+      <description>Github: https://github.com/quangtiencs/julia_project_euler Project Euler 8: Largest product in a series HackerRank: https://www.hackerrank.com/contests/projecteuler/challenges/euler008 Euler: https://projecteuler.net/problem=8 function greatest_product_of_consecutive_digits(array::Array{Int}, k::Int)::Int product = prod(array[1:k]) cache = array[1] maximum_prod = product for i in 1:(length(array)-k) if cache != 0 product = div(product, cache) * array[k+i] else product = prod(array[1+i:k+i]) end cache = array[1+i] if product &amp;gt; maximum_prod maximum_prod = product end end return maximum_prod end function main() t = parse(Int64, readline()) for i in 1:t n, k = map((x) -&amp;gt; parse(Int64, x), split(readline(), &amp;quot; &amp;quot;)) arr_number = [parse(Int, e) for e in readline()] result = greatest_product_of_consecutive_digits(arr_number, k) println(result) end end main() Project Euler 7: 10001st prime HackerRank: https://www.</description>
     </item>
     
     <item>

@@ -2,16 +2,17 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Việt Nam - quangtiencs</title><link rel="icon" type="image/png" href=/icon/quangtiencs_hawk.png /><meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="alternate" type="application/rss+xml" href="https://quangtiencs.com/vietnam/index.xml" title="quangtiencs" />
-	<meta property="og:title" content="Việt Nam" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://quangtiencs.com/vietnam/" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Tensorflow.Js &amp; Typescript [1]: Quick Start - quangtiencs</title><link rel="icon" type="image/png" href=/icon/quangtiencs_hawk.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Tensorflow.Js &amp; Typescript [1]: Quick Start" />
+<meta property="og:description" content="quick start a tensorflowjs project with typescript" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://quangtiencs.com/posts/tensorflowjs_typescript_01/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-27T00:00:00+05:30" />
+<meta property="article:modified_time" content="2022-09-27T00:00:00+05:30" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Việt Nam"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Tensorflow.Js &amp; Typescript [1]: Quick Start"/>
+<meta name="twitter:description" content="quick start a tensorflowjs project with typescript"/>
 <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" media="screen" href="https://quangtiencs.com/css/normalize.css" />
@@ -28,9 +29,8 @@
 	<script src="https://quangtiencs.com/js/prism.js"></script>
 </head>
 
-
 <body>
-	<div class="container wrapper list">
+	<div class="container wrapper post">
 		<div class="header">
    <div><a href="/"><img style="width: 100%;max-width: 568px;height: auto;" src="/quangtiencs.gif"></a></div>
 
@@ -159,18 +159,125 @@
       });</script>
 </div>
 
-		
-		
+		<div class="post-header">
+			<h1 class="title">Tensorflow.Js &amp; Typescript [1]: Quick Start</h1>
+			<div class="meta">Posted at &mdash; Sep 27, 2022</div>
+		</div>
 
-		<ul class="posts"><li class="post" style="font-family: 'Jetbrains Mono';">
-				<a href="/vietnam/rua_chen/">Rửa chén</a> <span class="meta">Apr 8, 2021</span>
-			</li><li class="post" style="font-family: 'Jetbrains Mono';">
-				<a href="/vietnam/dat_cuoc/">Đặt cược</a> <span class="meta">Sep 23, 2020</span>
-			</li><li class="post" style="font-family: 'Jetbrains Mono';">
-				<a href="/vietnam/lap_trinh/">Lập trình</a> <span class="meta">Dec 24, 2019</span>
-			</li></ul>
-	</div>
+		<div class="markdown">
+			<p>Create project directory</p>
+<pre class="command-line language-powershell"><code>mkdir tensorflowjs_typescript
+cd tensorflowjs_typescript
+</code></pre>
+<p>Initialize a new project. Follow the prompts of npm (nodejs package manager)</p>
+<pre class="command-line language-powershell"><code>npm init
+</code></pre>
+<p>Install typescript compiler and more!</p>
+<pre class="command-line language-powershell"><code>npm install --save-dev typescript tslint @types/node
+</code></pre>
+<p>TSC (Typescript Compiler) init</p>
+<pre class="command-line language-powershell"><code>npx tsc --init
+</code></pre>
+<h2 id="nodejs-evironment">NodeJS Evironment:</h2>
+<p>Edit <code>tsconfig.json</code> and add these lines:</p>
+<pre class="line-numbers language-json"><code>{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "outDir": "",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "src"
+  ]
+}</code></pre>
+<p>Install Tensorflow.js backend</p>
+<pre class="command-line language-powershell"><code>npm install @tensorflow/tfjs-node
+</code></pre>
+<p>Add <code>build</code> and <code>start</code> command in <code>package.json</code> file:</p>
+<pre class="line-numbers language-json"><code>{
+  "name": "tensorflowjs_typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build & node index.js",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.7.23",
+    "tslint": "^6.1.3",
+    "typescript": "^4.8.3"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^3.20.0"
+  }
+}</code></pre>
+<p>Write our first tensorflowjs typescript program <code>src/index.ts</code>:</p>
+<pre class="line-numbers language-typescript"><code>import { Tensor, tensor2d, Tensor2D } from "@tensorflow/tfjs-node"
 
+let t1: Tensor2D = tensor2d([[1, 2], [3, 4], [5, 6]])
+let t2: Tensor2D = tensor2d([[1, 2, 3], [4, 5, 6]])
+
+console.log("Tensor 1")
+t1.print()
+
+console.log("Tensor 2")
+t2.print()
+
+console.log("Dot product")
+
+let t3 : Tensor = t1.dot(t2)
+t3.print()
+
+t1.dispose()
+t2.dispose()
+console.log(t1.isDisposed)
+console.log(t2.isDisposed)
+console.log(t3.isDisposed)</code></pre>
+<p>Hello World</p>
+<pre class="command-line language-powershell" data-output="2-26"><code>npm start
+
+> tensorflowjs_typescript@1.0.0 start
+> npm run build & node index.js
+
+
+> tensorflowjs_typescript@1.0.0 build
+> tsc
+
+Tensor 1
+Tensor
+    [[1, 2],
+     [3, 4],
+     [5, 6]]
+Tensor 2
+Tensor
+    [[1, 2, 3],
+     [4, 5, 6]]
+Dot product
+Tensor
+    [[9 , 12, 15],
+     [19, 26, 33],
+     [29, 40, 51]]
+true
+true
+false
+</code></pre><blockquote>
+</blockquote>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		</div>
 	<div class="footer wrapper">
 	<nav class="nav">
 		<div> quangtiencs ➤ bet on myself &amp; beat the odds | 
@@ -192,5 +299,4 @@ if (!doNotTrack) {
 
 <script>feather.replace()</script>
 </body>
-
 </html>
