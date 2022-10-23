@@ -359,6 +359,133 @@ console.log(t3.isDisposed)</code></pre>
 </code></pre>
 <p>Go to <code>localhost:8888</code> and see the result:</p>
 <p><img src="/images/tensorflowjs_typescript_01/browser_tensorflowjs.png" alt="Web browser tensorflowjs"></p>
+<h2 id="mobile-environment">Mobile Environment:</h2>
+<p>Requirements: <a href="https://reactnative.dev/docs/environment-setup">Setting up the development environment</a></p>
+<p>First, init react-native and go to the root directory of project:</p>
+<pre class="command-line language-powershell"><code>npx react-native init TensorflowJSTypeScriptReactNative --template react-native-template-typescript
+cd TensorflowJSTypeScriptReactNative
+</code></pre>
+<p>Then install all requirement packages:</p>
+<pre class="command-line language-powershell"><code>npm install @react-native-async-storage/async-storage
+npm install react-native-unimodules
+npm install react-native-fs
+npm install expo-gl expo-gl-cpp
+npm install @tensorflow/tfjs
+npm install @tensorflow/tfjs-react-native --legacy-peer-deps
+</code></pre>
+<p>Change <code>App.tsx</code> to:</p>
+<pre class="line-numbers language-typescript"><code>import { Tensor, tensor2d, Tensor2D } from "@tensorflow/tfjs"
+import React, {type PropsWithChildren} from 'react';
+import {
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  useColorScheme,
+  View,
+} from 'react-native';
+
+import {
+  Colors,
+  Header,
+} from 'react-native/Libraries/NewAppScreen';
+
+const Section: React.FC&lt;
+  PropsWithChildren&lt;{
+    title: string;
+  }&gt;
+&gt; = ({children, title}) =&gt; {
+  const isDarkMode = useColorScheme() === 'dark';
+  return (
+    &lt;View style={styles.sectionContainer}&gt;
+      &lt;Text
+        style={[
+          styles.sectionTitle,
+          {
+            color: isDarkMode ? Colors.white : Colors.black,
+          },
+        ]}&gt;
+        {title}
+      &lt;/Text&gt;
+      &lt;Text
+        style={[
+          styles.sectionDescription,
+          {
+            color: isDarkMode ? Colors.light : Colors.dark,
+          },
+        ]}&gt;
+        {children}
+      &lt;/Text&gt;
+    &lt;/View&gt;
+  );
+};
+
+const App = () =&gt; {
+  const isDarkMode = useColorScheme() === 'dark';
+
+  const backgroundStyle = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+
+  let t1: Tensor2D = tensor2d([[1, 2], [3, 4], [5, 6]])
+  let t2: Tensor2D = tensor2d([[1, 2, 3], [4, 5, 6]])
+
+
+  return (
+    &lt;SafeAreaView style={backgroundStyle}&gt;
+      &lt;StatusBar
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        backgroundColor={backgroundStyle.backgroundColor}
+      /&gt;
+      &lt;ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        style={backgroundStyle}&gt;
+        &lt;Text style={{fontSize: 30}}&gt;Tensorflow.JS TypeScript&lt;/Text&gt;
+        &lt;View
+          style={{
+            backgroundColor: isDarkMode ? Colors.black : Colors.white,
+          }}&gt;
+          &lt;Section title="Tensor 1"&gt;
+            {t1.toString()}
+          &lt;/Section&gt;
+          &lt;Section title="Tensor 2"&gt;
+            {t1.toString()}
+          &lt;/Section&gt;
+          &lt;Section title="Dot product"&gt;
+            {t1.dot(t2).toString()}
+          &lt;/Section&gt;
+        &lt;/View&gt;
+      &lt;/ScrollView&gt;
+    &lt;/SafeAreaView&gt;
+  );
+};
+
+const styles = StyleSheet.create({
+  sectionContainer: {
+    marginTop: 32,
+    paddingHorizontal: 24,
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: '600',
+  },
+  sectionDescription: {
+    marginTop: 8,
+    fontSize: 18,
+    fontWeight: '400',
+  },
+  highlight: {
+    fontWeight: '700',
+  },
+});
+
+export default App;
+</code></pre>
+<p>Then start the app (android or ios) by command:</p>
+<pre class="command-line language-powershell"><code>npm run ios
+</code></pre>
+<p><img src="/images/tensorflowjs_typescript_01/react_native_tensorflow_js.png" alt="React Native tensorflowjs"></p>
 
 		</div>
 
