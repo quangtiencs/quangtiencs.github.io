@@ -2,13 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://quangtiencs.com/tags/nodejs/</loc>
+    <lastmod>2022-09-27T00:00:00+05:30</lastmod>
+  </url><url>
     <loc>https://quangtiencs.com/posts/</loc>
     <lastmod>2022-09-27T00:00:00+05:30</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/</loc>
     <lastmod>2022-09-27T00:00:00+05:30</lastmod>
   </url><url>
+    <loc>https://quangtiencs.com/tags/react-native/</loc>
+    <lastmod>2022-09-27T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/tags/</loc>
+    <lastmod>2022-09-27T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/tags/tensorflow/</loc>
+    <lastmod>2022-09-27T00:00:00+05:30</lastmod>
+  </url><url>
     <loc>https://quangtiencs.com/posts/tensorflowjs_typescript_01/</loc>
+    <lastmod>2022-09-27T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/tags/typescript/</loc>
+    <lastmod>2022-09-27T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/tags/web-browser/</loc>
     <lastmod>2022-09-27T00:00:00+05:30</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/posts/julia_euler_project/</loc>
@@ -34,7 +52,5 @@
   </url><url>
     <loc>https://quangtiencs.com/vietnam/lap_trinh/</loc>
     <lastmod>2019-12-24T00:00:00+05:30</lastmod>
-  </url><url>
-    <loc>https://quangtiencs.com/tags/</loc>
   </url>
 </urlset>

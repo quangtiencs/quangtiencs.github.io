@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>typescript on quangtiencs</title>
+    <link>https://quangtiencs.com/tags/typescript/</link>
+    <description>Recent content in typescript on quangtiencs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
+    <lastBuildDate>Tue, 27 Sep 2022 00:00:00 +0530</lastBuildDate><atom:link href="https://quangtiencs.com/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tensorflow.Js &amp; Typescript [1]: Quick Start</title>
+      <link>https://quangtiencs.com/posts/tensorflowjs_typescript_01/</link>
+      <pubDate>Tue, 27 Sep 2022 00:00:00 +0530</pubDate>
+      
+      <guid>https://quangtiencs.com/posts/tensorflowjs_typescript_01/</guid>
+      <description>Github: https://github.com/quangtiencs/tensorflowjs_typescript_tutorials
+NodeJS Evironment: Create project directory
+mkdir nodejs_tensorflowjs_typescript cd nodejs_tensorflowjs_typescript Initialize a new project. Follow the prompts of npm (nodejs package manager)
+npm init Install typescript compiler and more!
+npm install --save-dev typescript tslint @types/node TSC (Typescript Compiler) init
+npx tsc --init Edit tsconfig.json and add these lines:
+{ &#34;compilerOptions&#34;: { &#34;target&#34;: &#34;es2016&#34;, &#34;module&#34;: &#34;commonjs&#34;, &#34;outDir&#34;: &#34;&#34;, &#34;esModuleInterop&#34;: true, &#34;forceConsistentCasingInFileNames&#34;: true, &#34;strict&#34;: true, &#34;skipLibCheck&#34;: true }, &#34;include&#34;: [ &#34;src&#34; ] } Install Tensorflow.</description>
+    </item>
+    
+  </channel>
+</rss>

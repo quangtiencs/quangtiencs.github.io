@@ -165,9 +165,11 @@
 		</div>
 
 		<div class="markdown">
-			<p>Create project directory</p>
-<pre class="command-line language-powershell"><code>mkdir tensorflowjs_typescript
-cd tensorflowjs_typescript
+			<p>Github: <a href="https://github.com/quangtiencs/tensorflowjs_typescript_tutorials">https://github.com/quangtiencs/tensorflowjs_typescript_tutorials</a></p>
+<h2 id="nodejs-evironment">NodeJS Evironment:</h2>
+<p>Create project directory</p>
+<pre class="command-line language-powershell"><code>mkdir nodejs_tensorflowjs_typescript
+cd nodejs_tensorflowjs_typescript
 </code></pre>
 <p>Initialize a new project. Follow the prompts of npm (nodejs package manager)</p>
 <pre class="command-line language-powershell"><code>npm init
@@ -178,7 +180,6 @@ cd tensorflowjs_typescript
 <p>TSC (Typescript Compiler) init</p>
 <pre class="command-line language-powershell"><code>npx tsc --init
 </code></pre>
-<h2 id="nodejs-evironment">NodeJS Evironment:</h2>
 <p>Edit <code>tsconfig.json</code> and add these lines:</p>
 <pre class="line-numbers language-json"><code>{
   "compilerOptions": {
@@ -199,23 +200,23 @@ cd tensorflowjs_typescript
 </code></pre>
 <p>Add <code>build</code> and <code>start</code> command in <code>package.json</code> file:</p>
 <pre class="line-numbers language-json"><code>{
-  "name": "tensorflowjs_typescript",
+  "name": "nodejs_tensorflowjs_typescript",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build & node index.js",
+    "start": "npm run build ; node index.js",
     "build": "tsc"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^18.7.23",
+    "@types/node": "^18.11.9",
     "tslint": "^6.1.3",
-    "typescript": "^4.8.3"
+    "typescript": "^4.9.3"
   },
   "dependencies": {
-    "@tensorflow/tfjs-node": "^3.20.0"
+    "@tensorflow/tfjs-node": "^4.1.0"
   }
 }</code></pre>
 <p>Write our first tensorflowjs typescript program <code>src/index.ts</code>:</p>
@@ -269,14 +270,29 @@ true
 false
 </code></pre>
 <h2 id="web-browser-evironment">Web browser Evironment:</h2>
+<p>Create project directory</p>
+<pre class="command-line language-powershell"><code>mkdir webbrowser_tensorflowjs_typescript
+cd webbrowser_tensorflowjs_typescript
+</code></pre>
+<p>Initialize a new project. Follow the prompts of npm (nodejs package manager)</p>
+<pre class="command-line language-powershell"><code>npm init
+</code></pre>
+<p>Install typescript compiler and more!</p>
+<pre class="command-line language-powershell"><code>npm install --save-dev typescript ts-loader tslint @types/node
+</code></pre>
+<p>TSC (Typescript Compiler) init</p>
+<pre class="command-line language-powershell"><code>npx tsc --init
+</code></pre>
 <p>Edit tsconfig.json and add these lines:</p>
 <pre class="line-numbers language-json"><code>{
   "compilerOptions": {
-    "target": "es2016",
-    "module": "es2016",
-    "outDir": "",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "node",
     "strict": true,
     "skipLibCheck": true
   },
@@ -285,38 +301,62 @@ false
   ]
 }</code></pre>
 <p>Install Tensorflow.js</p>
-<pre class="command-line language-powershell"><code>npm install @tensorflow/tfjs@3.20.0
+<pre class="command-line language-powershell"><code>npm install @tensorflow/tfjs
 </code></pre>
-<p>Install http-server</p>
-<pre class="command-line language-powershell"><code>npm install --save-dev http-server browserify
+<p>Install http-server and webpack</p>
+<pre class="command-line language-powershell"><code>npm install --save-dev http-server webpack webpack-cli
 </code></pre>
 <p>Write <code>index.html</code></p>
 <pre class="line-numbers language-markup"><code>&lt;h1&gt;Hello Tensorflow.js in Browser&lt;/h1&gt;
 &lt;div id="place_holder_1"&gt;&lt;/div&gt;
 &lt;div id="place_holder_2"&gt;&lt;/div&gt;
 &lt;div id="place_holder_3"&gt;&lt;/div&gt;
-&lt;script src="bundle.js"&gt;&lt;/script&gt;</code></pre>
+&lt;script src="dist/bundle.js"&gt;&lt;/script&gt;</code></pre>
+<p>Write <code>webpack.config.js</code></p>
+<pre class="line-numbers language-javascript"><code>const path = require('path');
+
+module.exports = {
+  entry: './src/index.ts',
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+};</code></pre>
 <p>Add <code>build</code> and <code>start</code> command in <code>package.json</code> file:</p>
 <pre class="line-numbers language-json"><code>{
-  "name": "tensorflowjs_typescript",
+  "name": "webbrowser_tensorflowjs_typescript",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build & npx http-server . -p 8888",
-    "build": "tsc & browserify index.js -o bundle.js"
+    "start": "npm run build ;  npx http-server . -p 8888",
+    "build": "npx webpack"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^18.8.2",
-    "browserify": "^17.0.0",
+    "@types/node": "^18.11.9",
     "http-server": "^14.1.1",
+    "ts-loader": "^9.4.1",
     "tslint": "^6.1.3",
-    "typescript": "^4.8.4"
+    "typescript": "^4.9.3",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0"
   },
   "dependencies": {
-    "@tensorflow/tfjs": "^3.20.0"
+    "@tensorflow/tfjs": "^4.1.0"
   }
 }</code></pre>
 <p>Write our first tensorflowjs typescript program <code>src/index.ts</code>:</p>
@@ -362,8 +402,8 @@ console.log(t3.isDisposed)</code></pre>
 <h2 id="mobile-environment">Mobile Environment:</h2>
 <p>Requirements: <a href="https://reactnative.dev/docs/environment-setup">Setting up the development environment</a></p>
 <p>First, init react-native and go to the root directory of project:</p>
-<pre class="command-line language-powershell"><code>npx react-native init TensorflowJSTypeScriptReactNative --template react-native-template-typescript
-cd TensorflowJSTypeScriptReactNative
+<pre class="command-line language-powershell"><code>npx react-native init react_native_tensorflowjs_typescript --template react-native-template-typescript
+cd react_native_tensorflowjs_typescript
 </code></pre>
 <p>Then install all requirement packages:</p>
 <pre class="command-line language-powershell"><code>npm install @react-native-async-storage/async-storage
@@ -491,6 +531,22 @@ export default App;
 
 		<div class="post-tags">
 			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/tensorflow">tensorflow</a></li>
+								
+								<li><a href="/tags/typescript">typescript</a></li>
+								
+								<li><a href="/tags/web-browser">web browser</a></li>
+								
+								<li><a href="/tags/nodejs">nodejs</a></li>
+								
+								<li><a href="/tags/react-native">react native</a></li>
+								
+							</ul>
+					</nav>
 				
 			
 		</div>
