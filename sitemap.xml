@@ -2,13 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://quangtiencs.com/</loc>
+    <lastmod>2022-12-03T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/vietnam/to_khuc_bon_mua/</loc>
+    <lastmod>2022-12-03T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/vietnam/</loc>
+    <lastmod>2022-12-03T00:00:00+05:30</lastmod>
+  </url><url>
     <loc>https://quangtiencs.com/tags/nodejs/</loc>
     <lastmod>2022-09-27T00:00:00+05:30</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/posts/</loc>
-    <lastmod>2022-09-27T00:00:00+05:30</lastmod>
-  </url><url>
-    <loc>https://quangtiencs.com/</loc>
     <lastmod>2022-09-27T00:00:00+05:30</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/tags/react-native/</loc>
@@ -42,9 +48,6 @@
     <lastmod>2021-08-12T07:00:00+00:00</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/vietnam/rua_chen/</loc>
-    <lastmod>2021-04-08T00:00:00+05:30</lastmod>
-  </url><url>
-    <loc>https://quangtiencs.com/vietnam/</loc>
     <lastmod>2021-04-08T00:00:00+05:30</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/vietnam/dat_cuoc/</loc>

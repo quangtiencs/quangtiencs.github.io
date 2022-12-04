@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
-    <lastBuildDate>Tue, 27 Sep 2022 00:00:00 +0530</lastBuildDate><atom:link href="https://quangtiencs.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Dec 2022 00:00:00 +0530</lastBuildDate><atom:link href="https://quangtiencs.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tổ khúc bốn mùa - Four Seasons</title>
+      <link>https://quangtiencs.com/vietnam/to_khuc_bon_mua/</link>
+      <pubDate>Sat, 03 Dec 2022 00:00:00 +0530</pubDate>
+      
+      <guid>https://quangtiencs.com/vietnam/to_khuc_bon_mua/</guid>
+      <description>Thời gian luôn khó hiểu, và khó ưa&amp;hellip; vì chẳng hỏi ta điều gì nhưng luôn có một câu trả lời&amp;hellip; Như thể &amp;ldquo;tổ khúc bốn mùa&amp;rdquo; (Four Seasons - Vivaldi) mọi thứ cứ đến và đi, lặp đi lặp lại chính giai điệu của mình. Những năm tháng của đại dịch Covid có lẽ là mùa đông không riêng của bất kì ai, những năm tháng mùa đông chẳng thể đi đâu, tâm hồn thì vướng bận đôi điều về gia đình, bạn bè&amp;hellip; ấy vậy mà ít lâu sau đó mùa xuân lại đến một cách hồn nhiên nhưng cũng đầy ưu tư&amp;hellip;</description>
+    </item>
+    
     <item>
       <title>Tensorflow.Js &amp; Typescript [1]: Quick Start</title>
       <link>https://quangtiencs.com/posts/tensorflowjs_typescript_01/</link>
@@ -58,12 +67,12 @@ As a critical-thinking practitioner, my opinions are always subject to rethinkin
     </item>
     
     <item>
-      <title>Project</title>
+      <title>Personal Project</title>
       <link>https://quangtiencs.com/project/</link>
       <pubDate>Thu, 12 Aug 2021 07:00:00 +0000</pubDate>
       
       <guid>https://quangtiencs.com/project/</guid>
-      <description> Project Description ThetaLog.com My blog about computer science and data science. The theta notation is used to define statistical machine learning parameters. The log is any of various chronological records made concerning the changing of theta – ThetaLog.com. Some articles: Locally Linear Embedding, PageRank, Deferred-Acceptance Algorithm, Kalman Filter, FastICA, Bayesian Optimization,&amp;hellip; </description>
+      <description> Project Description khuvuonngontu.com Comming soon Symphonic Sigma Private ThetaLog.com My blog about computer science and data science. The theta notation is used to define statistical machine learning parameters. The log is any of various chronological records made concerning the changing of theta – ThetaLog.com. Some articles: Locally Linear Embedding, PageRank, Deferred-Acceptance Algorithm, Kalman Filter, FastICA, Bayesian Optimization,&amp;hellip; </description>
     </item>
     
     <item>
