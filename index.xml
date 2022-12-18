@@ -7,16 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
-    <lastBuildDate>Sat, 03 Dec 2022 00:00:00 +0530</lastBuildDate><atom:link href="https://quangtiencs.com/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Tổ khúc bốn mùa - Four Seasons</title>
-      <link>https://quangtiencs.com/vietnam/to_khuc_bon_mua/</link>
-      <pubDate>Sat, 03 Dec 2022 00:00:00 +0530</pubDate>
-      
-      <guid>https://quangtiencs.com/vietnam/to_khuc_bon_mua/</guid>
-      <description>Thời gian luôn khó hiểu, và khó ưa&amp;hellip; vì chẳng hỏi ta điều gì nhưng luôn có một câu trả lời&amp;hellip; Như thể &amp;ldquo;tổ khúc bốn mùa&amp;rdquo; (Four Seasons - Vivaldi) mọi thứ cứ đến và đi, lặp đi lặp lại chính giai điệu của mình. Những năm tháng của đại dịch Covid có lẽ là mùa đông không riêng của bất kì ai, những năm tháng mùa đông chẳng thể đi đâu, tâm hồn thì vướng bận đôi điều về gia đình, bạn bè&amp;hellip; ấy vậy mà ít lâu sau đó mùa xuân lại đến một cách hồn nhiên nhưng cũng đầy ưu tư&amp;hellip;</description>
-    </item>
-    
+    <lastBuildDate>Tue, 27 Sep 2022 00:00:00 +0530</lastBuildDate><atom:link href="https://quangtiencs.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tensorflow.Js &amp; Typescript [1]: Quick Start</title>
       <link>https://quangtiencs.com/posts/tensorflowjs_typescript_01/</link>
@@ -30,6 +21,16 @@ npm init Install typescript compiler and more!
 npm install --save-dev typescript tslint @types/node TSC (Typescript Compiler) init
 npx tsc --init Edit tsconfig.json and add these lines:
 { &#34;compilerOptions&#34;: { &#34;target&#34;: &#34;es2016&#34;, &#34;module&#34;: &#34;commonjs&#34;, &#34;outDir&#34;: &#34;&#34;, &#34;esModuleInterop&#34;: true, &#34;forceConsistentCasingInFileNames&#34;: true, &#34;strict&#34;: true, &#34;skipLibCheck&#34;: true }, &#34;include&#34;: [ &#34;src&#34; ] } Install Tensorflow.</description>
+    </item>
+    
+    <item>
+      <title>007 - a kite dancing in a hurricane</title>
+      <link>https://quangtiencs.com/english/a_kite_dancing_in_a_hurricane/</link>
+      <pubDate>Fri, 12 Aug 2022 00:00:00 +0530</pubDate>
+      
+      <guid>https://quangtiencs.com/english/a_kite_dancing_in_a_hurricane/</guid>
+      <description>Life is just a dream. Be a kite dancing in a hurricane. A metaphor about life - something is dangerous, like a storm that readily destroys our fragile hopes. Don&amp;rsquo;t be against it; dance with it.
+Lê Quang Tiến - 2022-08-12</description>
     </item>
     
     <item>
@@ -87,7 +88,7 @@ As a critical-thinking practitioner, my opinions are always subject to rethinkin
       <pubDate>Thu, 12 Aug 2021 07:00:00 +0000</pubDate>
       
       <guid>https://quangtiencs.com/project/</guid>
-      <description> Project Description khuvuonngontu.com Coming soon Symphonic Sigma Private ThetaLog.com My blog about computer science and data science. The theta notation is used to define statistical machine learning parameters. The log is any of various chronological records made concerning the changing of theta – ThetaLog.com. Some articles: Locally Linear Embedding, PageRank, Deferred-Acceptance Algorithm, Kalman Filter, FastICA, Bayesian Optimization,&amp;hellip; </description>
+      <description> [Public] khuvuonngontu.com Coming soon [Private] Symphonic Sigma [Public] ThetaLog.com My blog about computer science and data science. The theta notation is used to define statistical machine learning parameters. The log is any of various chronological records made concerning the changing of theta – ThetaLog.com. Some articles: Locally Linear Embedding, PageRank, Deferred-Acceptance Algorithm, Kalman Filter, FastICA, Bayesian Optimization,&amp;hellip; </description>
     </item>
     
     <item>

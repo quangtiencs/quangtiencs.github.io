@@ -2,19 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://quangtiencs.com/</loc>
-    <lastmod>2022-12-03T00:00:00+05:30</lastmod>
-  </url><url>
-    <loc>https://quangtiencs.com/vietnam/to_khuc_bon_mua/</loc>
-    <lastmod>2022-12-03T00:00:00+05:30</lastmod>
-  </url><url>
-    <loc>https://quangtiencs.com/vietnam/</loc>
-    <lastmod>2022-12-03T00:00:00+05:30</lastmod>
-  </url><url>
     <loc>https://quangtiencs.com/tags/nodejs/</loc>
     <lastmod>2022-09-27T00:00:00+05:30</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/posts/</loc>
+    <lastmod>2022-09-27T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/</loc>
     <lastmod>2022-09-27T00:00:00+05:30</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/tags/react-native/</loc>
@@ -35,6 +29,18 @@
     <loc>https://quangtiencs.com/tags/web-browser/</loc>
     <lastmod>2022-09-27T00:00:00+05:30</lastmod>
   </url><url>
+    <loc>https://quangtiencs.com/english/a_kite_dancing_in_a_hurricane/</loc>
+    <lastmod>2022-08-12T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/english/</loc>
+    <lastmod>2022-08-12T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/tags/quote/</loc>
+    <lastmod>2022-08-12T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/tags/thought/</loc>
+    <lastmod>2022-08-12T00:00:00+05:30</lastmod>
+  </url><url>
     <loc>https://quangtiencs.com/posts/julia_euler_project/</loc>
     <lastmod>2022-07-10T00:00:00+05:30</lastmod>
   </url><url>
@@ -42,6 +48,9 @@
     <lastmod>2022-02-20T00:00:00+05:30</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/vietnam/neu_ngay_mai_anh_hoi/</loc>
+    <lastmod>2022-02-09T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/vietnam/</loc>
     <lastmod>2022-02-09T00:00:00+05:30</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/about/</loc>
