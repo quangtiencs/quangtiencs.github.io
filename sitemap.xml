@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://quangtiencs.com/tags/nodejs/</loc>
-    <lastmod>2022-09-27T00:00:00+05:30</lastmod>
-  </url><url>
     <loc>https://quangtiencs.com/posts/</loc>
-    <lastmod>2022-09-27T00:00:00+05:30</lastmod>
+    <lastmod>2022-11-05T00:00:00+05:30</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/</loc>
+    <lastmod>2022-11-05T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/posts/tensorflowjs_typescript_02/</loc>
+    <lastmod>2022-11-05T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/tags/nodejs/</loc>
     <lastmod>2022-09-27T00:00:00+05:30</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/tags/react-native/</loc>
