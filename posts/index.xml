@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
-    <lastBuildDate>Sat, 05 Nov 2022 00:00:00 +0530</lastBuildDate><atom:link href="https://quangtiencs.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Jan 2023 20:00:00 +0700</lastBuildDate><atom:link href="https://quangtiencs.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tensorflow.Js &amp; Typescript [3]: Modeling</title>
+      <link>https://quangtiencs.com/posts/tensorflowjs_typescript_03/</link>
+      <pubDate>Sun, 22 Jan 2023 20:00:00 +0700</pubDate>
+      
+      <guid>https://quangtiencs.com/posts/tensorflowjs_typescript_03/</guid>
+      <description>Tensorflow.JS provides an application programming interface similar to Tensorflow (Python API). Although it has few choices (layers, models, optimizers), it is still helpful in some applications that need online learning on client devices.
+1. APIs: Sometimes useful:
+Layers API: tf.layers.dense, tf.layers.dropout, tf.layers.embedding, tf.layers.dense (elu, hardSigmoid, linear, relu, relu6, selu, sigmoid, softmax, softplus, softsign, tanh, swish, mish), Model API: tf.sequential, tf.model. Build-In Optimizers: sgd, adagrad, adadelta, adam, adamax, rmsprop. Build-In Loss functions: tf.</description>
+    </item>
+    
     <item>
       <title>Tensorflow.Js &amp; Typescript [2]: Memory management</title>
       <link>https://quangtiencs.com/posts/tensorflowjs_typescript_02/</link>
