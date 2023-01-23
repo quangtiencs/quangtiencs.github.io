@@ -177,7 +177,8 @@
 </ul>
 <h2 id="2-example-linear-regression">2. Example Linear Regression:</h2>
 <p>Do linear regression in the web browser (for easy visualization). The setup is the same as tutorial 1 with some extra libraries (vega, vega-embed, vega-lite):</p>
-<pre class="line-numbers language-typescript">import { Tensor, Tensor2D, tensor2d } from "@tensorflow/tfjs";
+<p>Github: <a href="https://github.com/quangtiencs/tensorflowjs_typescript_tutorials/tree/main/003_modeling/webbrowser_tensorflowjs_typescript">https://github.com/quangtiencs/tensorflowjs_typescript_tutorials/tree/main/003_modeling/webbrowser_tensorflowjs_typescript</a></p>
+<pre class="line-numbers language-typescript"><code>import { Tensor, Tensor2D, tensor2d } from "@tensorflow/tfjs";
 import embed from "vega-embed";
 import * as tf from "@tensorflow/tfjs";
 
@@ -279,8 +280,7 @@ var specDataPoint = {
 };
 
 // @ts-ignore
-embed("#vis", specDataPoint);<code>
-
+embed("#vis", specDataPoint);
 </code></pre>
 <p><img src="/images/tensorflowjs_typescript_03/example_linear_reg.png" alt="Example 1"></p>
 
