@@ -2,17 +2,17 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Tensorflow.Js &amp; Typescript [4]: Quantile Regression - quangtiencs</title><link rel="icon" type="image/png" href=/icon/quangtiencs_hawk.png /><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta property="og:title" content="Tensorflow.Js &amp; Typescript [4]: Quantile Regression" />
-<meta property="og:description" content="quantile regression with Tensorflow.JS &amp; Vega" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>[playground] Tensorflow.Js &amp; Typescript [4]: Quantile Regression - quangtiencs</title><link rel="icon" type="image/png" href=/icon/quangtiencs_hawk.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="[playground] Tensorflow.Js &amp; Typescript [4]: Quantile Regression" />
+<meta property="og:description" content="custom loss function (quantile regression) with Tensorflow.JS. (visualization with Vega)" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://quangtiencs.com/posts/tensorflowjs_typescript_04/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-01-23T08:00:00+07:00" />
 <meta property="article:modified_time" content="2023-01-23T08:00:00+07:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tensorflow.Js &amp; Typescript [4]: Quantile Regression"/>
-<meta name="twitter:description" content="quantile regression with Tensorflow.JS &amp; Vega"/>
+<meta name="twitter:title" content="[playground] Tensorflow.Js &amp; Typescript [4]: Quantile Regression"/>
+<meta name="twitter:description" content="custom loss function (quantile regression) with Tensorflow.JS. (visualization with Vega)"/>
 <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" media="screen" href="https://quangtiencs.com/css/normalize.css" />
@@ -160,12 +160,21 @@
 </div>
 
 		<div class="post-header">
-			<h1 class="title">Tensorflow.Js &amp; Typescript [4]: Quantile Regression</h1>
+			<h1 class="title">[playground] Tensorflow.Js &amp; Typescript [4]: Quantile Regression</h1>
 			<div class="meta">Posted at &mdash; Jan 23, 2023</div>
 		</div>
 
 		<div class="markdown">
-			<p><img src="/images/tensorflowjs_typescript_04/quantileregression.png" alt="Example 1"></p>
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<p>Quantile Regression is one of the practical techniques for many real problems. In this tutorial, we will implement a custom loss for TensorflowJS.</p>
+<p>Quantile Loss:</p>
+<p>$$\mathcal{L}(y_{\mathtt{true}}, y_{\mathtt{pred}}) = \begin{cases} (y_{\mathtt{true}} - y_{\mathtt{pred}}) \alpha  &amp;\text{if  } y_{\mathtt{true}} \ge y_{\mathtt{pred}} \\ (y_{\mathtt{true}} - y_{\mathtt{pred}}) (\alpha - 1) &amp;\text{if } y_{\mathtt{true}} &lt; y_{\mathtt{pred}} \end{cases}  $$</p>
+<p>Or for easy computing:</p>
+<p>$$\mathcal{L}(y_{\mathtt{true}}, y_{\mathtt{pred}}) = \mathtt{max}((y_{\mathtt{true}} - y_{\mathtt{pred}}) \alpha, (y_{\mathtt{true}} - y_{\mathtt{pred}}) (\alpha - 1)) $$</p>
 <h2 id="quantile-regression">Quantile Regression:</h2>
 <p>Github: <a href="https://github.com/quangtiencs/tensorflowjs_typescript_tutorials/tree/main/004_quantile_regression/webbrowser_tensorflowjs_typescript">https://github.com/quangtiencs/tensorflowjs_typescript_tutorials/tree/main/004_quantile_regression/webbrowser_tensorflowjs_typescript</a></p>
 <pre class="line-numbers language-typescript"><code>
@@ -198,9 +207,10 @@ for (let i = 0; i < data.x.size; i++) {
   vegaData.push({ "x": data.x.dataSync()[i], "y": data.y.dataSync()[i] });
 }
 
-function quantileLoss90(yPred: tf.Tensor, yTrue: tf.Tensor) {
+function quantileLoss90(yTrue: tf.Tensor, yPred: tf.Tensor) {
   let error = yTrue.sub(yPred);
-  return tf.maximum(error.mul(0.1), error.mul(-0.9)).mean();
+  let alpha = 0.9;
+  return tf.maximum(error.mul(alpha), error.mul(alpha - 1.0)).mean();
 }
 
 let model = tf.sequential();
@@ -280,13 +290,28 @@ var specDataPoint = {
 
 // @ts-ignore
 embed("#vis", specDataPoint);
-</code></pre><blockquote>
-</blockquote>
+</code></pre>
+<p>:-) and&hellip; don&rsquo;t forget <code>tf.tidy</code></p>
+<p><img src="/images/tensorflowjs_typescript_04/quantileregression.png" alt="Example 1"></p>
 
 		</div>
 
 		<div class="post-tags">
 			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/playground">playground</a></li>
+								
+								<li><a href="/tags/tensorflow">tensorflow</a></li>
+								
+								<li><a href="/tags/typescript">typescript</a></li>
+								
+								<li><a href="/tags/tensorflowjs">tensorflowjs</a></li>
+								
+							</ul>
+					</nav>
 				
 			
 		</div>

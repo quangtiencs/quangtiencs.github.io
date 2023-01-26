@@ -7,9 +7,45 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
-    <lastBuildDate>Tue, 27 Sep 2022 00:00:00 +0530</lastBuildDate><atom:link href="https://quangtiencs.com/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Jan 2023 08:00:00 +0700</lastBuildDate><atom:link href="https://quangtiencs.com/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Tensorflow.Js &amp; Typescript [1]: Quick Start</title>
+      <title>[playground] Tensorflow.Js &amp; Typescript [4]: Quantile Regression</title>
+      <link>https://quangtiencs.com/posts/tensorflowjs_typescript_04/</link>
+      <pubDate>Mon, 23 Jan 2023 08:00:00 +0700</pubDate>
+      
+      <guid>https://quangtiencs.com/posts/tensorflowjs_typescript_04/</guid>
+      <description>Quantile Regression is one of the practical techniques for many real problems. In this tutorial, we will implement a custom loss for TensorflowJS.
+Quantile Loss:
+$$\mathcal{L}(y_{\mathtt{true}}, y_{\mathtt{pred}}) = \begin{cases} (y_{\mathtt{true}} - y_{\mathtt{pred}}) \alpha &amp;amp;\text{if } y_{\mathtt{true}} \ge y_{\mathtt{pred}} \\ (y_{\mathtt{true}} - y_{\mathtt{pred}}) (\alpha - 1) &amp;amp;\text{if } y_{\mathtt{true}} &amp;lt; y_{\mathtt{pred}} \end{cases} $$
+Or for easy computing:
+$$\mathcal{L}(y_{\mathtt{true}}, y_{\mathtt{pred}}) = \mathtt{max}((y_{\mathtt{true}} - y_{\mathtt{pred}}) \alpha, (y_{\mathtt{true}} - y_{\mathtt{pred}}) (\alpha - 1)) $$</description>
+    </item>
+    
+    <item>
+      <title>[playground] Tensorflow.Js &amp; Typescript [3]: Modeling</title>
+      <link>https://quangtiencs.com/posts/tensorflowjs_typescript_03/</link>
+      <pubDate>Sun, 22 Jan 2023 20:00:00 +0700</pubDate>
+      
+      <guid>https://quangtiencs.com/posts/tensorflowjs_typescript_03/</guid>
+      <description>Tensorflow.JS provides an application programming interface similar to Tensorflow (Python API). Although it has few choices (layers, models, optimizers), it is still helpful in some applications that need online learning on client devices.
+1. APIs: Sometimes useful:
+Layers API: tf.layers.dense, tf.layers.dropout, tf.layers.embedding, tf.layers.dense (elu, hardSigmoid, linear, relu, relu6, selu, sigmoid, softmax, softplus, softsign, tanh, swish, mish), Model API: tf.sequential, tf.model. Build-In Optimizers: sgd, adagrad, adadelta, adam, adamax, rmsprop. Build-In Loss functions: tf.</description>
+    </item>
+    
+    <item>
+      <title>[playground] Tensorflow.Js &amp; Typescript [2]: Memory management</title>
+      <link>https://quangtiencs.com/posts/tensorflowjs_typescript_02/</link>
+      <pubDate>Sat, 05 Nov 2022 00:00:00 +0530</pubDate>
+      
+      <guid>https://quangtiencs.com/posts/tensorflowjs_typescript_02/</guid>
+      <description>Management Memory is essential for every program to work efficiently. Although Javascript has a Garbage Collector, our programs with TensorflowJS don&amp;rsquo;t get the same automatic memory management.
+The tensor objects are persistent with the memory, although the javascript variable has no reference. This lead to memory leak problem.
+Let&amp;rsquo;s understand the problem deeper through examples!
+1. Memory information: Sometimes you need to get your memory information, and these functions are helpful:</description>
+    </item>
+    
+    <item>
+      <title>[playground] Tensorflow.Js &amp; Typescript [1]: Quick Start</title>
       <link>https://quangtiencs.com/posts/tensorflowjs_typescript_01/</link>
       <pubDate>Tue, 27 Sep 2022 00:00:00 +0530</pubDate>
       

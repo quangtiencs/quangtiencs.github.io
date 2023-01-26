@@ -7,7 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
-    <lastBuildDate>Tue, 27 Sep 2022 00:00:00 +0530</lastBuildDate><atom:link href="https://quangtiencs.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Jan 2023 08:00:00 +0700</lastBuildDate><atom:link href="https://quangtiencs.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>playground</title>
+      <link>https://quangtiencs.com/tags/playground/</link>
+      <pubDate>Mon, 23 Jan 2023 08:00:00 +0700</pubDate>
+      
+      <guid>https://quangtiencs.com/tags/playground/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tensorflow</title>
+      <link>https://quangtiencs.com/tags/tensorflow/</link>
+      <pubDate>Mon, 23 Jan 2023 08:00:00 +0700</pubDate>
+      
+      <guid>https://quangtiencs.com/tags/tensorflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tensorflowjs</title>
+      <link>https://quangtiencs.com/tags/tensorflowjs/</link>
+      <pubDate>Mon, 23 Jan 2023 08:00:00 +0700</pubDate>
+      
+      <guid>https://quangtiencs.com/tags/tensorflowjs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>typescript</title>
+      <link>https://quangtiencs.com/tags/typescript/</link>
+      <pubDate>Mon, 23 Jan 2023 08:00:00 +0700</pubDate>
+      
+      <guid>https://quangtiencs.com/tags/typescript/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>nodejs</title>
       <link>https://quangtiencs.com/tags/nodejs/</link>
@@ -23,24 +59,6 @@
       <pubDate>Tue, 27 Sep 2022 00:00:00 +0530</pubDate>
       
       <guid>https://quangtiencs.com/tags/react-native/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tensorflow</title>
-      <link>https://quangtiencs.com/tags/tensorflow/</link>
-      <pubDate>Tue, 27 Sep 2022 00:00:00 +0530</pubDate>
-      
-      <guid>https://quangtiencs.com/tags/tensorflow/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>typescript</title>
-      <link>https://quangtiencs.com/tags/typescript/</link>
-      <pubDate>Tue, 27 Sep 2022 00:00:00 +0530</pubDate>
-      
-      <guid>https://quangtiencs.com/tags/typescript/</guid>
       <description></description>
     </item>
     

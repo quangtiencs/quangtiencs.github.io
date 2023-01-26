@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on quangtiencs</title>
-    <link>https://quangtiencs.com/posts/</link>
-    <description>Recent content in Posts on quangtiencs</description>
+    <title>playground on quangtiencs</title>
+    <link>https://quangtiencs.com/tags/playground/</link>
+    <description>Recent content in playground on quangtiencs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
-    <lastBuildDate>Mon, 23 Jan 2023 08:00:00 +0700</lastBuildDate><atom:link href="https://quangtiencs.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Jan 2023 08:00:00 +0700</lastBuildDate><atom:link href="https://quangtiencs.com/tags/playground/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[playground] Tensorflow.Js &amp; Typescript [4]: Quantile Regression</title>
       <link>https://quangtiencs.com/posts/tensorflowjs_typescript_04/</link>
@@ -52,29 +52,6 @@ Let&amp;rsquo;s understand the problem deeper through examples!
       <guid>https://quangtiencs.com/posts/tensorflowjs_typescript_01/</guid>
       <description>TensorFlow is one of the most well-known libraries for machine learning. The most significant advantage of TensorFlow versus other libraries is designed to simplify the development of cross-platform projects.
 These days, TensorFlow.js (Javascript) is a sub-project of Tensorflow that support three environments: Node.js, Web browser, and Mobile (via React Native). Unfortunately, Javascript is not a good programming language for data science projects because it is easy to make mistakes with little experience.</description>
-    </item>
-    
-    <item>
-      <title>Julia Language - Euler Project</title>
-      <link>https://quangtiencs.com/posts/julia_euler_project/</link>
-      <pubDate>Sun, 10 Jul 2022 00:00:00 +0530</pubDate>
-      
-      <guid>https://quangtiencs.com/posts/julia_euler_project/</guid>
-      <description>Github: https://github.com/quangtiencs/julia_project_euler Project Euler 8: Largest product in a series HackerRank: https://www.hackerrank.com/contests/projecteuler/challenges/euler008 Euler: https://projecteuler.net/problem=8 function greatest_product_of_consecutive_digits(array::Array{Int}, k::Int)::Int product = prod(array[1:k]) cache = array[1] maximum_prod = product for i in 1:(length(array)-k) if cache != 0 product = div(product, cache) * array[k+i] else product = prod(array[1+i:k+i]) end cache = array[1+i] if product &amp;gt; maximum_prod maximum_prod = product end end return maximum_prod end function main() t = parse(Int64, readline()) for i in 1:t n, k = map((x) -&amp;gt; parse(Int64, x), split(readline(), &amp;quot; &amp;quot;)) arr_number = [parse(Int, e) for e in readline()] result = greatest_product_of_consecutive_digits(arr_number, k) println(result) end end main() Project Euler 7: 10001st prime HackerRank: https://www.</description>
-    </item>
-    
-    <item>
-      <title>Bayesian Multi-Logit Regression implemented in Tensorflow Probability</title>
-      <link>https://quangtiencs.com/posts/bayesian_logistics_tensorflow_probability/</link>
-      <pubDate>Sun, 20 Feb 2022 00:00:00 +0530</pubDate>
-      
-      <guid>https://quangtiencs.com/posts/bayesian_logistics_tensorflow_probability/</guid>
-      <description>Bayesian Multi-Logit Regression is a probabilistic model for multiclass classification. This tutorial will make a prototype model in Tensorflow Probability and fit it with No-U-Turn Sampler.
-Let&amp;rsquo;s start!
-1. Model specification: Multi-Logit regression for \(K\) classes has the following form:
-$$p(y | x, \beta) = \text{Categorical}(y| \text{softmax}(x \beta))$$
-With:
-\(x \): input features (row) vector \(x = [x_1,&amp;hellip; x_D] \in R^D \) \(y \): the predicted outcome of the class label \(\beta \): weight matrix for \(K\) classes and \(D\) dimensions The bayesian version of this model with pior:</description>
     </item>
     
   </channel>

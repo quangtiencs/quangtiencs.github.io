@@ -9,17 +9,20 @@
     <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
     <lastBuildDate>Mon, 23 Jan 2023 08:00:00 +0700</lastBuildDate><atom:link href="https://quangtiencs.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Tensorflow.Js &amp; Typescript [4]: Quantile Regression</title>
+      <title>[playground] Tensorflow.Js &amp; Typescript [4]: Quantile Regression</title>
       <link>https://quangtiencs.com/posts/tensorflowjs_typescript_04/</link>
       <pubDate>Mon, 23 Jan 2023 08:00:00 +0700</pubDate>
       
       <guid>https://quangtiencs.com/posts/tensorflowjs_typescript_04/</guid>
-      <description>Quantile Regression: Github: https://github.com/quangtiencs/tensorflowjs_typescript_tutorials/tree/main/004_quantile_regression/webbrowser_tensorflowjs_typescript
-import { Tensor, Tensor2D, tensor2d } from &#34;@tensorflow/tfjs&#34;; import embed from &#34;vega-embed&#34;; import * as tf from &#34;@tensorflow/tfjs&#34;; try { // I know. I&#39;m lazy :-D tf.setBackend(&#34;webgl&#34;); } catch (err) { console.log(err); } document.querySelector(&#34;#device&#34;)!!.innerHTML = `Backend by: ${tf.getBackend()}`; function make_synthetic_data(true_w: number, true_b: number) { let x: tf.Tensor1D = tf.randomUniform([500], 0.0, 2.0); let noise = tf.randomNormal([500], 0, 0.8); let y = x.mul(tf.scalar(true_w)).add(tf.scalar(true_b)).add(noise); return { &#34;x&#34;: x, &#34;</description>
+      <description>Quantile Regression is one of the practical techniques for many real problems. In this tutorial, we will implement a custom loss for TensorflowJS.
+Quantile Loss:
+$$\mathcal{L}(y_{\mathtt{true}}, y_{\mathtt{pred}}) = \begin{cases} (y_{\mathtt{true}} - y_{\mathtt{pred}}) \alpha &amp;amp;\text{if } y_{\mathtt{true}} \ge y_{\mathtt{pred}} \\ (y_{\mathtt{true}} - y_{\mathtt{pred}}) (\alpha - 1) &amp;amp;\text{if } y_{\mathtt{true}} &amp;lt; y_{\mathtt{pred}} \end{cases} $$
+Or for easy computing:
+$$\mathcal{L}(y_{\mathtt{true}}, y_{\mathtt{pred}}) = \mathtt{max}((y_{\mathtt{true}} - y_{\mathtt{pred}}) \alpha, (y_{\mathtt{true}} - y_{\mathtt{pred}}) (\alpha - 1)) $$</description>
     </item>
     
     <item>
-      <title>Tensorflow.Js &amp; Typescript [3]: Modeling</title>
+      <title>[playground] Tensorflow.Js &amp; Typescript [3]: Modeling</title>
       <link>https://quangtiencs.com/posts/tensorflowjs_typescript_03/</link>
       <pubDate>Sun, 22 Jan 2023 20:00:00 +0700</pubDate>
       
@@ -30,7 +33,7 @@ Layers API: tf.layers.dense, tf.layers.dropout, tf.layers.embedding, tf.layers.d
     </item>
     
     <item>
-      <title>Tensorflow.Js &amp; Typescript [2]: Memory management</title>
+      <title>[playground] Tensorflow.Js &amp; Typescript [2]: Memory management</title>
       <link>https://quangtiencs.com/posts/tensorflowjs_typescript_02/</link>
       <pubDate>Sat, 05 Nov 2022 00:00:00 +0530</pubDate>
       
@@ -42,7 +45,7 @@ Let&amp;rsquo;s understand the problem deeper through examples!
     </item>
     
     <item>
-      <title>Tensorflow.Js &amp; Typescript [1]: Quick Start</title>
+      <title>[playground] Tensorflow.Js &amp; Typescript [1]: Quick Start</title>
       <link>https://quangtiencs.com/posts/tensorflowjs_typescript_01/</link>
       <pubDate>Tue, 27 Sep 2022 00:00:00 +0530</pubDate>
       
