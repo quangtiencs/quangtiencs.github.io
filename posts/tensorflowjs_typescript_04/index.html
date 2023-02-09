@@ -118,6 +118,7 @@
          <li><a href="/">home</a></li>
          <li><a href="/posts">blog</a></li>
          <li><a href="/project">project</a></li>
+         <li><a href="/list">list</a></li>
          <li><a>thought</a>
             <ul>
                <li><a href="/vietnam">vietnam</a></li>
@@ -215,7 +216,6 @@ function quantileLoss90(yTrue: tf.Tensor, yPred: tf.Tensor) {
 
 let model = tf.sequential();
 model.add(tf.layers.dense({ inputShape: [1], units: 1 }));
-model.add(tf.layers.dense({ units: 16, activation: "relu" }));
 model.add(tf.layers.dense({ units: 1 }));
 
 model.compile({
@@ -225,7 +225,7 @@ model.compile({
 
 model.summary();
 
-model.fit(data.x, data.y, { epochs: 100 }).then((history) => {
+model.fit(data.x, data.y, { epochs: 100, batchSize: 64 }).then((history) => {
   document.querySelector("#status")!!.innerHTML = "Completed :D";
   document.querySelector("#status")!!.setAttribute("style", "color: green");
 

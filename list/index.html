@@ -2,17 +2,19 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>[playground] Tensorflow.Js &amp; Typescript [3]: Modeling - quangtiencs</title><link rel="icon" type="image/png" href=/icon/quangtiencs_hawk.png /><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta property="og:title" content="[playground] Tensorflow.Js &amp; Typescript [3]: Modeling" />
-<meta property="og:description" content="make something work" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>List - quangtiencs</title><link rel="icon" type="image/png" href=/icon/quangtiencs_hawk.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="List" />
+<meta property="og:description" content="(&hellip;updating&hellip;)
+Books Name Status Julia for Data Analysis Reading " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://quangtiencs.com/posts/tensorflowjs_typescript_03/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-01-22T20:00:00+07:00" />
-<meta property="article:modified_time" content="2023-01-22T20:00:00+07:00" />
+<meta property="og:url" content="https://quangtiencs.com/list/" /><meta property="article:section" content="" />
+<meta property="article:published_time" content="2021-08-12T07:00:00+00:00" />
+<meta property="article:modified_time" content="2021-08-12T07:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[playground] Tensorflow.Js &amp; Typescript [3]: Modeling"/>
-<meta name="twitter:description" content="make something work"/>
+<meta name="twitter:title" content="List"/>
+<meta name="twitter:description" content="(&hellip;updating&hellip;)
+Books Name Status Julia for Data Analysis Reading "/>
 <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" media="screen" href="https://quangtiencs.com/css/normalize.css" />
@@ -161,149 +163,31 @@
 </div>
 
 		<div class="post-header">
-			<h1 class="title">[playground] Tensorflow.Js &amp; Typescript [3]: Modeling</h1>
-			<div class="meta">Posted at &mdash; Jan 22, 2023</div>
+			<h1 class="title">List</h1>
+			<div class="meta">Posted at &mdash; Aug 12, 2021</div>
 		</div>
 
 		<div class="markdown">
-			<p>Tensorflow.JS provides an application programming interface similar to Tensorflow (Python API). Although it has few choices (layers, models, optimizers), it is still helpful in some applications that need online learning on client devices.</p>
-<h2 id="1-apis">1. APIs:</h2>
-<p>Sometimes useful:</p>
-<ul>
-<li>Layers API: <code>tf.layers.dense</code>, <code>tf.layers.dropout</code>, <code>tf.layers.embedding</code>, <code>tf.layers.dense</code> (elu, hardSigmoid, linear, relu, relu6, selu, sigmoid, softmax, softplus, softsign, tanh, swish, mish),</li>
-<li>Model API: <code>tf.sequential</code>, <code>tf.model</code>.</li>
-<li>Build-In Optimizers: sgd, adagrad, adadelta, adam, adamax, rmsprop.</li>
-<li>Build-In Loss functions: <code>tf.losses.absoluteDifference</code>,<code>tf.losses.meanSquaredError</code>,<code>tf.losses.logLoss</code>, <code>tf.losses.huberLoss</code>, <code>tf.losses.hingeLoss</code>,&hellip; (add some simple custom loss functions)</li>
-</ul>
-<h2 id="2-example-linear-regression">2. Example Linear Regression:</h2>
-<p>Do linear regression in the web browser (for easy visualization). The setup is the same as tutorial 1 with some extra libraries (vega, vega-embed, vega-lite):</p>
-<p>Github: <a href="https://github.com/quangtiencs/tensorflowjs_typescript_tutorials/tree/main/003_modeling/webbrowser_tensorflowjs_typescript">https://github.com/quangtiencs/tensorflowjs_typescript_tutorials/tree/main/003_modeling/webbrowser_tensorflowjs_typescript</a></p>
-<pre class="line-numbers language-typescript"><code>import { Tensor, Tensor2D, tensor2d } from "@tensorflow/tfjs";
-import embed from "vega-embed";
-import * as tf from "@tensorflow/tfjs";
-
-try {
-  // I know. I'm lazy :-D
-  tf.setBackend("webgl");
-} catch (err) {
-  console.log(err);
-}
-
-document.querySelector("#device")!!.innerHTML =
-  `Backend by: ${tf.getBackend()}`;
-
-function make_synthetic_data(true_w: number, true_b: number) {
-  let x: tf.Tensor1D = tf.randomUniform([100], 0.0, 12.0);
-  let noise = tf.randomNormal([100], 0, 1);
-  let y = x.mul(tf.scalar(true_w)).add(tf.scalar(true_b)).add(noise);
-
-  return { "x": x, "y": y };
-}
-
-let data = make_synthetic_data(2, 3);
-
-let vegaData: { x: number; y: number }[] = [];
-for (let i = 0; i < data.x.size; i++) {
-  vegaData.push({ "x": data.x.dataSync()[i], "y": data.y.dataSync()[i] });
-}
-
-let model = tf.sequential();
-model.add(tf.layers.dense({ inputShape: [1], units: 1 }));
-model.compile({
-  optimizer: "sgd",
-  loss: "meanSquaredError",
-});
-
-model.summary();
-
-model.fit(data.x, data.y, { epochs: 100 }).then((history) => {
-  document.querySelector("#status")!!.innerHTML = "Completed :D";
-  document.querySelector("#status")!!.setAttribute("style", "color: green");
-
-  const prediction = (model.predict(data.x) as tf.Tensor)
-    .dataSync();
-
-  //   console.log(`data sync ${prediction}`);
-
-  console.log("[Train Model] Completed!");
-  console.log("Loss Here :D");
-  console.log(history)
-
-  let finalPlotData = [];
-  for (let i = 0; i < data.x.size; i++) {
-    finalPlotData.push({
-      "x": data.x.dataSync()[i],
-      "y": data.y.dataSync()[i],
-      "y_hat": prediction[i],
-    });
-  }
-
-  // @ts-ignore
-  var speclinear = {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 400,
-    "height": 200,
-    data: {
-      values: finalPlotData,
-    },
-    "layer": [{
-      "mark": "circle",
-      "encoding": {
-        "x": { "field": "x", "type": "quantitative" },
-        "y": { "field": "y", "type": "quantitative" },
-      },
-    }, {
-      "mark": "line",
-      "encoding": {
-        "x": { "field": "x", "type": "quantitative" },
-        "y": { "field": "y_hat", "type": "quantitative" },
-      },
-    }],
-  };
-
-  // @ts-ignore
-  embed("#linearregression", speclinear);
-});
-
-var specDataPoint = {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 400,
-  "height": 200,
-  data: {
-    values: vegaData,
-  },
-  "mark": "circle",
-  "encoding": {
-    "x": { "field": "x", "type": "quantitative" },
-    "y": { "field": "y", "type": "quantitative" },
-  },
-};
-
-// @ts-ignore
-embed("#vis", specDataPoint);
-</code></pre>
-<p>:-) and&hellip; don&rsquo;t forget <code>tf.tidy</code></p>
-<p><img src="/images/tensorflowjs_typescript_03/example_linear_reg.png" alt="Example 1"></p>
+			<p>(&hellip;updating&hellip;)</p>
+<h1 id="books">Books</h1>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Julia for Data Analysis</td>
+<td>Reading</td>
+</tr>
+</tbody>
+</table>
 
 		</div>
 
 		<div class="post-tags">
-			
-				
-					<nav class="nav tags">
-							<ul class="flat">
-								
-								<li><a href="/tags/playground">playground</a></li>
-								
-								<li><a href="/tags/tensorflow">tensorflow</a></li>
-								
-								<li><a href="/tags/typescript">typescript</a></li>
-								
-								<li><a href="/tags/tensorflowjs">tensorflowjs</a></li>
-								
-							</ul>
-					</nav>
-				
 			
 		</div>
 		</div>
