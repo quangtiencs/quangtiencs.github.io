@@ -2,16 +2,17 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>typescript - quangtiencs</title><link rel="icon" type="image/png" href=/icon/quangtiencs_hawk.png /><meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="alternate" type="application/rss+xml" href="https://quangtiencs.com/tags/typescript/index.xml" title="quangtiencs" />
-	<meta property="og:title" content="typescript" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://quangtiencs.com/tags/typescript/" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Probabilistic Programming 2023 - quangtiencs</title><link rel="icon" type="image/png" href=/icon/quangtiencs_hawk.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Probabilistic Programming 2023" />
+<meta property="og:description" content="review for some probabilistic programming libraries" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://quangtiencs.com/posts/probabilistic_programming_2023/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-02-10T08:00:00+07:00" />
+<meta property="article:modified_time" content="2023-02-10T08:00:00+07:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="typescript"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Probabilistic Programming 2023"/>
+<meta name="twitter:description" content="review for some probabilistic programming libraries"/>
 <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" media="screen" href="https://quangtiencs.com/css/normalize.css" />
@@ -28,9 +29,8 @@
 	<script src="https://quangtiencs.com/js/prism.js"></script>
 </head>
 
-
 <body>
-	<div class="container wrapper tags">
+	<div class="container wrapper post">
 		<div class="header">
    <div><a href="/"><img style="width: 100%;max-width: 568px;height: auto;" src="/quangtiencs.gif"></a></div>
 
@@ -170,9 +170,50 @@
       });</script>
 </div>
 
-		<h1 class="page-title">All tags</h1>
-	</div>
+		<div class="post-header">
+			<h1 class="title">Probabilistic Programming 2023</h1>
+			<div class="meta">Posted at &mdash; Feb 10, 2023</div>
+		</div>
 
+		<div class="markdown">
+			<p>Probabilistic Programming 2023, some libraries that I recently used:</p>
+<ul>
+<li>PyMC: well-designed API with concise documentation. It&rsquo;s faster and more customizable than before because the predecessor (the Theno backend) was replaced by the Aesara backend (compiling to C and Jax).</li>
+<li>BlackJax: for hacking log-density lovers. There&rsquo;re some new algorithms like Stochastic gradient Langevin dynamics. BlackJax is not a complete probabilistic programming language. It integrates well with the PPLs backend by Jax.</li>
+<li>Stan: a domain-specific language for statistical modeling and one of the fastest samplers. Its main focus is on modeling. (just me; sometimes integrating it with the production environment gives me a headache I/O)</li>
+<li>Tensorflow Probability: It&rsquo;s the first choice if you work with normalizing flow models, bayesian neural networks. It&rsquo;s very flexible to build a complex model with a modular approach. For me, it&rsquo;s hard to debug.</li>
+<li>NumPyro: concentrate on Jax. The APIs are easy to learn. It&rsquo;s still under development.</li>
+</ul>
+<p>There are some candidates that I&rsquo;m not listing out here: Pyro &amp; Oryx.</p>
+<ul>
+<li>For working in production, friendly with Python: PyMC</li>
+<li>To concentrate on modeling: Stan</li>
+<li>For Stochastic gradient MCMC: BlackJax</li>
+<li>For best performance (and give a headache): TensorFlow Probability :&lsquo;D</li>
+</ul>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/playground">playground</a></li>
+								
+								<li><a href="/tags/tensorflow">tensorflow</a></li>
+								
+								<li><a href="/tags/typescript">typescript</a></li>
+								
+								<li><a href="/tags/tensorflowjs">tensorflowjs</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
 	<div class="footer wrapper">
 	<nav class="nav">
 		<div> quangtiencs ➤ bet on myself &amp; beat the odds | 
@@ -194,5 +235,4 @@ if (!doNotTrack) {
 
 <script>feather.replace()</script>
 </body>
-
 </html>

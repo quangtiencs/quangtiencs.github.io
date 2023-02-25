@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
-    <lastBuildDate>Mon, 23 Jan 2023 08:00:00 +0700</lastBuildDate><atom:link href="https://quangtiencs.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Feb 2023 08:00:00 +0700</lastBuildDate><atom:link href="https://quangtiencs.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Probabilistic Programming 2023</title>
+      <link>https://quangtiencs.com/posts/probabilistic_programming_2023/</link>
+      <pubDate>Fri, 10 Feb 2023 08:00:00 +0700</pubDate>
+      
+      <guid>https://quangtiencs.com/posts/probabilistic_programming_2023/</guid>
+      <description>Probabilistic Programming 2023, some libraries that I recently used:
+PyMC: well-designed API with concise documentation. It&amp;rsquo;s faster and more customizable than before because the predecessor (the Theno backend) was replaced by the Aesara backend (compiling to C and Jax). BlackJax: for hacking log-density lovers. There&amp;rsquo;re some new algorithms like Stochastic gradient Langevin dynamics. BlackJax is not a complete probabilistic programming language. It integrates well with the PPLs backend by Jax. Stan: a domain-specific language for statistical modeling and one of the fastest samplers.</description>
+    </item>
+    
     <item>
       <title>[playground] Tensorflow.Js &amp; Typescript [4]: Quantile Regression</title>
       <link>https://quangtiencs.com/posts/tensorflowjs_typescript_04/</link>
@@ -119,8 +129,8 @@ As a critical-thinking practitioner, my opinions are always subject to rethinkin
       <pubDate>Thu, 12 Aug 2021 07:00:00 +0000</pubDate>
       
       <guid>https://quangtiencs.com/list/</guid>
-      <description>(&amp;hellip;updating&amp;hellip;)
-Books Name Status Julia for Data Analysis Reading </description>
+      <description>https://www.goodreads.com/user/show/145497200-tien-le-quang (&amp;hellip;updating&amp;hellip;)
+Reading Books Name Status Rating Julia for Data Analysis Reading The Wealth of Nations Reading </description>
     </item>
     
     <item>
