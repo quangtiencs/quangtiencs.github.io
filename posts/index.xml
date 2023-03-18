@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
-    <lastBuildDate>Fri, 10 Feb 2023 08:00:00 +0700</lastBuildDate><atom:link href="https://quangtiencs.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Mar 2023 08:00:00 +0700</lastBuildDate><atom:link href="https://quangtiencs.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[playground] Julia Turing.jl : Bayesian Cognitive Modeling - Inferences with binomials</title>
+      <link>https://quangtiencs.com/posts/turing_julia_bcm_chapter_003/</link>
+      <pubDate>Sat, 18 Mar 2023 08:00:00 +0700</pubDate>
+      
+      <guid>https://quangtiencs.com/posts/turing_julia_bcm_chapter_003/</guid>
+      <description>Github: https://github.com/quangtiencs/learning_notebook/blob/main/bcm-bayesian-cognitive-modeling/turing.jl-julia/ParameterEstimation/Binomial.ipynb
+3.1 Inferring a rate $$ \theta \sim \text{Beta}(1, 1) $$ $$ k \sim \text{Binomial} ( \theta, n) $$
+using DynamicPPL, Turing using StatsPlots, Random using LaTeXStrings using CSV using DataFrames using SpecialFunctions k = 5 n = 10 @model function BinomialModel(k) theta ~ Beta(1, 1) k ~ Binomial(n, theta) end iterations = 1_000 ϵ = 0.05 τ = 10 chain = sample(BinomialModel(k), HMC(ϵ, τ), iterations) p = histogram(chain[:theta], label=L&#34;</description>
+    </item>
+    
     <item>
       <title>Probabilistic Programming 2023</title>
       <link>https://quangtiencs.com/posts/probabilistic_programming_2023/</link>
