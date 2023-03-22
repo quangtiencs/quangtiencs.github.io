@@ -343,8 +343,8 @@ end
 iterations=20_000
 burnin=4_000
 
-chain = sample(RepeatedMeasurementIQ(x), NUTS(), iterations, burnin=burnin, fmt=format)
-plot(chain, fmt=:svg, alpha=0.5, size=(700, 800))
+chain = sample(RepeatedMeasurementIQ(x), NUTS(), iterations, burnin=burnin)
+plot(chain, fmt=format, alpha=0.5, size=(700, 800))
 </code></pre>
 <p><img src="/images/bcm_julia_turing_004/output_13_1.svg" alt="svg"></p>
 <pre class="line-numbers language-julia"><code>
