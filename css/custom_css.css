@@ -5,8 +5,8 @@ pre[class*=language-] {
   color: #000;
   background: 0 0;
   text-shadow: 0 1px #fff;
-  font-family: Jetbrains Mono, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  font-size: 1.0em;
+  font-family: Fira Mono, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 1.0rem;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
@@ -54,7 +54,7 @@ pre[class*=language-] {
 
 :not(pre)>code[class*=language-],
 pre[class*=language-] {
-  background: #f5f2f0
+  background: #fbfbfb
 }
 
 :not(pre)>code[class*=language-] {
@@ -612,7 +612,7 @@ pre>code.diff-highlight .token.inserted:not(.prefix) {
   /* make room for the toggle button (sub indicator) */
   padding-right: 58px;
   color: #333;
-  font-family: Jetbrains Mono, Arial, sans-serif;
+  font-family: Fira Mono, Arial, sans-serif;
   font-size: 16px;
   font-weight: normal;
   line-height: 17px;
@@ -958,7 +958,7 @@ pre>code.diff-highlight .token.inserted:not(.prefix) {
   display: block;
   padding: 11px 11px 11px 20px;
   color: #333;
-  font-family: Jetbrains Mono, Source Code Pro, Source Sans Pro, sans-serif;
+  font-family: Fira Mono, Source Code Pro, Source Sans Pro, sans-serif;
   font-size: 22px;
   font-weight: normal;
   line-height: 17px;
