@@ -290,12 +290,12 @@ ul {
 }
 
 .post .post-header .title {
-    border-bottom: 2px dashed #c7c7cc;
-    color: black;
+    border-bottom: 2px dashed rgb(162, 132, 94);
+    color: #00838F;
     margin: 0;
     text-align: center;
     padding: 30px 0px 30px 0px;
-    font-size: 2.0rem;
+    font-size: 1.3rem;
 }
 
 .post-tags a {

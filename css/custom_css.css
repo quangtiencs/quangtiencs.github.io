@@ -19,7 +19,7 @@ pre[class*=language-] {
   -webkit-hyphens: none;
   -moz-hyphens: none;
   -ms-hyphens: none;
-  hyphens: none
+  hyphens: none;
 }
 
 code[class*=language-] ::-moz-selection,
@@ -205,7 +205,8 @@ pre[id].linkable-line-numbers span.line-numbers-rows>span:hover:before {
 pre[class*=language-].line-numbers {
   position: relative;
   padding-left: 3.8em;
-  counter-reset: linenumber
+  counter-reset: linenumber;
+  border: 1px dashed #CCCCCC;
 }
 
 pre[class*=language-].line-numbers>code {
