@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
-    <lastBuildDate>Wed, 22 Mar 2023 08:00:00 +0700</lastBuildDate><atom:link href="https://quangtiencs.com/tags/turing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Apr 2023 08:00:00 +0700</lastBuildDate><atom:link href="https://quangtiencs.com/tags/turing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[playground] Julia Turing.jl : Bayesian Cognitive Modeling - Some examples of data analysis</title>
+      <link>https://quangtiencs.com/posts/turing_julia_bcm_chapter_005/</link>
+      <pubDate>Sun, 23 Apr 2023 08:00:00 +0700</pubDate>
+      
+      <guid>https://quangtiencs.com/posts/turing_julia_bcm_chapter_005/</guid>
+      <description>Github: https://github.com/quangtiencs/learning_notebook/blob/main/bcm-bayesian-cognitive-modeling/turing.jl-julia/ParameterEstimation/DataAnalysis.ipynb
+import Logging using DynamicPPL, Turing using Zygote, ReverseDiff using StatsPlots, Random using LaTeXStrings using CSV using DataFrames using SpecialFunctions using LinearAlgebra using FillArrays using CSV, DataFrames Random.seed!(6) format=:svg 5.1 Pearson correlation $$ \mu_{1},\mu_{2} \sim \text{Gaussian}(0, 1/ \sqrt{.001}) $$ $$ \sigma_{1},\sigma_{2} \sim \text{InvSqrtGamma} (.001, .001) $$ $$ r \sim \text{Uniform} (-1, 1) $$
+$$ x_{i} \sim \text{MvGaussian} \left( (\mu_{1},\mu_{2}), \begin{bmatrix}\sigma_{1}^2 &amp;amp; r\sigma_{1}\sigma_{2}\r\sigma_{1}\sigma_{2} &amp;amp; \sigma_{2}^2\end{bmatrix} \right) $$
+x = [[0.</description>
+    </item>
+    
     <item>
       <title>[playground] Julia Turing.jl : Bayesian Cognitive Modeling - Inferences with gaussians</title>
       <link>https://quangtiencs.com/posts/turing_julia_bcm_chapter_004/</link>

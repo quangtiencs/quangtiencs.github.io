@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>[playground] Julia Turing.jl : Bayesian Cognitive Modeling - Some examples of data analysis - quangtiencs</title><link rel="icon" type="image/png" href=/icon/quangtiencs_hawk.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="[playground] Julia Turing.jl : Bayesian Cognitive Modeling - Some examples of data analysis" />
+<meta property="og:description" content="bayesian cognitive modeling chapter 5 with julia programming language" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://quangtiencs.com/posts/turing_julia_bcm_chapter_005/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-04-23T08:00:00+07:00" />
+<meta property="article:modified_time" content="2023-04-23T08:00:00+07:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[playground] Julia Turing.jl : Bayesian Cognitive Modeling - Some examples of data analysis"/>
+<meta name="twitter:description" content="bayesian cognitive modeling chapter 5 with julia programming language"/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://quangtiencs.com/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://quangtiencs.com/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="https://quangtiencs.com/css/custom_css.css" />
+	
+
+	<script src="https://quangtiencs.com/js/feather.min.js"></script>
+	
+	<script src="https://quangtiencs.com/js/main.js"></script>
+	<script src="https://quangtiencs.com/js/jquery.min.js"></script>
+	<script src="https://quangtiencs.com/js/jquery-ui.min.js"></script>
+	<script src="https://quangtiencs.com/js/jquery.smartmenus.min.js"></script>
+	<script src="https://quangtiencs.com/js/prism.js"></script>
+
+	
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RWDCPM6GZ6"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-RWDCPM6GZ6');
+	</script>
+	
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+   <div><a href="/"><img style="width: 100%;max-width: 568px;height: auto;" src="/quangtiencs.gif"></a></div>
+
+   <style>
+      .iconsvg:hover {
+         border-radius: 2px;
+         fill: #ff2d55;
+         background-color: #ffd60a;
+      }
+   </style>
+   <div style="padding: 5px 5px 5px 5px;" class="flat" align="center">
+      <a style="padding: 0px 5px 0px 5px;text-decoration: none;color: #8e8e93" href="https://goodreads.com/quangtiencs"
+         target="_blank" rel="noopener">
+         <svg width="24" height="24" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter"
+            class="iconsvg svg-inline--fa fa-twitter fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512">
+            <path class="iconsvg" fill="#8e8e93"
+               d="M299.9 191.2c5.1 37.3-4.7 79-35.9 100.7-22.3 15.5-52.8 14.1-70.8 5.7-37.1-17.3-49.5-58.6-46.8-97.2 4.3-60.9 40.9-87.9 75.3-87.5 46.9-.2 71.8 31.8 78.2 78.3zM448 88v336c0 30.9-25.1 56-56 56H56c-30.9 0-56-25.1-56-56V88c0-30.9 25.1-56 56-56h336c30.9 0 56 25.1 56 56zM330 313.2s-.1-34-.1-217.3h-29v40.3c-.8.3-1.2-.5-1.6-1.2-9.6-20.7-35.9-46.3-76-46-51.9.4-87.2 31.2-100.6 77.8-4.3 14.9-5.8 30.1-5.5 45.6 1.7 77.9 45.1 117.8 112.4 115.2 28.9-1.1 54.5-17 69-45.2.5-1 1.1-1.9 1.7-2.9.2.1.4.1.6.2.3 3.8.2 30.7.1 34.5-.2 14.8-2 29.5-7.2 43.5-7.8 21-22.3 34.7-44.5 39.5-17.8 3.9-35.6 3.8-53.2-1.2-21.5-6.1-36.5-19-41.1-41.8-.3-1.6-1.3-1.3-2.3-1.3h-26.8c.8 10.6 3.2 20.3 8.5 29.2 24.2 40.5 82.7 48.5 128.2 37.4 49.9-12.3 67.3-54.9 67.4-106.3z" />
+         </svg>
+      </a>
+      <a style="padding: 0px 5px 0px 5px;text-decoration: none;color: #8e8e93" href="https://twitter.com/quangtiencs"
+         target="_blank" rel="noopener">
+         <svg width="24" height="24" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter"
+            class="iconsvg svg-inline--fa fa-twitter fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512">
+            <path class="iconsvg" fill="#8e8e93"
+               d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z">
+            </path>
+         </svg>
+      </a>
+      
+      <a style="padding: 0px 5px 0px 5px;text-decoration: none;color: #8e8e93" href="https://github.com/quangtiencs"
+         target="_blank" rel="noopener">
+         <svg width="24" height="24" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github"
+            class="iconsvg svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 496 512">
+            <path class="iconsvg" fill="#8e8e93"
+               d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
+            </path>
+         </svg>
+      </a>
+      <a style="padding: 0px 5px 0px 5px;text-decoration: none;color: #8e8e93"
+         href="https://www.linkedin.com/in/quangtiencs/" target="_blank" rel="noopener">
+         <svg width="24" height="24" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin-in"
+            class="iconsvg svg-inline--fa fa-linkedin-in fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512">
+            <path class="iconsvg" fill="#8e8e93"
+               d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z">
+            </path>
+         </svg>
+      </a>
+      <a style="padding: 0px 5px 0px 5px;text-decoration: none;color: #8e8e93" href="https://t.me/quangtiencs"
+         target="_blank" rel="noopener">
+         <svg width="24" height="24" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="telegram-plane"
+            class="iconsvg svg-inline--fa fa-telegram-plane fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512">
+            <path class="iconsvg" fill="#8e8e93"
+               d="M446.7 98.6l-67.6 318.8c-5.1 22.5-18.4 28.1-37.3 17.5l-103-75.9-49.7 47.8c-5.5 5.5-10.1 10.1-20.7 10.1l7.4-104.9 190.9-172.5c8.3-7.4-1.8-11.5-12.9-4.1L117.8 284 16.2 252.2c-22.1-6.9-22.5-22.1 4.6-32.7L418.2 66.4c18.4-6.9 34.5 4.1 28.5 32.2z">
+            </path>
+         </svg>
+      </a>
+      <a style="padding: 0px 5px 0px 5px;text-decoration: none;color: #8e8e93" href="/index.xml"
+         target="_blank" rel="noopener">
+         <svg width="24" height="24" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="telegram-plane"
+            class="iconsvg svg-inline--fa fa-telegram-plane fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512">
+            <path class="iconsvg" fill="#8e8e93"
+               d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM96 136c0-13.3 10.7-24 24-24c137 0 248 111 248 248c0 13.3-10.7 24-24 24s-24-10.7-24-24c0-110.5-89.5-200-200-200c-13.3 0-24-10.7-24-24zm0 96c0-13.3 10.7-24 24-24c83.9 0 152 68.1 152 152c0 13.3-10.7 24-24 24s-24-10.7-24-24c0-57.4-46.6-104-104-104c-13.3 0-24-10.7-24-24zm0 120a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z">
+            </path>
+         </svg>
+      </a>
+      <a style="padding: 0px 5px 0px 5px;text-decoration: none;color: #8e8e93" href="https://thetalog.com"
+         target="_blank" rel="noopener">
+         <svg width="60" height="24" version="1.1" viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+            <g>
+               <path class="iconsvg" fill="#8e8e93"
+                  d="m0 120v-119h600v238h-600zm553.42 57.206c3.2995-1.1447 5.9323-2.9705 8-5.5477l3.0819-3.8415 0.28535-36.962 0.28535-36.962-10.571 0.60697-0.61694 7.4364-2.9276-3.3343c-8.1244-9.2532-25.066-6.3897-31.155 5.2656-2.6648 5.1011-2.8004 6.0154-2.8004 18.88 0 15.706 1.0526 20.176 5.9626 25.323 7.4443 7.8033 22.43 7.8865 28.782 0.15986l2.245-2.7307 5e-3 9.1392c7e-3 13.465-0.3368 13.763-16.406 14.214l-12.589 0.35282v9.7944l11.75-0.0438c8.3922-0.0313 13.155-0.53137 16.668-1.75zm-21.652-36.122-3.2658-2.9155-0.32748-12.984c-0.36757-14.574 0.58581-17.974 5.7948-20.668 3.7141-1.9206 10.296-1.9494 13.948-0.061 4.6908 2.4257 6.0852 6.893 6.0852 19.495 0 16.025-2.7971 20.049-13.935 20.049-4.1474 0-5.609-0.51346-8.2997-2.9155zm-324.62 16.755c6.7826-2.0321 14.858-10.624 14.858-15.807 0-0.58332-2.2829-1.0154-5.25-0.9936-4.8061 0.0353-5.4208 0.31006-7.2698 3.25-2.516 4.0004-8.2441 6.1005-14.415 5.2851-8.3765-1.1069-12.065-5.8582-12.065-15.541v-5.0321h39l-0.01-8.75c-8e-3 -7.1407-0.45422-9.7046-2.4264-13.94-8.8218-18.948-40.159-16.883-46.074 3.0354-0.94717 3.1902-1.49 9.2566-1.49 16.655 0 18.512 3.2336 25.872 13.459 30.633 5.6902 2.6497 15.115 3.174 21.682 1.2063zm-24.14-40.589c4e-3 -8.4529 5.5933-14.338 13.678-14.401 9.3579-0.07248 14.321 4.6409 14.321 13.601v4.5497h-28l2e-3 -3.75zm155.78 40.197c2.0448-0.85417 4.9554-2.7384 6.4679-4.1871l2.75-2.634v7.3742h11v-24.532c0-27.759-0.23982-28.949-6.9982-34.734-12.659-10.836-37.743-4.6494-40.615 10.016l-0.63655 3.25h4.9369c4.3199 0 5.2126-0.37291 7.1427-2.9835 3.3898-4.585 7.5765-6.3134 14.002-5.7806 4.6218 0.38327 5.9585 0.96472 8.3364 3.626 2.3798 2.6634 2.832 4.0453 2.832 8.6538v5.4842h-12.532c-13.352 0-17.742 1.0429-22.299 5.2977-3.7906 3.5393-5.1686 7.1925-5.1686 13.702 0 8.8188 3.3237 14.075 11.007 17.407 4.5775 1.985 15.068 2.0062 19.775 0.0399zm-14.425-8.4385c-5.6334-2.2734-7.2873-11.651-2.9459-16.703 2.3586-2.7446 2.6746-2.813 14.5-3.1395l12.089-0.33375v6.4489c0 7.4074-2.0629 11.011-7.6358 13.34-3.6405 1.5211-12.657 1.7392-16.007 0.38724zm157.25 8.5169c5.7566-1.7095 10.905-6.2868 13.526-12.025 2.6761-5.8591 2.6803-33.122 6e-3 -39.009-3.749-8.2524-11.746-12.8-22.635-12.873-10.591-0.07046-18.219 4.206-22.808 12.787-1.9829 3.708-2.1898 5.5611-2.1911 19.621-1e-3 14.69 0.13634 15.794 2.5533 20.491 5.416 10.524 18.18 14.978 31.548 11.008zm-16.288-9.989c-5.6382-2.4522-6.8147-6.2009-6.8147-21.714 0-12.242 0.21671-13.973 2.0645-16.5 5.0813-6.9476 15.348-8.0506 21.749-2.3365l3.1866 2.8447 0.3207 14.997c0.25583 11.964 0.0119 15.595-1.206 17.95-2.8639 5.5381-12.209 7.8422-19.3 4.7582zm-400.31-26.536v-37h23v-10h-57v10h23v74h11zm50.006 15.75c3e-3 -11.688 0.46623-22.909 1.0292-24.936 1.5778-5.6806 5.9887-8.8143 12.407-8.8143 3.9107 0 6.0064 0.56475 8.0444 2.1679 5.0028 3.9352 5.5137 6.7889 5.5137 30.8v22.032h11v-22.818c0-26.872-0.77369-30.937-6.949-36.516-8.7595-7.9137-23.785-7.07-29.091 1.6335l-1.952 3.2014-0.00748-29.5h-11v84h11l6e-3 -21.25zm174.99 16.25v-5h-9.9274c-9.5337 0-10.01-0.1045-12-2.6349-1.9347-2.4596-2.0726-3.923-2.0726-22v-19.365h26.11l-0.60958-9.5-25.5-0.55975v-16.94h-11v17h-17v10h16.858l0.32114 21.25c0.37061 24.524 0.94586 26.516 8.8059 30.5 3.7879 1.92 6.0214 2.25 15.227 2.25h10.788zm143 0v-5h-38v-74h-11v84h49z" />
+            </g>
+         </svg>
+      </a>
+   </div>
+
+   
+   <nav class="main-nav" role="navigation">
+
+      
+      <input id="main-menu-state" type="checkbox" />
+      <label class="main-menu-btn" for="main-menu-state">
+         <span class="main-menu-btn-icon"></span>
+      </label>
+
+      <h2 class="nav-brand"><a>♬ navigator :: </a></h2>
+
+      <ul id="main-menu" class="sm sm-mint">
+         <li><a href="/">home</a></li>
+         <li><a href="/posts">blog</a></li>
+         <li><a href="/project">project</a></li>
+         <li><a href="/list">list</a></li>
+         <li><a>thought</a>
+            <ul>
+               <li><a href="/vietnam">vietnam</a></li>
+               <li><a href="/english">english</a></li>
+            </ul>
+         </li>
+         <li><a href="/about">about</a></li>
+      </ul>
+   </nav>
+   <script>
+      $(function () {
+         $('#main-menu').smartmenus({
+            mainMenuSubOffsetX: -1,
+            subMenusSubOffsetX: 10,
+            subMenusSubOffsetY: 0
+         });
+      });
+
+      
+      $(function () {
+         var $mainMenuState = $('#main-menu-state');
+         if ($mainMenuState.length) {
+            
+            $mainMenuState.change(function (e) {
+               var $menu = $('#main-menu');
+               if (this.checked) {
+                  $menu.hide().slideDown(250, function () { $menu.css('display', ''); });
+               } else {
+                  $menu.show().slideUp(250, function () { $menu.css('display', ''); });
+               }
+            });
+            
+            $(window).bind('beforeunload unload', function () {
+               if ($mainMenuState[0].checked) {
+                  $mainMenuState[0].click();
+               }
+            });
+         }
+      });</script>
+</div>
+
+		<div class="post-header">
+			<h1 class="title">[playground] Julia Turing.jl : Bayesian Cognitive Modeling - Some examples of data analysis</h1>
+			<div class="meta">Posted at &mdash; Apr 23, 2023</div>
+		</div>
+
+		<div class="markdown">
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<p>Github: <a href="https://github.com/quangtiencs/learning_notebook/blob/main/bcm-bayesian-cognitive-modeling/turing.jl-julia/ParameterEstimation/DataAnalysis.ipynb">https://github.com/quangtiencs/learning_notebook/blob/main/bcm-bayesian-cognitive-modeling/turing.jl-julia/ParameterEstimation/DataAnalysis.ipynb</a></p>
+<pre class="line-numbers language-julia"><code>
+import Logging
+using DynamicPPL, Turing
+using Zygote, ReverseDiff
+using StatsPlots, Random
+using LaTeXStrings
+using CSV
+using DataFrames
+using SpecialFunctions
+using LinearAlgebra
+using FillArrays
+using CSV, DataFrames
+</code></pre>
+<pre class="line-numbers language-julia"><code>
+Random.seed!(6)
+</code></pre>
+<pre class="line-numbers language-julia"><code>
+format=:svg
+</code></pre>
+<h2 id="51-pearson-correlation">5.1 Pearson correlation</h2>
+<p>$$ \mu_{1},\mu_{2} \sim \text{Gaussian}(0, 1/ \sqrt{.001})  $$
+$$ \sigma_{1},\sigma_{2} \sim \text{InvSqrtGamma} (.001, .001)  $$
+$$ r \sim \text{Uniform} (-1, 1) $$<br>
+$$ x_{i} \sim \text{MvGaussian} \left( (\mu_{1},\mu_{2}), \begin{bmatrix}\sigma_{1}^2 &amp; r\sigma_{1}\sigma_{2}\r\sigma_{1}\sigma_{2} &amp; \sigma_{2}^2\end{bmatrix} \right)  $$</p>
+<pre class="line-numbers language-julia"><code>
+x = [[0.8, 102.0], 
+     [1.0, 98.0], 
+     [0.5, 100.0], 
+     [0.9, 105.0], 
+     [0.7, 103.0], 
+     [0.4, 110.0],
+     [1.2, 99.0], 
+     [1.4, 87.0], 
+     [0.6, 113.0], 
+     [1.1, 89.0], 
+     [1.3, 93.0]]
+
+m = transpose(reduce(hcat, x));
+freq_correlation = cor(m[:, 1], m[:, 2])
+
+@model function PearsonCorrelationModel1(x)
+    r ~ Uniform(-1., 1.)
+    mu ~ filldist(Normal(0.0, 1. / sqrt(0.001)), 2)
+    lambda ~ filldist(truncated(Gamma(0.001, 1 / 0.001), lower=1e-7, upper=1000), 2)
+    sigma = 1 ./ sqrt.(lambda)
+    cov = [1/lambda[1]         r*sigma[1]*sigma[2]; 
+           r*sigma[1]*sigma[2] 1/lambda[2]]
+    for i in eachindex(x)
+        x[i] ~ MultivariateNormal(mu, cov)
+    end
+end
+</code></pre>
+<pre class="line-numbers language-julia"><code>
+iterations=10_000
+burnin=500
+chain = sample(PearsonCorrelationModel1(x), NUTS(1000, 0.9; init_ϵ=0.02), iterations, burnin=burnin
+    , init_theta=(r=-0.7, mu=[0.9, 100], lambda=[9, 0.02]))
+
+bayes_corr_plot = histogram(chain[:r], label=false, alpha=0.1, normalize=true)
+height = max(filter(e -> !(isnan(e)), bayes_corr_plot[1][1][:y])...)
+density!(chain[:r], label="Posterior Correlation", size=(600, 200))
+println("Freq Correlation:", freq_correlation)
+println("Posterior R Estimation:", mean(chain[:r] |> collect))
+plot!([freq_correlation, freq_correlation], [0, height], label="Freq Correlation", linewidth=4, fmt=format)
+</code></pre>
+<pre class="language-shell"><code>
+Sampling: 100%|█████████████████████████████████████████| Time: 0:00:01
+
+Freq Correlation:-0.8109670756358504
+Posterior R Estimation:-0.6949106643379455
+</code></pre>
+<p><img src="/images/bcm_julia_turing_005/output_6_2.svg" alt="svg"></p>
+<pre class="line-numbers language-julia"><code>
+s = scatter(m[:, 1], m[:, 2], size=(300, 300), fmt=format)
+</code></pre>
+<p><img src="/images/bcm_julia_turing_005/output_7_0.svg" alt="svg"></p>
+<pre class="line-numbers language-julia"><code>
+d1 = density(1. ./ sqrt.(chain[:"lambda[1]"]), size=(800, 150), label="sigma 1")
+d2 = density(1. ./ sqrt.(chain[:"lambda[2]"]), size=(800, 150), label="sigma 2")
+plot(d1, d2, fmt=format)
+</code></pre>
+<p><img src="/images/bcm_julia_turing_005/output_8_0.svg" alt="svg"></p>
+<pre class="line-numbers language-julia"><code>
+chain[[:r]]
+</code></pre>
+<pre class="language-shell"><code>
+Chains MCMC chain (10000×1×1 Array{Float64, 3}):
+
+Iterations        = 1001:1:11000
+Number of chains  = 1
+Samples per chain = 10000
+Wall duration     = 7.67 seconds
+Compute duration  = 7.67 seconds
+parameters        = r
+internals         = 
+
+Summary Statistics
+  parameters      mean       std   naive_se      mcse         ess      rhat    ⋯
+      Symbol   Float64   Float64    Float64   Float64     Float64   Float64    ⋯
+
+           r   -0.6949    0.1667     0.0017    0.0021   5186.3199    0.9999    ⋯
+                                                                1 column omitted
+
+Quantiles
+  parameters      2.5%     25.0%     50.0%     75.0%     97.5% 
+      Symbol   Float64   Float64   Float64   Float64   Float64 
+
+           r   -0.9148   -0.8141   -0.7305   -0.6141   -0.2717
+</code></pre>
+<h2 id="52-pearson-correlation-with-uncertainty">5.2 Pearson correlation with uncertainty</h2>
+<p>$$ \mu_{1},\mu_{2} \sim \text{Gaussian}(0, .001)  $$
+$$ \sigma_{1},\sigma_{2} \sim \text{InvSqrtGamma} (.001, .001)  $$
+$$ r \sim \text{Uniform} (-1, 1) $$<br>
+$$ y_{i} \sim \text{MvGaussian} ((\mu_{1},\mu_{2}), \begin{bmatrix}\sigma_{1}^2 &amp; r\sigma_{1}\sigma_{2}\r\sigma_{1}\sigma_{2} &amp; \sigma_{2}^2\end{bmatrix}^{-1})  $$
+$$ x_{ij} \sim \text{Gaussian}(y_{ij},\lambda_{j}^e) $$</p>
+<pre class="line-numbers language-julia"><code>
+x = [[0.8, 102.0], 
+     [1.0, 98.0], 
+     [0.5, 100.0], 
+     [0.9, 105.0], 
+     [0.7, 103.0], 
+     [0.4, 110.0],
+     [1.2, 99.0], 
+     [1.4, 87.0], 
+     [0.6, 113.0], 
+     [1.1, 89.0], 
+     [1.3, 93.0]]
+sigma_error = [0.03, 1.0]
+# sigma_error = [0.03, 10.0]
+
+m = transpose(reduce(hcat, x));
+freq_correlation = cor(m[:, 1], m[:, 2])
+
+@model function PearsonCorrelationModel2(x)
+    r ~ Uniform(-1., 1.)
+    mu ~ filldist(Normal(0.0, 1. / sqrt(0.001)), 2)
+    lambda ~ filldist(truncated(Gamma(0.001, 1 / 0.001), lower=1e-7, upper=1000), 2)
+    sigma = 1 ./ sqrt.(lambda)
+    cov = [1/lambda[1]         r*sigma[1]*sigma[2]; 
+           r*sigma[1]*sigma[2] 1/lambda[2]]
+    
+    y = Vector{Vector}(undef, length(x))
+    for i in eachindex(x)
+        y[i] ~ MultivariateNormal(mu, cov)
+        x[i] ~ MvNormal(y[i], sigma_error)
+    end
+end
+
+iterations=10_000
+burnin=5_000
+
+logger = Logging.SimpleLogger(Logging.Error)
+chain = Logging.with_logger(logger) do
+   sample(PearsonCorrelationModel2(x), NUTS(1000, 0.9; init_ϵ=0.02), iterations, burnin=burnin)
+end
+
+bayes_corr_plot = histogram(chain[:r], label=false, alpha=0.1, normalize=true)
+height = max(filter(e -> !(isnan(e)), bayes_corr_plot[1][1][:y])...)
+density!(chain[:r], label="Posterior Correlation", size=(600, 200))
+println("Freq Correlation:", freq_correlation)
+println("Posterior R Estimation:", mean(chain[:r] |> collect))
+plot!([freq_correlation, freq_correlation], [0, height], label="Freq Correlation", linewidth=4, fmt=format)
+</code></pre>
+<pre class="language-shell"><code>
+Sampling: 100%|█████████████████████████████████████████| Time: 0:00:10
+
+Freq Correlation:-0.8109670756358504
+Posterior R Estimation:-0.707698754727043
+</code></pre>
+<p><img src="/images/bcm_julia_turing_005/output_11_2.svg" alt="svg"></p>
+<pre class="line-numbers language-julia"><code>
+chain
+</code></pre>
+<pre class="language-shell"><code>
+Chains MCMC chain (10000×39×1 Array{Float64, 3}):
+
+Iterations        = 1001:1:11000
+Number of chains  = 1
+Samples per chain = 10000
+Wall duration     = 14.61 seconds
+Compute duration  = 14.61 seconds
+parameters        = r, mu[1], mu[2], lambda[1], lambda[2], y[1][1], y[1][2], 
+y[2][1], y[2][2], y[3][1], y[3][2], y[4][1], y[4][2], y[5][1], y[5][2], y[6][1], 
+y[6][2], y[7][1], y[7][2], y[8][1], y[8][2], y[9][1], y[9][2], y[10][1], y[10][2], 
+y[11][1], y[11][2]
+internals         = lp, n_steps, is_accept, acceptance_rate, log_density, 
+hamiltonian_energy, hamiltonian_energy_error, max_hamiltonian_energy_error, 
+tree_depth, numerical_error, step_size, nom_step_size
+
+Summary Statistics
+  parameters       mean       std   naive_se      mcse          ess      rhat  ⋯
+      Symbol    Float64   Float64    Float64   Float64      Float64   Float64  ⋯
+
+           r    -0.7077    0.1645     0.0016    0.0018    8325.4187    0.9999  ⋯
+       mu[1]     0.9196    0.1103     0.0011    0.0011    8824.5770    0.9999  ⋯
+       mu[2]    99.2518    2.6873     0.0269    0.0272    8605.3889    0.9999  ⋯
+   lambda[1]     9.6645    4.2193     0.0422    0.0395   11030.1791    0.9999  ⋯
+   lambda[2]     0.0164    0.0072     0.0001    0.0001   10264.5579    1.0006  ⋯
+     y[1][1]     0.8008    0.0299     0.0003    0.0003   17468.1463    0.9999  ⋯
+     y[1][2]   101.9749    0.9814     0.0098    0.0065   22015.0363    0.9999  ⋯
+     y[2][1]     0.9993    0.0296     0.0003    0.0002   20131.5447    0.9999  ⋯
+     y[2][2]    97.9950    1.0033     0.0100    0.0067   23034.7125    0.9999  ⋯
+     y[3][1]     0.5078    0.0295     0.0003    0.0002   23658.7533    0.9999  ⋯
+     y[3][2]   100.2488    0.9990     0.0100    0.0075   21035.4230    0.9999  ⋯
+     y[4][1]     0.8967    0.0303     0.0003    0.0003   13896.6164    1.0001  ⋯
+     y[4][2]   104.7986    0.9955     0.0100    0.0069   19690.0894    1.0000  ⋯
+     y[5][1]     0.7022    0.0296     0.0003    0.0002   20837.7832    1.0001  ⋯
+     y[5][2]   103.0138    0.9898     0.0099    0.0071   22622.8507    1.0000  ⋯
+     y[6][1]     0.4042    0.0292     0.0003    0.0002   19468.6436    0.9999  ⋯
+     y[6][2]   109.9443    0.9752     0.0098    0.0065   18272.1134    0.9999  ⋯
+     y[7][1]     1.1946    0.0304     0.0003    0.0002   21935.2455    1.0000  ⋯
+     y[7][2]    98.8367    0.9901     0.0099    0.0078   18614.5866    0.9999  ⋯
+     y[8][1]     1.3978    0.0300     0.0003    0.0002   18379.3279    0.9999  ⋯
+     y[8][2]    87.1597    0.9927     0.0099    0.0067   20195.1954    0.9999  ⋯
+     y[9][1]     0.5984    0.0297     0.0003    0.0002   17940.5118    1.0001  ⋯
+     y[9][2]   112.6867    0.9925     0.0099    0.0081   17646.8957    1.0000  ⋯
+      ⋮           ⋮          ⋮         ⋮          ⋮          ⋮           ⋮     ⋱
+                                                     1 column and 4 rows omitted
+
+Quantiles
+  parameters       2.5%      25.0%      50.0%      75.0%      97.5% 
+      Symbol    Float64    Float64    Float64    Float64    Float64 
+
+           r    -0.9236    -0.8272    -0.7429    -0.6258    -0.2935
+       mu[1]     0.7075     0.8488     0.9173     0.9883     1.1435
+       mu[2]    93.6298    97.6217    99.3438   100.9859   104.3339
+   lambda[1]     3.2546     6.5745     9.0539    12.1124    19.6782
+   lambda[2]     0.0057     0.0111     0.0153     0.0205     0.0331
+     y[1][1]     0.7428     0.7805     0.8007     0.8208     0.8603
+     y[1][2]   100.0329   101.3261   101.9774   102.6141   103.9200
+     y[2][1]     0.9410     0.9793     0.9992     1.0192     1.0562
+     y[2][2]    96.0241    97.3035    97.9938    98.6829    99.9415
+     y[3][1]     0.4497     0.4876     0.5076     0.5278     0.5658
+     y[3][2]    98.2955    99.5667   100.2461   100.9326   102.1994
+     y[4][1]     0.8372     0.8763     0.8967     0.9170     0.9570
+     y[4][2]   102.8479   104.1349   104.7939   105.4598   106.7453
+     y[5][1]     0.6433     0.6823     0.7023     0.7220     0.7609
+     y[5][2]   101.0435   102.3509   103.0184   103.6796   104.9578
+     y[6][1]     0.3471     0.3846     0.4042     0.4241     0.4613
+     y[6][2]   108.0433   109.2915   109.9499   110.5899   111.8738
+     y[7][1]     1.1344     1.1742     1.1943     1.2150     1.2541
+     y[7][2]    96.9020    98.1683    98.8344    99.5087   100.7409
+     y[8][1]     1.3398     1.3775     1.3979     1.4182     1.4563
+     y[8][2]    85.2048    86.5008    87.1558    87.8195    89.0989
+     y[9][1]     0.5395     0.5787     0.5985     0.6181     0.6566
+     y[9][2]   110.7736   112.0166   112.6787   113.3587   114.6394
+      ⋮           ⋮          ⋮          ⋮          ⋮          ⋮
+                                                       4 rows omitted
+</code></pre>
+<h2 id="53-the-kappa-coefficient-of-agreement">5.3 The kappa coefficient of agreement</h2>
+<p>$$ \kappa = (\xi-\psi)/(1-\psi)  $$
+$$ \xi = \alpha\beta + (1-\alpha) \gamma  $$
+$$ \psi = (\pi_{a}+\pi_{b})(\pi_{a}+\pi_{c})+(\pi_{b}+\pi_{d})(\pi_{c}+\pi_{d})  $$
+$$ \alpha,\beta,\gamma \sim \text{Beta} (1, 1) $$<br>
+$$ \pi_{a} = \alpha\beta  $$
+$$ \pi_{b} = \alpha(1-\beta)  $$<br>
+$$ \pi_{c} = (1-\alpha)(1-\gamma)  $$<br>
+$$ \pi_{d} = (1-\alpha)\gamma  $$<br>
+$$ x \sim \text{Multinomial} ([\pi_{a},\pi_{b},\pi_{c},\pi_{d}],n)  $$</p>
+<pre class="line-numbers language-julia"><code>
+# Influenza
+x = [14, 4, 5, 210]
+
+# Hearing Loss
+# x = [20, 7, 103, 417]
+# Rare Disease
+# x = [0, 0, 13, 157]
+
+@model function KappaCoefficientAgreement(x)
+    alpha ~ Beta(1, 1)
+    beta ~ Beta(1, 1)
+    gamma ~ Beta(1, 1)
+    
+    pi1 = alpha * beta
+    pi2 = alpha * (1 - beta)
+    pi3 = (1 - alpha) * (1 - gamma)
+    pi4 = (1 - alpha) * gamma
+    
+    xi = alpha * beta + (1 - alpha) * gamma
+    
+    x ~ Multinomial(sum(x), [pi1, pi2, pi3, pi4])
+    
+    psi = (pi1 + pi2) * (pi1 + pi3) + (pi2 + pi4) * (pi3 + pi4)
+    kappa = (xi - psi) / (1 - psi)
+    
+    return (psi=psi, kappa=kappa)
+end
+
+iterations=10_000
+burnin=5_000
+
+model_kappa = KappaCoefficientAgreement(x)
+chain = sample(model_kappa, NUTS(), iterations, burnin=burnin)
+chains_params = Turing.MCMCChains.get_sections(chain, :parameters)
+quantities = generated_quantities(model_kappa, chains_params);
+</code></pre>
+<pre class="language-shell"><code>
+Sampling: 100%|█████████████████████████████████████████| Time: 0:00:00
+</code></pre>
+<pre class="line-numbers language-julia"><code>
+plot(chains_params, size=(600, 800), 
+    left_margin=10Plots.mm, 
+    bottom_margin=10Plots.mm, 
+    fmt=format)
+</code></pre>
+<p><img src="/images/bcm_julia_turing_005/output_15_0.svg" alt="svg"></p>
+<pre class="line-numbers language-julia"><code>
+n = sum(x)
+p0 = (x[1] + x[4]) / n
+pe = (((x[1] + x[2]) * (x[1] + x[3])) + ((x[2] + x[4]) * (x[3] + x[4]))) / (n ^ 2)
+kappa_cohen = (p0 - pe) / (1 - pe)
+</code></pre>
+<pre class="language-shell"><code>
+0.7357943807483934
+</code></pre>
+<pre class="line-numbers language-julia"><code>
+kappa = map(x -> x[:kappa], quantities)
+
+h = histogram(kappa, size=(500, 300), alpha=0.2, normalize=true, label=false)
+height = max(filter(e -> !(isnan(e)), h[1][1][:y])...)
+density!(kappa, label="Posterior Kappa")
+
+println("Freq:", kappa_cohen)
+println("Mean Posterior:", mean(kappa))
+plot!([kappa_cohen, kappa_cohen], [0, height], label="Freq Kappa", linewidth=4, fmt=format)
+</code></pre>
+<pre class="language-shell"><code>
+Freq:0.7357943807483934
+Mean Posterior:0.6981673531822107
+</code></pre>
+<p><img src="/images/bcm_julia_turing_005/output_17_1.svg" alt="svg"></p>
+<h2 id="54-change-detection-in-time-series-data">5.4 Change detection in time series data</h2>
+<p>$$ \mu_{1},\mu_{2} \sim \text{Gaussian}(0, 1 / \sqrt{.001})  $$
+$$ \lambda \sim \text{Gamma} (.001, .001)  $$
+$$ \tau \sim \text{Uniform} (0, t_{max}) $$<br>
+$$   c_{i} \sim \begin{cases} \text{Gaussian}(\mu_{1}, \lambda),  &amp; \text{if $t_{i} \lt \tau$} \ \text{Gaussian}(\mu_{2}, \lambda),  &amp; \text{if $t_{i} \ge \tau$} \end{cases}  $$</p>
+<pre class="line-numbers language-julia"><code>
+df = DataFrame(CSV.File("changepointdata.csv"));
+</code></pre>
+<pre class="line-numbers language-julia"><code>
+x = df.data
+n = length(x)
+
+@model function ChangePointTimeSeries(x, x_index)
+    mu ~ MvNormal([0, 0], sqrt(1000) * ones(2))
+    lambd ~ truncated(Gamma(0.001, 1 / 0.001), lower=1e-7, upper=1000)
+    
+    tau ~ Uniform(1, length(x))
+    is_less_than_tau = x_index .< tau
+    
+    for i in eachindex(x)
+        if is_less_than_tau[i] > 0
+            x[i] ~ Normal(mu[1], 1/lambd)
+        else
+            x[i] ~ Normal(mu[2], 1/lambd)
+        end
+    end
+end
+
+iterations=2_000
+burnin=1000
+
+model_changepoint = ChangePointTimeSeries(x, eachindex(x) |> collect)
+chain = sample(model_changepoint, NUTS(), iterations)
+</code></pre>
+<pre class="language-shell"><code>
+Sampling: 100%|█████████████████████████████████████████| Time: 0:00:50
+
+Chains MCMC chain (2000×16×1 Array{Float64, 3}):
+
+Iterations        = 1001:1:3000
+Number of chains  = 1
+Samples per chain = 2000
+Wall duration     = 53.36 seconds
+Compute duration  = 53.36 seconds
+parameters        = mu[1], mu[2], lambd, tau
+internals         = lp, n_steps, is_accept, acceptance_rate, log_density, 
+hamiltonian_energy, hamiltonian_energy_error, max_hamiltonian_energy_error, 
+tree_depth, numerical_error, step_size, nom_step_size
+
+Summary Statistics
+  parameters       mean       std   naive_se      mcse        ess      rhat    ⋯
+      Symbol    Float64   Float64    Float64   Float64    Float64   Float64    ⋯
+
+       mu[1]    37.8935    0.2519     0.0056    0.0081   848.0341    0.9998    ⋯
+       mu[2]    30.5731    0.3347     0.0075    0.0141   511.1892    1.0075    ⋯
+       lambd     0.1462    0.0031     0.0001    0.0002   515.3547    0.9999    ⋯
+         tau   732.5357    2.6711     0.0597    0.1192   527.5883    1.0063    ⋯
+                                                                1 column omitted
+
+Quantiles
+  parameters       2.5%      25.0%      50.0%      75.0%      97.5% 
+      Symbol    Float64    Float64    Float64    Float64    Float64 
+
+       mu[1]    37.3788    37.7242    37.8973    38.0655    38.3694
+       mu[2]    29.9319    30.3368    30.5773    30.8057    31.2169
+       lambd     0.1405     0.1440     0.1462     0.1483     0.1527
+         tau   729.0119   731.1409   731.7966   733.9456   738.6237
+</code></pre>
+<pre class="line-numbers language-julia"><code>
+p1 = plot(eachindex(x) |> collect, x, size=(800, 300), label=false, alpha=0.5)
+mu1 = mean(chain[:"mu[1]"])
+mu2 = mean(chain[:"mu[2]"])
+mean_tau = mean(chain[:tau])
+
+plot!([1, mean_tau], [mu1, mu1], label=L"\overline{\mu_1}", linewidth=4, color="red")
+plot!([mean_tau, length(x)], [mu2, mu2], label=L"\overline{\mu_2}", linewidth=4, color="red")
+plot!([mean_tau, mean_tau], [mu1, mu2], label=L"\overline{\tau}", linewidth=4, color="green")
+
+p2 = histogram(chain[:tau], size=(800, 300), label=L"\tau", color="green")
+plot(p1, p2; layout=(2,1), size=(800, 500), fmt=format)
+</code></pre>
+<p><img src="/images/bcm_julia_turing_005/output_21_0.svg" alt="svg"></p>
+<pre class="line-numbers language-julia"><code>
+plot(chain, left_margin=10Plots.mm, bottom_margin=10Plots.mm, fmt=format)
+</code></pre>
+<p><img src="/images/bcm_julia_turing_005/output_22_0.svg" alt="svg"></p>
+<h2 id="55-censored-data">5.5 Censored data</h2>
+<p>$$ \theta \sim \text{Uniform}(0.25, 1) $$
+$$ z_{i} \sim \text{Binomial}(\theta, n) $$
+$$ 15 \le z_{i} \le 25, \text{if} ; y_{i} = 1 $$</p>
+<pre class="line-numbers language-julia"><code>
+x = 30
+n = 50
+nfails = 949
+range_unobs = 15:25 |> collect
+z = 30
+
+function censor_likelihood(n, p, range_unobs, nfails)
+    return loglikelihood(Binomial(n, p), range_unobs) * nfails 
+end
+
+@model function ChaSaSoon(x, n, range_unobs, nfails)
+    theta ~ Uniform(0.25, 1.0)
+    x ~ Binomial(n, theta)
+    Turing.@addlogprob! censor_likelihood(n, theta, range_unobs, nfails)
+end
+
+iterations=10_000
+burnin=1000
+
+model_chachasoon = ChaSaSoon(x, n, range_unobs, nfails)
+chain = sample(model_chachasoon, NUTS(), iterations, burnin=burnin)
+plot(chain, size=(800,300), left_margin=10Plots.mm, bottom_margin=10Plots.mm, fmt=format)
+</code></pre>
+<p><img src="/images/bcm_julia_turing_005/output_24_1.svg" alt="svg"></p>
+<h2 id="56-recapturing-planes">5.6 Recapturing planes</h2>
+<p>$$ k \sim \text{Hypergeometric}(n, x, t) $$
+$$ t  \sim \text{Categorical}(\alpha) $$</p>
+<pre class="line-numbers language-julia"><code>
+x = 10  # number of captures
+k = 4  # number of recaptures from n
+n = 5  # size of second sample
+tmax = 50  # maximum population size
+
+lower = x + (n - k)
+upper = tmax
+
+bin_categorial = length(lower:upper)
+
+@model function RecapturingPlanes(k)
+    t ~ DiscreteUniform(lower, upper)
+    k ~ Hypergeometric(x, t - x , n)
+end
+
+iterations=10_000
+burnin=1000
+
+recapturing_planes = RecapturingPlanes(k)
+chain = sample(recapturing_planes, SMC(), iterations, burnin=burnin)
+</code></pre>
+<pre class="language-shell"><code>
+Sampling: 100%|█████████████████████████████████████████| Time: 0:00:00
+
+Chains MCMC chain (10000×3×1 Array{Float64, 3}):
+
+Log evidence      = -2.2807174322546118
+Iterations        = 1:1:10000
+Number of chains  = 1
+Samples per chain = 10000
+Wall duration     = 11.31 seconds
+Compute duration  = 11.31 seconds
+parameters        = t
+internals         = lp, weight
+
+Summary Statistics
+  parameters      mean       std   naive_se      mcse         ess      rhat    ⋯
+      Symbol   Float64   Float64    Float64   Float64     Float64   Float64    ⋯
+
+           t   17.1500    6.7442     0.0674    0.0860   5737.4943    1.0000    ⋯
+                                                                1 column omitted
+
+Quantiles
+  parameters      2.5%     25.0%     50.0%     75.0%     97.5% 
+      Symbol   Float64   Float64   Float64   Float64   Float64 
+
+           t   11.0000   13.0000   15.0000   19.0000   37.0000
+</code></pre>
+<pre class="line-numbers language-julia"><code>
+plot(chain, left_margin=10Plots.mm, bottom_margin=10Plots.mm, fmt=format)
+</code></pre>
+<p><img src="/images/bcm_julia_turing_005/output_27_0.svg" alt="svg"></p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/playground">playground</a></li>
+								
+								<li><a href="/tags/julia">julia</a></li>
+								
+								<li><a href="/tags/turing">turing</a></li>
+								
+								<li><a href="/tags/bayesian">bayesian</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> quangtiencs ➤ bet on myself &amp; beat the odds | 
+	</nav>
+</div><script>feather.replace()</script>
+</body>
+</html>
