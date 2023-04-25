@@ -16,8 +16,7 @@
       <guid>https://quangtiencs.com/posts/turing_julia_bcm_chapter_005/</guid>
       <description>Github: https://github.com/quangtiencs/learning_notebook/blob/main/bcm-bayesian-cognitive-modeling/turing.jl-julia/ParameterEstimation/DataAnalysis.ipynb
 using Logging using DynamicPPL, Turing using Zygote, ReverseDiff using StatsPlots, Random using LaTeXStrings using CSV using DataFrames using SpecialFunctions using LinearAlgebra using FillArrays using CSV, DataFrames Random.seed!(6) format=:svg 5.1 Pearson correlation $$ \mu_{1},\mu_{2} \sim \text{Gaussian}(0, 1/ \sqrt{.001}) $$ $$ \sigma_{1},\sigma_{2} \sim \text{InvSqrtGamma} (.001, .001) $$ $$ r \sim \text{Uniform} (-1, 1) $$
-$$ x_{i} \sim \text{MvGaussian} \left( (\mu_{1},\mu_{2}), \begin{bmatrix}\sigma_{1}^2 &amp;amp; r\sigma_{1}\sigma_{2}\r\sigma_{1}\sigma_{2} &amp;amp; \sigma_{2}^2\end{bmatrix} \right) $$
-x = [[0.</description>
+$$ x_{i} \sim \text{MvGaussian} \left( (\mu_{1},\mu_{2}), \begin{bmatrix} \sigma_{1}^2 &amp;amp; r\sigma_{1}\sigma_{2} \\ r\sigma_{1}\sigma_{2} &amp;amp; \sigma_{2}^2\end{bmatrix} \right) $$</description>
     </item>
     
     <item>
