@@ -196,6 +196,11 @@
 <!-- To automatically render math in text elements, include the auto-render extension: -->
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
 <p>Github: <a href="https://github.com/quangtiencs/learning_notebook/blob/main/bcm-bayesian-cognitive-modeling/turing.jl-julia/ParameterEstimation/DataAnalysis.ipynb">https://github.com/quangtiencs/learning_notebook/blob/main/bcm-bayesian-cognitive-modeling/turing.jl-julia/ParameterEstimation/DataAnalysis.ipynb</a></p>
+<p>Bayesian Cognitive Modeling is one of the classical books for Bayesian Inference. The old version used WinBUGS/JAG software as the main implementation. You can find other implementations, such as Stan and PyMC, in the below link. I reimplemented these source codes with Julia Programming Language &amp; Turing library in this tutorial.</p>
+<ul>
+<li>WinBUGS/JAGS (official) &amp; Stan: <a href="https://bayesmodels.com/">https://bayesmodels.com/</a></li>
+<li>PyMC: <a href="https://github.com/pymc-devs/pymc-resources/tree/main/BCM">https://github.com/pymc-devs/pymc-resources/tree/main/BCM</a></li>
+</ul>
 <pre class="line-numbers language-julia"><code>
 using Logging
 using DynamicPPL, Turing

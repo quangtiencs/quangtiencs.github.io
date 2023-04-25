@@ -15,8 +15,8 @@
       
       <guid>https://quangtiencs.com/posts/turing_julia_bcm_chapter_005/</guid>
       <description>Github: https://github.com/quangtiencs/learning_notebook/blob/main/bcm-bayesian-cognitive-modeling/turing.jl-julia/ParameterEstimation/DataAnalysis.ipynb
-using Logging using DynamicPPL, Turing using Zygote, ReverseDiff using StatsPlots, Random using LaTeXStrings using CSV using DataFrames using SpecialFunctions using LinearAlgebra using FillArrays using CSV, DataFrames Random.seed!(6) format=:svg 5.1 Pearson correlation $$ \mu_{1},\mu_{2} \sim \text{Gaussian}(0, 1/ \sqrt{.001}) $$ $$ \sigma_{1},\sigma_{2} \sim \text{InvSqrtGamma} (.001, .001) $$ $$ r \sim \text{Uniform} (-1, 1) $$
-$$ x_{i} \sim \text{MvGaussian} \left( (\mu_{1},\mu_{2}), \begin{bmatrix} \sigma_{1}^2 &amp;amp; r\sigma_{1}\sigma_{2} \\ r\sigma_{1}\sigma_{2} &amp;amp; \sigma_{2}^2\end{bmatrix} \right) $$</description>
+Bayesian Cognitive Modeling is one of the classical books for Bayesian Inference. The old version used WinBUGS/JAG software as the main implementation. You can find other implementations, such as Stan and PyMC, in the below link. I reimplemented these source codes with Julia Programming Language &amp;amp; Turing library in this tutorial.
+WinBUGS/JAGS (official) &amp;amp; Stan: https://bayesmodels.com/ PyMC: https://github.com/pymc-devs/pymc-resources/tree/main/BCM using Logging using DynamicPPL, Turing using Zygote, ReverseDiff using StatsPlots, Random using LaTeXStrings using CSV using DataFrames using SpecialFunctions using LinearAlgebra using FillArrays using CSV, DataFrames Random.</description>
     </item>
     
     <item>
