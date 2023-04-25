@@ -314,7 +314,7 @@ Quantiles
 <p>$$ \mu_{1},\mu_{2} \sim \text{Gaussian}(0, .001)  $$
 $$ \sigma_{1},\sigma_{2} \sim \text{InvSqrtGamma} (.001, .001)  $$
 $$ r \sim \text{Uniform} (-1, 1) $$<br>
-$$ y_{i} \sim \text{MvGaussian} \left((\mu_{1},\mu_{2}), \begin{bmatrix}\sigma_{1}^2 &amp; r\sigma_{1}\sigma_{2} \\ r\sigma_{1}\sigma_{2} &amp; \sigma_{2}^2\end{bmatrix}^{-1} \right)  $$
+$$ y_{i} \sim \text{MvGaussian} \left((\mu_{1},\mu_{2}), \begin{bmatrix}\sigma_{1}^2 &amp; r\sigma_{1}\sigma_{2} \\ r\sigma_{1}\sigma_{2} &amp; \sigma_{2}^2\end{bmatrix} \right)  $$
 $$ x_{ij} \sim \text{Gaussian}(y_{ij},\lambda_{j}^e) $$</p>
 <pre class="line-numbers language-julia"><code>
 x = [[0.8, 102.0], 
