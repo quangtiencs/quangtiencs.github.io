@@ -2,28 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://quangtiencs.com/posts/turing_julia_bcm_chapter_005/</loc>
-    <lastmod>2023-04-23T08:00:00+07:00</lastmod>
+    <loc>https://quangtiencs.com/posts/turing_julia_bcm_chapter_009/</loc>
+    <lastmod>2023-07-23T08:00:00+07:00</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/tags/bayesian/</loc>
-    <lastmod>2023-04-23T08:00:00+07:00</lastmod>
+    <lastmod>2023-07-23T08:00:00+07:00</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/tags/julia/</loc>
-    <lastmod>2023-04-23T08:00:00+07:00</lastmod>
+    <lastmod>2023-07-23T08:00:00+07:00</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/tags/playground/</loc>
-    <lastmod>2023-04-23T08:00:00+07:00</lastmod>
+    <lastmod>2023-07-23T08:00:00+07:00</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/posts/</loc>
-    <lastmod>2023-04-23T08:00:00+07:00</lastmod>
+    <lastmod>2023-07-23T08:00:00+07:00</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/</loc>
-    <lastmod>2023-04-23T08:00:00+07:00</lastmod>
+    <lastmod>2023-07-23T08:00:00+07:00</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/tags/</loc>
-    <lastmod>2023-04-23T08:00:00+07:00</lastmod>
+    <lastmod>2023-07-23T08:00:00+07:00</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/tags/turing/</loc>
+    <lastmod>2023-07-23T08:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/posts/turing_julia_bcm_chapter_008/</loc>
+    <lastmod>2023-05-30T08:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/posts/turing_julia_bcm_chapter_006/</loc>
+    <lastmod>2023-05-23T08:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/posts/turing_julia_bcm_chapter_005/</loc>
     <lastmod>2023-04-23T08:00:00+07:00</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/posts/turing_julia_bcm_chapter_004/</loc>
