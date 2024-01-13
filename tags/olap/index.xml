@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>olap on quangtiencs</title>
+    <link>https://quangtiencs.com/tags/olap/</link>
+    <description>Recent content in olap on quangtiencs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
+    <lastBuildDate>Sat, 13 Jan 2024 08:00:00 +0700</lastBuildDate>
+    <atom:link href="https://quangtiencs.com/tags/olap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[daft] How DuckDB transformed my data science workflow</title>
+      <link>https://quangtiencs.com/posts/md_notebook/duckdb/</link>
+      <pubDate>Sat, 13 Jan 2024 08:00:00 +0700</pubDate>
+      <guid>https://quangtiencs.com/posts/md_notebook/duckdb/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -7,88 +7,74 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
-    <lastBuildDate>Sun, 23 Jul 2023 08:00:00 +0700</lastBuildDate><atom:link href="https://quangtiencs.com/tags/playground/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Jul 2023 08:00:00 +0700</lastBuildDate>
+    <atom:link href="https://quangtiencs.com/tags/playground/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[playground] Julia Turing.jl : Bayesian Cognitive Modeling - Comparing binomial rates</title>
       <link>https://quangtiencs.com/posts/turing_julia_bcm_chapter_009/</link>
       <pubDate>Sun, 23 Jul 2023 08:00:00 +0700</pubDate>
-      
       <guid>https://quangtiencs.com/posts/turing_julia_bcm_chapter_009/</guid>
       <description>Github: https://github.com/quangtiencs/bayesian-cognitive-modeling-with-turing.jl
 Bayesian Cognitive Modeling is one of the classical books for Bayesian Inference. The old version used WinBUGS/JAG software as the main implementation. You can find other implementations, such as Stan and PyMC, in the below link. I reimplemented these source codes with Julia Programming Language &amp;amp; Turing library in this tutorial.
 WinBUGS/JAGS (official) &amp;amp; Stan: https://bayesmodels.com/ PyMC: https://github.com/pymc-devs/pymc-resources/tree/main/BCM using Pkg using Logging using DynamicPPL, Turing using Zygote, ReverseDiff using StatsPlots, Random using LaTeXStrings using CSV using DataFrames using SpecialFunctions using LinearAlgebra using FillArrays using CSV, DataFrames using LogExpFunctions using KernelDensity using Interpolations using Statistics using StatsBase using Dierckx format=:png :png Random.</description>
     </item>
-    
     <item>
       <title>[playground] Julia Turing.jl : Bayesian Cognitive Modeling - Comparing Gaussian means</title>
       <link>https://quangtiencs.com/posts/turing_julia_bcm_chapter_008/</link>
       <pubDate>Tue, 30 May 2023 08:00:00 +0700</pubDate>
-      
       <guid>https://quangtiencs.com/posts/turing_julia_bcm_chapter_008/</guid>
       <description>Github: https://github.com/quangtiencs/bayesian-cognitive-modeling-with-turing.jl
 Bayesian Cognitive Modeling is one of the classical books for Bayesian Inference. The old version used WinBUGS/JAG software as the main implementation. You can find other implementations, such as Stan and PyMC, in the below link. I reimplemented these source codes with Julia Programming Language &amp;amp; Turing library in this tutorial.
 WinBUGS/JAGS (official) &amp;amp; Stan: https://bayesmodels.com/ PyMC: https://github.com/pymc-devs/pymc-resources/tree/main/BCM using Pkg using Logging using DynamicPPL, Turing using Zygote, ReverseDiff using StatsPlots, Random using LaTeXStrings using CSV using DataFrames using SpecialFunctions using LinearAlgebra using FillArrays using CSV, DataFrames using LogExpFunctions using KernelDensity format=:png :png Random.</description>
     </item>
-    
     <item>
       <title>[playground] Julia Turing.jl : Bayesian Cognitive Modeling - Latent-mixture models</title>
       <link>https://quangtiencs.com/posts/turing_julia_bcm_chapter_006/</link>
       <pubDate>Tue, 23 May 2023 08:00:00 +0700</pubDate>
-      
       <guid>https://quangtiencs.com/posts/turing_julia_bcm_chapter_006/</guid>
       <description>Github: https://github.com/quangtiencs/bayesian-cognitive-modeling-with-turing.jl
 Bayesian Cognitive Modeling is one of the classical books for Bayesian Inference. The old version used WinBUGS/JAG software as the main implementation. You can find other implementations, such as Stan and PyMC, in the below link. I reimplemented these source codes with Julia Programming Language &amp;amp; Turing library in this tutorial.
 WinBUGS/JAGS (official) &amp;amp; Stan: https://bayesmodels.com/ PyMC: https://github.com/pymc-devs/pymc-resources/tree/main/BCM using Pkg using Logging using DynamicPPL, Turing using Zygote, ReverseDiff using StatsPlots, Random using LaTeXStrings using CSV using DataFrames using SpecialFunctions using LinearAlgebra using FillArrays using CSV, DataFrames using LogExpFunctions using KernelDensity format=:png :png Random.</description>
     </item>
-    
     <item>
       <title>[playground] Julia Turing.jl : Bayesian Cognitive Modeling - Some examples of data analysis</title>
       <link>https://quangtiencs.com/posts/turing_julia_bcm_chapter_005/</link>
       <pubDate>Sun, 23 Apr 2023 08:00:00 +0700</pubDate>
-      
       <guid>https://quangtiencs.com/posts/turing_julia_bcm_chapter_005/</guid>
       <description>Github: https://github.com/quangtiencs/bayesian-cognitive-modeling-with-turing.jl
 Bayesian Cognitive Modeling is one of the classical books for Bayesian Inference. The old version used WinBUGS/JAG software as the main implementation. You can find other implementations, such as Stan and PyMC, in the below link. I reimplemented these source codes with Julia Programming Language &amp;amp; Turing library in this tutorial.
 WinBUGS/JAGS (official) &amp;amp; Stan: https://bayesmodels.com/ PyMC: https://github.com/pymc-devs/pymc-resources/tree/main/BCM using Logging using DynamicPPL, Turing using Zygote, ReverseDiff using StatsPlots, Random using LaTeXStrings using CSV using DataFrames using SpecialFunctions using LinearAlgebra using FillArrays using CSV, DataFrames Random.</description>
     </item>
-    
     <item>
       <title>[playground] Julia Turing.jl : Bayesian Cognitive Modeling - Inferences with gaussians</title>
       <link>https://quangtiencs.com/posts/turing_julia_bcm_chapter_004/</link>
       <pubDate>Wed, 22 Mar 2023 08:00:00 +0700</pubDate>
-      
       <guid>https://quangtiencs.com/posts/turing_julia_bcm_chapter_004/</guid>
       <description>Github: https://github.com/quangtiencs/bayesian-cognitive-modeling-with-turing.jl
 using DynamicPPL, Turing using StatsPlots, Random using LaTeXStrings using CSV using DataFrames using SpecialFunctions format=:png 4.1 Inferring a mean and standard deviation $$ \mu \sim \text{Gaussian}(0, \sqrt{1000}) $$ $$ \sigma \sim \text{Uniform} (0, 10) $$ $$ x_{i} \sim \text{Gaussian} (\mu, \sigma^2) $$
 x = [1.1, 1.9, 2.3, 1.8] @model function GaussianModel(x) mu ~ Normal(0, sqrt(1000)) sigma ~ Uniform(0, 10.0) for i in eachindex(x) x[i] ~ Normal(mu, sigma) end end iterations=10_000 chain = sample(GaussianModel(x), NUTS(2000, 0.</description>
     </item>
-    
     <item>
       <title>[playground] Julia Turing.jl : Bayesian Cognitive Modeling - Inferences with binomials</title>
       <link>https://quangtiencs.com/posts/turing_julia_bcm_chapter_003/</link>
       <pubDate>Sat, 18 Mar 2023 08:00:00 +0700</pubDate>
-      
       <guid>https://quangtiencs.com/posts/turing_julia_bcm_chapter_003/</guid>
       <description>Github: https://github.com/quangtiencs/bayesian-cognitive-modeling-with-turing.jl
 3.1 Inferring a rate $$ \theta \sim \text{Beta}(1, 1) $$ $$ k \sim \text{Binomial} ( \theta, n) $$
 using DynamicPPL, Turing using StatsPlots, Random using LaTeXStrings using CSV using DataFrames using SpecialFunctions k = 5 n = 10 @model function BinomialModel(k) theta ~ Beta(1, 1) k ~ Binomial(n, theta) end iterations = 1_000 ϵ = 0.05 τ = 10 chain = sample(BinomialModel(k), HMC(ϵ, τ), iterations) p = histogram(chain[:theta], label=L&#34;</description>
     </item>
-    
     <item>
       <title>Probabilistic Programming 2023</title>
       <link>https://quangtiencs.com/posts/probabilistic_programming_2023/</link>
       <pubDate>Fri, 10 Feb 2023 08:00:00 +0700</pubDate>
-      
       <guid>https://quangtiencs.com/posts/probabilistic_programming_2023/</guid>
       <description>Probabilistic Programming 2023, some libraries that I recently used:
 PyMC: well-designed API with concise documentation. It&amp;rsquo;s faster and more customizable than before because the predecessor (the Theno backend) was replaced by the Aesara backend (compiling to C and Jax). BlackJax: for hacking log-density lovers. There&amp;rsquo;re some new algorithms like Stochastic gradient Langevin dynamics. BlackJax is not a complete probabilistic programming language. It integrates well with the PPLs backend by Jax. Stan: a domain-specific language for statistical modeling and one of the fastest samplers.</description>
     </item>
-    
     <item>
       <title>[playground] Tensorflow.Js &amp; Typescript [4]: Quantile Regression</title>
       <link>https://quangtiencs.com/posts/tensorflowjs_typescript_04/</link>
       <pubDate>Mon, 23 Jan 2023 08:00:00 +0700</pubDate>
-      
       <guid>https://quangtiencs.com/posts/tensorflowjs_typescript_04/</guid>
       <description>Quantile Regression is one of the practical techniques for many real problems. In this tutorial, we will implement a custom loss for TensorflowJS.
 Quantile Loss:
@@ -96,39 +82,32 @@ $$\mathcal{L}(y_{\mathtt{true}}, y_{\mathtt{pred}}) = \begin{cases} (y_{\mathtt{
 Or for easy computing:
 $$\mathcal{L}(y_{\mathtt{true}}, y_{\mathtt{pred}}) = \mathtt{max}((y_{\mathtt{true}} - y_{\mathtt{pred}}) \alpha, (y_{\mathtt{true}} - y_{\mathtt{pred}}) (\alpha - 1)) $$</description>
     </item>
-    
     <item>
       <title>[playground] Tensorflow.Js &amp; Typescript [3]: Modeling</title>
       <link>https://quangtiencs.com/posts/tensorflowjs_typescript_03/</link>
       <pubDate>Sun, 22 Jan 2023 20:00:00 +0700</pubDate>
-      
       <guid>https://quangtiencs.com/posts/tensorflowjs_typescript_03/</guid>
       <description>Tensorflow.JS provides an application programming interface similar to Tensorflow (Python API). Although it has few choices (layers, models, optimizers), it is still helpful in some applications that need online learning on client devices.
 1. APIs: Sometimes useful:
 Layers API: tf.layers.dense, tf.layers.dropout, tf.layers.embedding, tf.layers.dense (elu, hardSigmoid, linear, relu, relu6, selu, sigmoid, softmax, softplus, softsign, tanh, swish, mish), Model API: tf.sequential, tf.model. Build-In Optimizers: sgd, adagrad, adadelta, adam, adamax, rmsprop. Build-In Loss functions: tf.</description>
     </item>
-    
     <item>
       <title>[playground] Tensorflow.Js &amp; Typescript [2]: Memory management</title>
       <link>https://quangtiencs.com/posts/tensorflowjs_typescript_02/</link>
       <pubDate>Sat, 05 Nov 2022 00:00:00 +0530</pubDate>
-      
       <guid>https://quangtiencs.com/posts/tensorflowjs_typescript_02/</guid>
       <description>Management Memory is essential for every program to work efficiently. Although Javascript has a Garbage Collector, our programs with TensorflowJS don&amp;rsquo;t get the same automatic memory management.
 The tensor objects are persistent with the memory, although the javascript variable has no reference. This lead to memory leak problem.
 Let&amp;rsquo;s understand the problem deeper through examples!
 1. Memory information: Sometimes you need to get your memory information, and these functions are helpful:</description>
     </item>
-    
     <item>
       <title>[playground] Tensorflow.Js &amp; Typescript [1]: Quick Start</title>
       <link>https://quangtiencs.com/posts/tensorflowjs_typescript_01/</link>
       <pubDate>Tue, 27 Sep 2022 00:00:00 +0530</pubDate>
-      
       <guid>https://quangtiencs.com/posts/tensorflowjs_typescript_01/</guid>
       <description>TensorFlow is one of the most well-known libraries for machine learning. The most significant advantage of TensorFlow versus other libraries is designed to simplify the development of cross-platform projects.
 These days, TensorFlow.js (Javascript) is a sub-project of Tensorflow that support three environments: Node.js, Web browser, and Mobile (via React Native). Unfortunately, Javascript is not a good programming language for data science projects because it is easy to make mistakes with little experience.</description>
     </item>
-    
   </channel>
 </rss>
