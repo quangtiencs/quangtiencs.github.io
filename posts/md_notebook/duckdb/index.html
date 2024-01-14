@@ -3031,9 +3031,10 @@ vertical-align: -.125em;
   <ul>
   <li><a href="#daft-how-duckdb-transformed-my-data-science-workflow" id="toc-daft-how-duckdb-transformed-my-data-science-workflow" class="nav-link active" data-scroll-target="#daft-how-duckdb-transformed-my-data-science-workflow">[daft] How DuckDB transformed my data science workflow</a>
   <ul class="collapse">
-  <li><a href="#multiple-sources-and-easy-to-integrate" id="toc-multiple-sources-and-easy-to-integrate" class="nav-link" data-scroll-target="#multiple-sources-and-easy-to-integrate">1. Multiple sources and easy to integrate:</a></li>
+  <li><a href="#multiple-sources-and-easy-to-integrate" id="toc-multiple-sources-and-easy-to-integrate" class="nav-link" data-scroll-target="#multiple-sources-and-easy-to-integrate">1. Multiple sources and easy to integrate</a></li>
   <li><a href="#simplified-pivot-statement" id="toc-simplified-pivot-statement" class="nav-link" data-scroll-target="#simplified-pivot-statement">2. Simplified Pivot Statement</a></li>
-  <li><a href="#benchmark" id="toc-benchmark" class="nav-link" data-scroll-target="#benchmark">3. Benchmark</a></li>
+  <li><a href="#join-syntax-is-less-messy-compared-with-pandas-dataframe" id="toc-join-syntax-is-less-messy-compared-with-pandas-dataframe" class="nav-link" data-scroll-target="#join-syntax-is-less-messy-compared-with-pandas-dataframe">3. Join syntax is less messy compared with Pandas dataframe</a></li>
+  <li><a href="#benchmark" id="toc-benchmark" class="nav-link" data-scroll-target="#benchmark">4. Benchmark</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -3190,7 +3191,7 @@ vertical-align: -.125em;
 </ul>
 <p><strong>DuckDB</strong> is an open-source database that provides these functionalities with efficiency, reliability, and ease of use.</p>
 <section id="multiple-sources-and-easy-to-integrate" class="level2">
-<h2 data-anchor-id="multiple-sources-and-easy-to-integrate">1. Multiple sources and easy to integrate:</h2>
+<h2 data-anchor-id="multiple-sources-and-easy-to-integrate">1. Multiple sources and easy to integrate</h2>
 <p>DuckDB supports two types of connection:</p>
 <ol type="a">
 <li>In memory: data is not persisted to disk. Suitable for ad hoc queries.</li>
@@ -3208,11 +3209,11 @@ vertical-align: -.125em;
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-lines="2" data-code-cell="annotated-cell-1">In memory</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="2" data-code-annotation="1">In memory</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-lines="3" data-code-cell="annotated-cell-1">or persisted to disk</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="3" data-code-annotation="2">or persisted to disk</span>
 </dd>
 </dl>
 </div>
@@ -3232,11 +3233,11 @@ vertical-align: -.125em;
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-lines="1" data-code-cell="annotated-cell-2">In memory</span>
+<span data-code-cell="annotated-cell-2" data-code-lines="1" data-code-annotation="1">In memory</span>
 </dd>
 <dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-lines="2" data-code-cell="annotated-cell-2">or persisted to disk</span>
+<span data-code-cell="annotated-cell-2" data-code-lines="2" data-code-annotation="2">or persisted to disk</span>
 </dd>
 </dl>
 </div>
@@ -3399,11 +3400,81 @@ vertical-align: -.125em;
 </div>
 </div>
 </section>
+<section id="join-syntax-is-less-messy-compared-with-pandas-dataframe" class="level2">
+<h2 data-anchor-id="join-syntax-is-less-messy-compared-with-pandas-dataframe">3. Join syntax is less messy compared with Pandas dataframe</h2>
+<p>Joining two tables is a common task in data analysis. Unfortunately, merging API in pandas is too lengthy.</p>
+<p>Consider this example (adapt from pandas documentation):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb22-2"><a href="#cb22-2"></a></span>
+<span id="cb22-3"><a href="#cb22-3"></a>left_df <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb22-4"><a href="#cb22-4"></a>    {</span>
+<span id="cb22-5"><a href="#cb22-5"></a>        <span class="st">"key"</span>: [<span class="st">"K0"</span>, <span class="st">"K1"</span>, <span class="st">"K2"</span>, <span class="st">"K3"</span>],</span>
+<span id="cb22-6"><a href="#cb22-6"></a>        <span class="st">"A"</span>: [<span class="st">"A0"</span>, <span class="st">"A1"</span>, <span class="st">"A2"</span>, <span class="st">"A3"</span>],</span>
+<span id="cb22-7"><a href="#cb22-7"></a>        <span class="st">"B"</span>: [<span class="st">"B0"</span>, <span class="st">"B1"</span>, <span class="st">"B2"</span>, <span class="st">"B3"</span>],</span>
+<span id="cb22-8"><a href="#cb22-8"></a>    }</span>
+<span id="cb22-9"><a href="#cb22-9"></a>)</span>
+<span id="cb22-10"><a href="#cb22-10"></a><span class="bu">print</span>(left_df.to_markdown())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>|    | key   | A   | B   |
+|---:|:------|:----|:----|
+|  0 | K0    | A0  | B0  |
+|  1 | K1    | A1  | B1  |
+|  2 | K2    | A2  | B2  |
+|  3 | K3    | A3  | B3  |</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>right_df <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb24-2"><a href="#cb24-2"></a>    {</span>
+<span id="cb24-3"><a href="#cb24-3"></a>        <span class="st">"key"</span>: [<span class="st">"K0"</span>, <span class="st">"K1"</span>, <span class="st">"K2"</span>, <span class="st">"K3"</span>],</span>
+<span id="cb24-4"><a href="#cb24-4"></a>        <span class="st">"C"</span>: [<span class="st">"C0"</span>, <span class="st">"C1"</span>, <span class="st">"C2"</span>, <span class="st">"C3"</span>],</span>
+<span id="cb24-5"><a href="#cb24-5"></a>        <span class="st">"D"</span>: [<span class="st">"D0"</span>, <span class="st">"D1"</span>, <span class="st">"D2"</span>, <span class="st">"D3"</span>],</span>
+<span id="cb24-6"><a href="#cb24-6"></a>    }</span>
+<span id="cb24-7"><a href="#cb24-7"></a>)</span>
+<span id="cb24-8"><a href="#cb24-8"></a><span class="bu">print</span>(right_df.to_markdown())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>|    | key   | C   | D   |
+|---:|:------|:----|:----|
+|  0 | K0    | C0  | D0  |
+|  1 | K1    | C1  | D1  |
+|  2 | K2    | C2  | D2  |
+|  3 | K3    | C3  | D3  |</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>pandas_join_result <span class="op">=</span> pd.merge(left_df, right_df, on<span class="op">=</span><span class="st">"key"</span>)</span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="bu">print</span>(pandas_join_result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  key   A   B   C   D
+0  K0  A0  B0  C0  D0
+1  K1  A1  B1  C1  D1
+2  K2  A2  B2  C2  D2
+3  K3  A3  B3  C3  D3</code></pre>
+</div>
+</div>
+<p>Although Pandas <code>pd.merge</code> API worked well, the problem is when you have multiple tables (data frame), it becomes verbose. Sometimes, condition joining needs processing in columns.</p>
+<p>Sometimes, condition joining needs preprocessing in columns; in this case, we can create a temporary column by Pandas <code>.apply</code> (on <code>pd.Series</code>). It also leads to verbose code.</p>
+<p>DuckDB Join Statement is more concise. And luckily, we can access Pandas <code>pd.DataFrames</code> objects as DuckDB tables!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>result <span class="op">=</span> con.query(<span class="st">"""</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="st">SELECT *</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a><span class="st">FROM left_df JOIN right_df ON left_df.key=right_df.key</span></span>
+<span id="cb28-4"><a href="#cb28-4"></a><span class="st">"""</span>)</span>
+<span id="cb28-5"><a href="#cb28-5"></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+&#9474;   key   &#9474;    A    &#9474;    B    &#9474;   key   &#9474;    C    &#9474;    D    &#9474;
+&#9474; varchar &#9474; varchar &#9474; varchar &#9474; varchar &#9474; varchar &#9474; varchar &#9474;
+&#9500;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9532;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9532;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9532;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9532;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9532;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9508;
+&#9474; K0      &#9474; A0      &#9474; B0      &#9474; K0      &#9474; C0      &#9474; D0      &#9474;
+&#9474; K1      &#9474; A1      &#9474; B1      &#9474; K1      &#9474; C1      &#9474; D1      &#9474;
+&#9474; K2      &#9474; A2      &#9474; B2      &#9474; K2      &#9474; C2      &#9474; D2      &#9474;
+&#9474; K3      &#9474; A3      &#9474; B3      &#9474; K3      &#9474; C3      &#9474; D3      &#9474;
+&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;</code></pre>
+</div>
+</div>
+</section>
 <section id="benchmark" class="level2">
-<h2 data-anchor-id="benchmark">3. Benchmark</h2>
-<p>There are some benchmarks of H2O, Polars and DuckDB:</p>
+<h2 data-anchor-id="benchmark">4. Benchmark</h2>
+<p>There are some benchmarks of Polars and DuckDB:</p>
 <ul>
-<li><strong>h2O (database-like ops benchmark):</strong> https://h2oai.github.io/db-benchmark/</li>
 <li><strong>DuckDB (database-like ops benchmark):</strong> https://duckdblabs.github.io/db-benchmark/</li>
 <li><strong>Polars (TPCH Benchmark):</strong> https://pola.rs/posts/benchmarks/</li>
 </ul>
