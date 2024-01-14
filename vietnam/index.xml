@@ -7,8 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
-    <lastBuildDate>Wed, 09 Feb 2022 00:00:00 +0530</lastBuildDate>
+    <lastBuildDate>Wed, 27 Dec 2023 00:00:00 +0530</lastBuildDate>
     <atom:link href="https://quangtiencs.com/vietnam/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>(Computer Science) Lisp Macro &amp; Julia Programming Language</title>
+      <link>https://quangtiencs.com/vietnam/lap_trinh_macro/</link>
+      <pubDate>Wed, 27 Dec 2023 00:00:00 +0530</pubDate>
+      <guid>https://quangtiencs.com/vietnam/lap_trinh_macro/</guid>
+      <description>Macro programming là một kỹ thuật meta programming cho phép tiền xử lí mã nguồn đầu vào trước khi qua trình biên dịch (hoặc thông dịch), nhờ đó mà có thể dể dàng tạo ra domain-specific language trên ngôn ngữ lập trình ban đầu. Không phải bất kì ngôn ngữ lập trình nào cũng hổ trợ Macro. Macro system &amp;ldquo;tạm&amp;rdquo; chia ra làm 2 loại chính:
+Text-substitution macros (C-like): sẽ thao tác thay thế chuổi trước khi biên dịch.</description>
+    </item>
     <item>
       <title>(thơ Tiến viết tặng bạn bè) - Nếu ngày mai anh hói</title>
       <link>https://quangtiencs.com/vietnam/neu_ngay_mai_anh_hoi/</link>

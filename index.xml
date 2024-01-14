@@ -17,6 +17,14 @@
       <description></description>
     </item>
     <item>
+      <title>(Computer Science) Lisp Macro &amp; Julia Programming Language</title>
+      <link>https://quangtiencs.com/vietnam/lap_trinh_macro/</link>
+      <pubDate>Wed, 27 Dec 2023 00:00:00 +0530</pubDate>
+      <guid>https://quangtiencs.com/vietnam/lap_trinh_macro/</guid>
+      <description>Macro programming là một kỹ thuật meta programming cho phép tiền xử lí mã nguồn đầu vào trước khi qua trình biên dịch (hoặc thông dịch), nhờ đó mà có thể dể dàng tạo ra domain-specific language trên ngôn ngữ lập trình ban đầu. Không phải bất kì ngôn ngữ lập trình nào cũng hổ trợ Macro. Macro system &amp;ldquo;tạm&amp;rdquo; chia ra làm 2 loại chính:
+Text-substitution macros (C-like): sẽ thao tác thay thế chuổi trước khi biên dịch.</description>
+    </item>
+    <item>
       <title>[playground] Julia Turing.jl : Bayesian Cognitive Modeling - Comparing binomial rates</title>
       <link>https://quangtiencs.com/posts/turing_julia_bcm_chapter_009/</link>
       <pubDate>Sun, 23 Jul 2023 08:00:00 +0700</pubDate>
