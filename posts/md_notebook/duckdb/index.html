@@ -3182,12 +3182,12 @@ vertical-align: -.125em;
 </div><section id="daft-how-duckdb-transformed-my-data-science-workflow" class="level1">
 <h1>[daft] How DuckDB transformed my data science workflow</h1>
 <hr>
-<p><strong>Exploratory data analysis (EDA)</strong> is crucial in the data science workflow. As a data scientist, I need a tool that faces some challenges:</p>
+<p><strong>Exploratory data analysis (EDA)</strong> is essential in the data science workflow. As a data scientist, and the necessity arises, I need a tool capable of effectively facing various challenges:</p>
 <ul>
-<li>Collecting: preparing datasets from diverse sources (flat files such as CSV, JSON, Parquet; databases such as MySQL, Postgres; cloud storage such as GCS, S3).</li>
-<li>Analysis: some everyday tasks are filtering data, aggregating data, joining multiple tables, sorting data, and creating views to simplify complex queries.</li>
-<li>Fast: analytic workflow takes time; save time and money.</li>
-<li>Features: supports advanced datatypes such as array, list, map, struct, and geometry (for geography information systems).</li>
+<li>Collect: preparing datasets from diverse sources (flat files such as CSV, JSON, Parquet; databases such as MySQL, Postgres; cloud storage such as GCS, S3).</li>
+<li>Analysis: some everyday tasks are filtering data, aggregating data, joining multiple tables, sorting data, pivot table and creating views to simplify complex queries.</li>
+<li>Fast: analytic workflow takes time; save your time and money.</li>
+<li>Rich-Features: supports advanced datatypes such as array, list, map, struct, and geometry (for geography information systems).</li>
 <li>Easy to integrate: various client APIs for popular programming languages like Python, R, Java, Rust, Typescript/Javascript, and Julia.</li>
 </ul>
 <p><strong>DuckDB</strong> is an open-source database that provides these functionalities with efficiency, reliability, and ease of use. Source code (python only) of this post you can find at GitHub: <a href="https://github.com/quangtiencs/duckdb-tutorial">quangtiencs/duckdb-tutorial</a>.</p>
@@ -3210,11 +3210,11 @@ vertical-align: -.125em;
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="1" data-code-lines="2">In memory</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-1" data-code-lines="2">In memory</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="2" data-code-lines="3">or persisted to disk</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-1" data-code-lines="3">or persisted to disk</span>
 </dd>
 </dl>
 </div>
@@ -3234,11 +3234,11 @@ vertical-align: -.125em;
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-annotation="1" data-code-lines="1">In memory</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-2" data-code-lines="1">In memory</span>
 </dd>
 <dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-annotation="2" data-code-lines="2">or persisted to disk</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-2" data-code-lines="2">or persisted to disk</span>
 </dd>
 </dl>
 </div>
@@ -3509,7 +3509,7 @@ vertical-align: -.125em;
 &#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;</code></pre>
 </div>
 </div>
-<p>Do a spatial query that checks the location of latitude 1.2966 and 103.7764 in which region (Central, East, North, North-East, West):</p>
+<p>Do a spatial query that checks the location of latitude 1.2966 and longitude 103.7764 in which region (Central, East, North, North-East, West):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>which_region_df <span class="op">=</span> con.query(<span class="st">"""</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a><span class="st">SELECT COUNTRY, NAME_1</span></span>
