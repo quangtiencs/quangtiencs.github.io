@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>web browser on quangtiencs</title>
+    <title>Web Browser on quangtiencs</title>
     <link>https://quangtiencs.com/tags/web-browser/</link>
-    <description>Recent content in web browser on quangtiencs</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Web Browser on quangtiencs</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
     <lastBuildDate>Tue, 27 Sep 2022 00:00:00 +0530</lastBuildDate>
@@ -14,8 +14,7 @@
       <link>https://quangtiencs.com/posts/tensorflowjs_typescript_01/</link>
       <pubDate>Tue, 27 Sep 2022 00:00:00 +0530</pubDate>
       <guid>https://quangtiencs.com/posts/tensorflowjs_typescript_01/</guid>
-      <description>TensorFlow is one of the most well-known libraries for machine learning. The most significant advantage of TensorFlow versus other libraries is designed to simplify the development of cross-platform projects.
-These days, TensorFlow.js (Javascript) is a sub-project of Tensorflow that support three environments: Node.js, Web browser, and Mobile (via React Native). Unfortunately, Javascript is not a good programming language for data science projects because it is easy to make mistakes with little experience.</description>
+      <description>TensorFlow is one of the most well-known libraries for machine learning. The most significant advantage of TensorFlow versus other libraries is designed to simplify the development of cross-platform projects.&#xA;These days, TensorFlow.js (Javascript) is a sub-project of Tensorflow that support three environments: Node.js, Web browser, and Mobile (via React Native). Unfortunately, Javascript is not a good programming language for data science projects because it is easy to make mistakes with little experience.</description>
     </item>
   </channel>
 </rss>
