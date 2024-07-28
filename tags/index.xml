@@ -7,8 +7,29 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
-    <lastBuildDate>Sat, 13 Jan 2024 08:00:00 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jul 2024 08:00:00 +0700</lastBuildDate>
     <atom:link href="https://quangtiencs.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Keras</title>
+      <link>https://quangtiencs.com/tags/keras/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://quangtiencs.com/tags/keras/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Regression</title>
+      <link>https://quangtiencs.com/tags/regression/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://quangtiencs.com/tags/regression/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sklearn</title>
+      <link>https://quangtiencs.com/tags/sklearn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://quangtiencs.com/tags/sklearn/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Data Base</title>
       <link>https://quangtiencs.com/tags/data-base/</link>
