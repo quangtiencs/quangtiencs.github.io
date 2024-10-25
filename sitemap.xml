@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://quangtiencs.com/vietnam/question_about_questions/</loc>
+    <lastmod>2024-09-29T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/</loc>
+    <lastmod>2024-09-29T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/vietnam/</loc>
+    <lastmod>2024-09-29T00:00:00+05:30</lastmod>
+  </url><url>
     <loc>https://quangtiencs.com/posts/playground_python/keras_quantile_regressor/</loc>
     <lastmod>2024-07-27T08:00:00+07:00</lastmod>
   </url><url>
@@ -9,9 +18,6 @@
     <lastmod>2024-07-27T08:00:00+07:00</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/posts/</loc>
-    <lastmod>2024-07-27T08:00:00+07:00</lastmod>
-  </url><url>
-    <loc>https://quangtiencs.com/</loc>
     <lastmod>2024-07-27T08:00:00+07:00</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/tags/regression/</loc>
@@ -36,9 +42,6 @@
     <lastmod>2024-01-13T08:00:00+07:00</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/vietnam/lap_trinh_macro/</loc>
-    <lastmod>2023-12-27T00:00:00+05:30</lastmod>
-  </url><url>
-    <loc>https://quangtiencs.com/vietnam/</loc>
     <lastmod>2023-12-27T00:00:00+05:30</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/posts/turing_julia_bcm_chapter_009/</loc>
