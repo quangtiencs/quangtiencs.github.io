@@ -2,10 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://quangtiencs.com/vietnam/question_about_questions/</loc>
-    <lastmod>2024-09-29T00:00:00+05:30</lastmod>
+    <loc>https://quangtiencs.com/posts/playground_python/hierarchy_risk_parity/</loc>
+    <lastmod>2024-12-24T08:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/tags/hrp/</loc>
+    <lastmod>2024-12-24T08:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/tags/portfolio/</loc>
+    <lastmod>2024-12-24T08:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/posts/</loc>
+    <lastmod>2024-12-24T08:00:00+07:00</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/</loc>
+    <lastmod>2024-12-24T08:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/tags/</loc>
+    <lastmod>2024-12-24T08:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://quangtiencs.com/vietnam/question_about_questions/</loc>
     <lastmod>2024-09-29T00:00:00+05:30</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/vietnam/</loc>
@@ -17,16 +32,10 @@
     <loc>https://quangtiencs.com/tags/keras/</loc>
     <lastmod>2024-07-27T08:00:00+07:00</lastmod>
   </url><url>
-    <loc>https://quangtiencs.com/posts/</loc>
-    <lastmod>2024-07-27T08:00:00+07:00</lastmod>
-  </url><url>
     <loc>https://quangtiencs.com/tags/regression/</loc>
     <lastmod>2024-07-27T08:00:00+07:00</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/tags/sklearn/</loc>
-    <lastmod>2024-07-27T08:00:00+07:00</lastmod>
-  </url><url>
-    <loc>https://quangtiencs.com/tags/</loc>
     <lastmod>2024-07-27T08:00:00+07:00</lastmod>
   </url><url>
     <loc>https://quangtiencs.com/tags/data-base/</loc>
