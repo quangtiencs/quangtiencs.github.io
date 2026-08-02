@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Volatility on quangtiencs</title>
+    <link>https://quangtiencs.com/tags/volatility/</link>
+    <description>Recent content in Volatility on quangtiencs</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
+    <lastBuildDate>Wed, 30 Apr 2025 08:00:00 +0700</lastBuildDate>
+    <atom:link href="https://quangtiencs.com/tags/volatility/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[playground] Stochastic Volatility Model for VNINDEX</title>
+      <link>https://quangtiencs.com/posts/playground_python/stochastic_volatility_model/</link>
+      <pubDate>Wed, 30 Apr 2025 08:00:00 +0700</pubDate>
+      <guid>https://quangtiencs.com/posts/playground_python/stochastic_volatility_model/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

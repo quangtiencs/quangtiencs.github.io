@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tensorflow on quangtiencs</title>
+    <link>https://quangtiencs.com/tags/tensorflow/</link>
+    <description>Recent content in Tensorflow on quangtiencs</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
+    <lastBuildDate>Fri, 10 Feb 2023 08:00:00 +0700</lastBuildDate>
+    <atom:link href="https://quangtiencs.com/tags/tensorflow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Probabilistic Programming 2023</title>
+      <link>https://quangtiencs.com/posts/probabilistic_programming_2023/</link>
+      <pubDate>Fri, 10 Feb 2023 08:00:00 +0700</pubDate>
+      <guid>https://quangtiencs.com/posts/probabilistic_programming_2023/</guid>
+      <description>Probabilistic Programming 2023, some libraries that I recently used:&#xA;PyMC: well-designed API with concise documentation. It&amp;rsquo;s faster and more customizable than before because the predecessor (the Theno backend) was replaced by the Aesara backend (compiling to C and Jax). BlackJax: for hacking log-density lovers. There&amp;rsquo;re some new algorithms like Stochastic gradient Langevin dynamics. BlackJax is not a complete probabilistic programming language. It integrates well with the PPLs backend by Jax. Stan: a domain-specific language for statistical modeling and one of the fastest samplers.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Regression on quangtiencs</title>
+    <link>https://quangtiencs.com/tags/regression/</link>
+    <description>Recent content in Regression on quangtiencs</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
+    <lastBuildDate>Sat, 27 Jul 2024 08:00:00 +0700</lastBuildDate>
+    <atom:link href="https://quangtiencs.com/tags/regression/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[playground] Keras &amp; Scikit-Learn - Quantile Regression</title>
+      <link>https://quangtiencs.com/posts/playground_python/keras_quantile_regressor/</link>
+      <pubDate>Sat, 27 Jul 2024 08:00:00 +0700</pubDate>
+      <guid>https://quangtiencs.com/posts/playground_python/keras_quantile_regressor/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
