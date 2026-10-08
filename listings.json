@@ -1,0 +1,195 @@
+[
+  {
+    "listing": "/vietnam/index.html",
+    "items": [
+      "/vietnam/tham_tu_khoa_hoc_thong_ke/index.html",
+      "/vietnam/question_about_questions/index.html",
+      "/vietnam/lap_trinh_macro/index.html",
+      "/vietnam/neu_ngay_mai_anh_hoi/index.html",
+      "/vietnam/viet_cho_coursera/index.html",
+      "/vietnam/rua_chen/index.html",
+      "/vietnam/dat_cuoc/index.html",
+      "/vietnam/lap_trinh/index.html"
+    ]
+  },
+  {
+    "listing": "/tags/volatility/index.html",
+    "items": [
+      "/posts/playground_python/stochastic_volatility_model/index.html"
+    ]
+  },
+  {
+    "listing": "/tags/turing/index.html",
+    "items": [
+      "/posts/turing_julia_bcm_chapter_009/index.html",
+      "/posts/turing_julia_bcm_chapter_008/index.html",
+      "/posts/turing_julia_bcm_chapter_006/index.html",
+      "/posts/turing_julia_bcm_chapter_005/index.html",
+      "/posts/turing_julia_bcm_chapter_004/index.html",
+      "/posts/turing_julia_bcm_chapter_003/index.html"
+    ]
+  },
+  {
+    "listing": "/tags/tensorflowjs/index.html",
+    "items": [
+      "/posts/probabilistic_programming_2023/index.html"
+    ]
+  },
+  {
+    "listing": "/tags/sklearn/index.html",
+    "items": [
+      "/posts/playground_python/keras_quantile_regressor/index.html"
+    ]
+  },
+  {
+    "listing": "/tags/quote/index.html",
+    "items": [
+      "/english/a_kite_dancing_in_a_hurricane/index.html"
+    ]
+  },
+  {
+    "listing": "/tags/playground/index.html",
+    "items": [
+      "/posts/turing_julia_bcm_chapter_009/index.html",
+      "/posts/turing_julia_bcm_chapter_008/index.html",
+      "/posts/turing_julia_bcm_chapter_006/index.html",
+      "/posts/turing_julia_bcm_chapter_005/index.html",
+      "/posts/turing_julia_bcm_chapter_004/index.html",
+      "/posts/turing_julia_bcm_chapter_003/index.html",
+      "/posts/probabilistic_programming_2023/index.html"
+    ]
+  },
+  {
+    "listing": "/tags/keras/index.html",
+    "items": [
+      "/posts/playground_python/keras_quantile_regressor/index.html"
+    ]
+  },
+  {
+    "listing": "/tags/duckdb/index.html",
+    "items": [
+      "/posts/md_notebook/duckdb/index.html"
+    ]
+  },
+  {
+    "listing": "/tags/bayesian/index.html",
+    "items": [
+      "/posts/turing_julia_bcm_chapter_009/index.html",
+      "/posts/turing_julia_bcm_chapter_008/index.html",
+      "/posts/turing_julia_bcm_chapter_006/index.html",
+      "/posts/turing_julia_bcm_chapter_005/index.html",
+      "/posts/turing_julia_bcm_chapter_004/index.html",
+      "/posts/turing_julia_bcm_chapter_003/index.html"
+    ]
+  },
+  {
+    "listing": "/english/index.html",
+    "items": [
+      "/english/a_kite_dancing_in_a_hurricane/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/playground_python/stochastic_volatility_model/index.html",
+      "/posts/playground_python/hierarchy_risk_parity/index.html",
+      "/posts/playground_python/keras_quantile_regressor/index.html",
+      "/posts/md_notebook/duckdb/index.html",
+      "/posts/turing_julia_bcm_chapter_009/index.html",
+      "/posts/turing_julia_bcm_chapter_008/index.html",
+      "/posts/turing_julia_bcm_chapter_006/index.html",
+      "/posts/turing_julia_bcm_chapter_005/index.html",
+      "/posts/turing_julia_bcm_chapter_004/index.html",
+      "/posts/turing_julia_bcm_chapter_003/index.html",
+      "/posts/probabilistic_programming_2023/index.html",
+      "/english/a_kite_dancing_in_a_hurricane/index.html",
+      "/posts/julia_euler_project/index.html",
+      "/posts/bayesian_logistics_tensorflow_probability/index.html",
+      "/vietnam/tham_tu_khoa_hoc_thong_ke/index.html",
+      "/vietnam/question_about_questions/index.html",
+      "/vietnam/lap_trinh_macro/index.html",
+      "/vietnam/neu_ngay_mai_anh_hoi/index.html",
+      "/vietnam/viet_cho_coursera/index.html",
+      "/vietnam/rua_chen/index.html",
+      "/vietnam/dat_cuoc/index.html",
+      "/vietnam/lap_trinh/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/index.html",
+    "items": [
+      "/posts/playground_python/stochastic_volatility_model/index.html",
+      "/posts/playground_python/hierarchy_risk_parity/index.html",
+      "/posts/playground_python/keras_quantile_regressor/index.html",
+      "/posts/md_notebook/duckdb/index.html",
+      "/posts/turing_julia_bcm_chapter_009/index.html",
+      "/posts/turing_julia_bcm_chapter_008/index.html",
+      "/posts/turing_julia_bcm_chapter_006/index.html",
+      "/posts/turing_julia_bcm_chapter_005/index.html",
+      "/posts/turing_julia_bcm_chapter_004/index.html",
+      "/posts/turing_julia_bcm_chapter_003/index.html",
+      "/posts/probabilistic_programming_2023/index.html",
+      "/posts/julia_euler_project/index.html",
+      "/posts/bayesian_logistics_tensorflow_probability/index.html"
+    ]
+  },
+  {
+    "listing": "/tags/data-base/index.html",
+    "items": [
+      "/posts/md_notebook/duckdb/index.html"
+    ]
+  },
+  {
+    "listing": "/tags/hrp/index.html",
+    "items": [
+      "/posts/playground_python/hierarchy_risk_parity/index.html"
+    ]
+  },
+  {
+    "listing": "/tags/julia/index.html",
+    "items": [
+      "/posts/turing_julia_bcm_chapter_009/index.html",
+      "/posts/turing_julia_bcm_chapter_008/index.html",
+      "/posts/turing_julia_bcm_chapter_006/index.html",
+      "/posts/turing_julia_bcm_chapter_005/index.html",
+      "/posts/turing_julia_bcm_chapter_004/index.html",
+      "/posts/turing_julia_bcm_chapter_003/index.html"
+    ]
+  },
+  {
+    "listing": "/tags/olap/index.html",
+    "items": [
+      "/posts/md_notebook/duckdb/index.html"
+    ]
+  },
+  {
+    "listing": "/tags/portfolio/index.html",
+    "items": [
+      "/posts/playground_python/hierarchy_risk_parity/index.html"
+    ]
+  },
+  {
+    "listing": "/tags/regression/index.html",
+    "items": [
+      "/posts/playground_python/keras_quantile_regressor/index.html"
+    ]
+  },
+  {
+    "listing": "/tags/tensorflow/index.html",
+    "items": [
+      "/posts/probabilistic_programming_2023/index.html"
+    ]
+  },
+  {
+    "listing": "/tags/thought/index.html",
+    "items": [
+      "/english/a_kite_dancing_in_a_hurricane/index.html"
+    ]
+  },
+  {
+    "listing": "/tags/typescript/index.html",
+    "items": [
+      "/posts/probabilistic_programming_2023/index.html"
+    ]
+  }
+]

@@ -1,20 +1,64 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Thought on quangtiencs</title>
-    <link>https://quangtiencs.com/tags/thought/</link>
-    <description>Recent content in Thought on quangtiencs</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
-    <lastBuildDate>Fri, 12 Aug 2022 00:00:00 +0530</lastBuildDate>
-    <atom:link href="https://quangtiencs.com/tags/thought/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>007 - a kite dancing in a hurricane</title>
-      <link>https://quangtiencs.com/english/a_kite_dancing_in_a_hurricane/</link>
-      <pubDate>Fri, 12 Aug 2022 00:00:00 +0530</pubDate>
-      <guid>https://quangtiencs.com/english/a_kite_dancing_in_a_hurricane/</guid>
-      <description>Life is just a dream. Be a kite dancing in a hurricane. A metaphor about life - something is dangerous, like a storm that readily destroys our fragile hopes. Don&amp;rsquo;t be against it; dance with it.&#xA;Lê Quang Tiến - 2022-08-12</description>
-    </item>
-  </channel>
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>quangtiencs</title>
+<link>https://quangtiencs.com/tags/thought/</link>
+<atom:link href="https://quangtiencs.com/tags/thought/index.xml" rel="self" type="application/rss+xml"/>
+<description>Bet on myself &amp; Beat the odds</description>
+<image>
+<url>https://quangtiencs.com/icon/quangtiencs_hawk.png</url>
+<title>quangtiencs</title>
+<link>https://quangtiencs.com/tags/thought/</link>
+</image>
+<generator>quarto-1.10.18</generator>
+<lastBuildDate>Thu, 11 Aug 2022 17:00:00 GMT</lastBuildDate>
+<item>
+  <title>007 - a kite dancing in a hurricane</title>
+  <link>https://quangtiencs.com/english/a_kite_dancing_in_a_hurricane/</link>
+  <description><![CDATA[ 
+
+<!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
+     items here. Included via include-before-body, which Quarto places at the
+     top of the article column, so the header always lines up with the text
+     (with or without a table of contents). Quarto's own navbar is kept
+     but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
+     which the last two icons trigger. Behaviour: nav-scripts.html -->
+<header class="qt-site-header">
+  <a class="qt-wordmark-link" href="../../"><img class="qt-wordmark qt-line-art" src="https://quangtiencs.com/quangtiencs.gif" alt="quangtiencs" width="800" height="148"></a>
+
+  <div class="qt-social">
+      <a href="https://goodreads.com/quangtiencs" aria-label="Goodreads" title="Goodreads"></a>
+      <a href="https://github.com/quangtiencs" aria-label="GitHub" title="GitHub"></a>
+      <a href="https://www.linkedin.com/in/quangtiencs/" aria-label="LinkedIn" title="LinkedIn"></a>
+      <a href="https://substack.com/@quangtiencs" aria-label="Substack" title="Substack"></a>
+      <a href="../../index.xml" aria-label="RSS feed" title="RSS feed"></a>
+      <a href="https://thetalog.com" aria-label="thetalog.com" title="thetalog.com"></a>
+      <a tabindex="0" class="qt-scheme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="bi bi-circle-half"></i></a>
+      <a tabindex="0" class="qt-search" aria-label="Search" title="Search"><i class="bi bi-search"></i></a>
+  </div>
+
+  
+</header>
+
+<!-- Compact title block (replaces Quarto's default): title, one meta line
+     (date · tags linking to /tags/<slug>/), short description. -->
+
+
+
+<p>Life is just a dream. Be a kite dancing in a hurricane. A metaphor about life - something is dangerous, like a storm that readily destroys our fragile hopes. Don’t be against it; dance with it.</p>
+<p><strong>Lê Quang Tiến</strong> - <em>2022-08-12</em></p>
+
+
+
+ ]]></description>
+  <category>quote</category>
+  <category>thought</category>
+  <guid>https://quangtiencs.com/english/a_kite_dancing_in_a_hurricane/</guid>
+  <pubDate>Thu, 11 Aug 2022 17:00:00 GMT</pubDate>
+</item>
+</channel>
 </rss>

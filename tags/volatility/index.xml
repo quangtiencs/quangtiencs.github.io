@@ -1,20 +1,1033 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Volatility on quangtiencs</title>
-    <link>https://quangtiencs.com/tags/volatility/</link>
-    <description>Recent content in Volatility on quangtiencs</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
-    <lastBuildDate>Wed, 30 Apr 2025 08:00:00 +0700</lastBuildDate>
-    <atom:link href="https://quangtiencs.com/tags/volatility/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>[playground] Stochastic Volatility Model for VNINDEX</title>
-      <link>https://quangtiencs.com/posts/playground_python/stochastic_volatility_model/</link>
-      <pubDate>Wed, 30 Apr 2025 08:00:00 +0700</pubDate>
-      <guid>https://quangtiencs.com/posts/playground_python/stochastic_volatility_model/</guid>
-      <description></description>
-    </item>
-  </channel>
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>quangtiencs</title>
+<link>https://quangtiencs.com/tags/volatility/</link>
+<atom:link href="https://quangtiencs.com/tags/volatility/index.xml" rel="self" type="application/rss+xml"/>
+<description>Bet on myself &amp; Beat the odds</description>
+<image>
+<url>https://quangtiencs.com/icon/quangtiencs_hawk.png</url>
+<title>quangtiencs</title>
+<link>https://quangtiencs.com/tags/volatility/</link>
+</image>
+<generator>quarto-1.10.18</generator>
+<lastBuildDate>Tue, 29 Apr 2025 17:00:00 GMT</lastBuildDate>
+<item>
+  <title>[playground] Stochastic Volatility Model for VNINDEX</title>
+  <link>https://quangtiencs.com/posts/playground_python/stochastic_volatility_model/</link>
+  <description><![CDATA[ 
+
+<!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
+     items here. Included via include-before-body, which Quarto places at the
+     top of the article column, so the header always lines up with the text
+     (with or without a table of contents). Quarto's own navbar is kept
+     but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
+     which the last two icons trigger. Behaviour: nav-scripts.html -->
+<header class="qt-site-header">
+  <a class="qt-wordmark-link" href="../../../"><img class="qt-wordmark qt-line-art" src="https://quangtiencs.com/quangtiencs.gif" alt="quangtiencs" width="800" height="148"></a>
+
+  <div class="qt-social">
+      <a href="https://goodreads.com/quangtiencs" aria-label="Goodreads" title="Goodreads"></a>
+      <a href="https://github.com/quangtiencs" aria-label="GitHub" title="GitHub"></a>
+      <a href="https://www.linkedin.com/in/quangtiencs/" aria-label="LinkedIn" title="LinkedIn"></a>
+      <a href="https://substack.com/@quangtiencs" aria-label="Substack" title="Substack"></a>
+      <a href="../../../index.xml" aria-label="RSS feed" title="RSS feed"></a>
+      <a href="https://thetalog.com" aria-label="thetalog.com" title="thetalog.com"></a>
+      <a tabindex="0" class="qt-scheme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="bi bi-circle-half"></i></a>
+      <a tabindex="0" class="qt-search" aria-label="Search" title="Search"><i class="bi bi-search"></i></a>
+  </div>
+
+  
+</header>
+
+<!-- Compact title block (replaces Quarto's default): title, one meta line
+     (date · tags linking to /tags/<slug>/), short description. -->
+
+
+
+<p>Market volatility is a double-edged sword: it exposes risks and reveals potential opportunities. This measure of price swings over time is a key input for sound investment strategies. Understanding volatility is essential for investors to navigate market complexities effectively.</p>
+<p>Source code (this tutorial): <a href="https://github.com/quangtiencs/planting_of_a_tree_r360/blob/main/stochastic_volatility_model" class="uri">https://github.com/quangtiencs/planting_of_a_tree_r360/blob/main/stochastic_volatility_model</a></p>
+<section id="config" class="level2">
+<h2 class="anchored" data-anchor-id="config">Config</h2>
+<div id="b80d95973996082c" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:36:40.102863Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:36:38.894589Z&quot;}}" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> json</span>
+<span id="cb1-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> os</span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> arviz <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> az</span>
+<span id="cb1-5"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> cmdstanpy</span>
+<span id="cb1-6"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> plt</span>
+<span id="cb1-7"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb1-8"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pd</span>
+<span id="cb1-9"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> scipy.signal <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> find_peaks</span></code></pre></div></div>
+</div>
+<div id="2ee5fea99fd10972" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:36:40.109268Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:36:40.104207Z&quot;}}" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1">plt.style.use(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ggplot"</span>)</span></code></pre></div></div>
+</div>
+<div id="f81b306b57c31ccc" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:36:40.113494Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:36:40.109747Z&quot;}}" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># cmdstanpy.install_cmdstan()</span></span></code></pre></div></div>
+</div>
+<div id="22b99dd3c7e1de65" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:36:40.122206Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:36:40.113946Z&quot;}}" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">class</span> StochasticVolatilityConfig:</span>
+<span id="cb4-2">    SAMPLE <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"D"</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># "D" for days, "W" for week, "M" for months</span></span>
+<span id="cb4-3">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Stochastic Volatility</span></span>
+<span id="cb4-4">    CHAINS <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span></span>
+<span id="cb4-5">    WARM_UP <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1_000</span></span>
+<span id="cb4-6">    NUMBER_SAMPLES <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1_000</span></span>
+<span id="cb4-7">    ADAPT_DELTA <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.95</span></span>
+<span id="cb4-8">    ROOT_DIR <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> os.path.expanduser(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"~/SigmaDataset"</span>)</span></code></pre></div></div>
+</div>
+<div id="a5313af552c8df36" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:36:43.042354Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:36:40.122794Z&quot;}}" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">try</span>:</span>
+<span id="cb5-2">    <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> vector_field.clickhouse <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> ClickHouseClient</span>
+<span id="cb5-3">    <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> vector_field.config <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> FilePathConfig</span>
+<span id="cb5-4"></span>
+<span id="cb5-5">    conn <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> ClickHouseClient()</span>
+<span id="cb5-6">    df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> conn.sql(</span>
+<span id="cb5-7">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb5-8"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">        SELECT DATE, CLOSE</span></span>
+<span id="cb5-9"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">        FROM STOCK_MARKET_INDEX</span></span>
+<span id="cb5-10"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">        WHERE MARKET_INDEX = 'VNINDEX'</span></span>
+<span id="cb5-11"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">          AND "DATE" &gt; '2015-04-30'</span></span>
+<span id="cb5-12"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">        ORDER BY DATE</span></span>
+<span id="cb5-13"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">        """</span></span>
+<span id="cb5-14">    ).df()</span>
+<span id="cb5-15">    df.to_csv(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"vnindex.csv"</span>, index<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>)</span>
+<span id="cb5-16"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">except</span> <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Exception</span> <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> e:</span>
+<span id="cb5-17">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Awww, you can try my demo data"</span>)</span>
+<span id="cb5-18">    df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.read_csv(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"vnindex.csv"</span>)</span>
+<span id="cb5-19">    df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"DATE"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.to_datetime(df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"DATE"</span>])</span>
+<span id="cb5-20">df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df.set_index(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"DATE"</span>)</span></code></pre></div></div>
+</div>
+<div id="b8d50bb1ee038718" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:36:43.067595Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:36:43.051835Z&quot;}}" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1">df</span></code></pre></div></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">CLOSE</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">DATE</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2015-05-04</th>
+<td>545.080017</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2015-05-05</th>
+<td>552.650024</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2015-05-06</th>
+<td>549.299988</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2015-05-07</th>
+<td>552.979980</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2015-05-08</th>
+<td>554.510010</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">...</th>
+<td>...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2026-07-22</th>
+<td>1668.530029</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2026-07-23</th>
+<td>1699.380005</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2026-07-24</th>
+<td>1686.109985</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2026-07-27</th>
+<td>1669.010010</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2026-07-28</th>
+<td>1680.619995</td>
+</tr>
+</tbody>
+</table>
+
+<p>2810 rows × 1 columns</p>
+</div>
+</div>
+</div>
+<div id="ee7c2133a8b7d7a8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:36:43.094054Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:36:43.085698Z&quot;}}" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"MIN </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>index<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">min</span>()<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>date()<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">, MAX </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>index<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">max</span>()<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>date()<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>MIN 2015-05-04, MAX 2026-07-28</code></pre>
+</div>
+</div>
+<div id="d2a284d631ac992d" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:36:43.375041Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:36:43.194549Z&quot;}}" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1">df.plot(figsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>), color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#693500"</span>)</span></code></pre></div></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://quangtiencs.com/posts/playground_python/stochastic_volatility_model/index_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="bd987c31b4c8c358" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:36:43.410165Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:36:43.394032Z&quot;}}" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1">df_resample <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df.resample(StochasticVolatilityConfig.SAMPLE).last()</span>
+<span id="cb10-2">returns <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df_resample.copy()</span>
+<span id="cb10-3">returns[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"change"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.log(returns[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"CLOSE"</span>]).diff()</span>
+<span id="cb10-4">returns <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> returns.dropna()</span>
+<span id="cb10-5">returns.head()</span></code></pre></div></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">CLOSE</th>
+<th data-quarto-table-cell-role="th">change</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">DATE</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2015-05-05</th>
+<td>552.650024</td>
+<td>0.013793</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2015-05-06</th>
+<td>549.299988</td>
+<td>-0.006080</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2015-05-07</th>
+<td>552.979980</td>
+<td>0.006677</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2015-05-08</th>
+<td>554.510010</td>
+<td>0.002763</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2015-05-12</th>
+<td>544.409973</td>
+<td>-0.013247</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="92d78f22438d206a" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:36:43.454436Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:36:43.446490Z&quot;}}" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># df_resample.plot()</span></span></code></pre></div></div>
+</div>
+<div id="8849492770e9f3bd" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:36:43.647612Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:36:43.553476Z&quot;}}" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1">fig, ax <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> plt.subplots(figsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>))</span>
+<span id="cb12-2">returns.plot(y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"change"</span>, label<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"VNINDEX"</span>, ax<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>ax, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#94a4a2"</span>)</span>
+<span id="cb12-3">ax.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">set</span>(xlabel<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"time"</span>, ylabel<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"returns"</span>)</span>
+<span id="cb12-4">ax.legend()<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span></code></pre></div></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://quangtiencs.com/posts/playground_python/stochastic_volatility_model/index_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="model" class="level2">
+<h2 class="anchored" data-anchor-id="model">Model</h2>
+<div id="dd6a5799a5279413" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:36:43.663036Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:36:43.653199Z&quot;}}" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># this code fork from stan</span></span>
+<span id="cb13-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># https://github.com/stan-dev/example-models/blob/master/misc/moving-avg/stochastic-volatility-optimized.stan</span></span>
+<span id="cb13-3">stan_model <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb13-4"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">data {</span></span>
+<span id="cb13-5"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  int&lt;lower=0&gt; T; // # time points (equally spaced)</span></span>
+<span id="cb13-6"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  vector[T] y; // mean corrected return at time t</span></span>
+<span id="cb13-7"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb13-8"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">parameters {</span></span>
+<span id="cb13-9"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  real mu; // mean log volatility</span></span>
+<span id="cb13-10"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  real&lt;lower=-1, upper=1&gt; phi; // persistence of volatility</span></span>
+<span id="cb13-11"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  real&lt;lower=0&gt; sigma; // white noise shock scale</span></span>
+<span id="cb13-12"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  vector[T] h_std; // std log volatility time t</span></span>
+<span id="cb13-13"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb13-14"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">transformed parameters {</span></span>
+<span id="cb13-15"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  vector[T] h; // log volatility at time t</span></span>
+<span id="cb13-16"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  h = h_std * sigma;</span></span>
+<span id="cb13-17"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  h[1] = h[1] / sqrt(1 - phi * phi);</span></span>
+<span id="cb13-18"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  h = h + mu;</span></span>
+<span id="cb13-19"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  for (t in 2 : T) {</span></span>
+<span id="cb13-20"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    h[t] = h[t] + phi * (h[t - 1] - mu);</span></span>
+<span id="cb13-21"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  }</span></span>
+<span id="cb13-22"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb13-23"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">model {</span></span>
+<span id="cb13-24"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  sigma ~ cauchy(0, 5);</span></span>
+<span id="cb13-25"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  mu ~ cauchy(0, 10);</span></span>
+<span id="cb13-26"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  h_std ~ normal(0, 1);</span></span>
+<span id="cb13-27"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  y ~ normal(0, exp(h / 2));</span></span>
+<span id="cb13-28"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb13-29"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb13-30"></span>
+<span id="cb13-31">stan_file <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> os.path.join(</span>
+<span id="cb13-32">    StochasticVolatilityConfig.ROOT_DIR, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"stochastic-volatility-optimized.stan"</span></span>
+<span id="cb13-33">)</span>
+<span id="cb13-34"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">with</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">open</span>(stan_file, mode<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"w"</span>) <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">file</span>:</span>
+<span id="cb13-35">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">file</span>.write(stan_model)</span></code></pre></div></div>
+</div>
+<div id="aa84d6c1-a258-4777-926d-b9860d843f6e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:36:43.677190Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:36:43.664227Z&quot;}}" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1">data_file <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> os.path.join(</span>
+<span id="cb14-2">    StochasticVolatilityConfig.ROOT_DIR, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"vnindex_stochastic_volatility.json"</span></span>
+<span id="cb14-3">)</span>
+<span id="cb14-4"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">with</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">open</span>(data_file, mode<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"w"</span>) <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">file</span>:</span>
+<span id="cb14-5">    json.dump({<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"T"</span>: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(returns), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"y"</span>: returns[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"change"</span>].tolist()}, <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">file</span>)</span></code></pre></div></div>
+</div>
+<div id="cb290a5ba89e588b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:36:47.760551Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:36:43.678616Z&quot;}}" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1">model <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> cmdstanpy.CmdStanModel(stan_file<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>stan_file)</span>
+<span id="cb15-2"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(model.exe_info())</span></code></pre></div></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>00:36:43 - cmdstanpy - INFO - compiling stan file /Users/quangtiencs/SigmaDataset/stochastic-volatility-optimized.stan to exe file /Users/quangtiencs/SigmaDataset/stochastic-volatility-optimized
+00:36:47 - cmdstanpy - INFO - compiled model executable: /Users/quangtiencs/SigmaDataset/stochastic-volatility-optimized</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'stan_version_major': '2', 'stan_version_minor': '39', 'stan_version_patch': '0', 'STAN_THREADS': 'false', 'STAN_MPI': 'false', 'STAN_OPENCL': 'false', 'STAN_NO_RANGE_CHECKS': 'false'}</code></pre>
+</div>
+</div>
+<div id="85e3f278373b10bd" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:37:07.047288Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:36:47.770541Z&quot;}}" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1">fit <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> model.sample(</span>
+<span id="cb18-2">    data<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>data_file,</span>
+<span id="cb18-3">    chains<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>StochasticVolatilityConfig.CHAINS,</span>
+<span id="cb18-4">    iter_sampling<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>StochasticVolatilityConfig.NUMBER_SAMPLES,</span>
+<span id="cb18-5">    iter_warmup<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>StochasticVolatilityConfig.WARM_UP,</span>
+<span id="cb18-6">    adapt_delta<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>StochasticVolatilityConfig.ADAPT_DELTA,</span>
+<span id="cb18-7">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># show_console=False,</span></span>
+<span id="cb18-8">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># show_progress=False</span></span>
+<span id="cb18-9">)</span></code></pre></div></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>00:36:47 - cmdstanpy - INFO - CmdStan start processing</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major":2,"version_minor":0,"model_id":"6d18194bd788415f9a16151c41823473","quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major":2,"version_minor":0,"model_id":"470401ff118e431581cd9b8e6cc17039","quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major":2,"version_minor":0,"model_id":"068e847bf0c34ef9aceff1141e270b21","quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major":2,"version_minor":0,"model_id":"256278c5d37f4adfaf0fde0159512feb","quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                                                                                                                                                                                                                                                                                </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>00:37:06 - cmdstanpy - INFO - CmdStan done processing.
+00:37:06 - cmdstanpy - WARNING - Non-fatal error during sampling:
+Exception: normal_lpdf: Scale parameter[1] is 0, but must be positive! (in 'stochastic-volatility-optimized.stan', line 25, column 2 to column 28)
+Exception: normal_lpdf: Scale parameter[1] is 0, but must be positive! (in 'stochastic-volatility-optimized.stan', line 25, column 2 to column 28)
+    Exception: normal_lpdf: Scale parameter[1] is 0, but must be positive! (in 'stochastic-volatility-optimized.stan', line 25, column 2 to column 28)
+    Exception: normal_lpdf: Scale parameter[1] is nan, but must be positive! (in 'stochastic-volatility-optimized.stan', line 25, column 2 to column 28)
+Exception: normal_lpdf: Scale parameter[1] is nan, but must be positive! (in 'stochastic-volatility-optimized.stan', line 25, column 2 to column 28)
+    Exception: normal_lpdf: Scale parameter[1] is nan, but must be positive! (in 'stochastic-volatility-optimized.stan', line 25, column 2 to column 28)
+    Exception: normal_lpdf: Scale parameter[1] is nan, but must be positive! (in 'stochastic-volatility-optimized.stan', line 25, column 2 to column 28)
+    Exception: normal_lpdf: Scale parameter[1] is 0, but must be positive! (in 'stochastic-volatility-optimized.stan', line 25, column 2 to column 28)
+    Exception: normal_lpdf: Scale parameter[1] is nan, but must be positive! (in 'stochastic-volatility-optimized.stan', line 25, column 2 to column 28)
+Exception: normal_lpdf: Scale parameter[1] is 0, but must be positive! (in 'stochastic-volatility-optimized.stan', line 25, column 2 to column 28)
+Consider re-running with show_console=True if the above output is unclear!</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code></code></pre>
+</div>
+</div>
+<div id="6c66ca4860c2744f" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:37:12.079434Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:37:07.057057Z&quot;}}" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1">info_diagnose <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>(fit.diagnose())</span>
+<span id="cb23-2"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(info_diagnose)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Checking sampler transitions treedepth.
+Treedepth satisfactory for all transitions.
+
+Checking sampler transitions for divergences.
+No divergent transitions found.
+
+Checking E-BFMI - sampler transitions HMC potential energy.
+E-BFMI satisfactory.
+
+Rank-normalized split effective sample size satisfactory for all parameters.
+
+Rank-normalized split R-hat values satisfactory for all parameters.
+
+Processing complete, no problems detected.
+</code></pre>
+</div>
+</div>
+<div id="3b94077380c76b8b" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:37:12.095227Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:37:12.086704Z&quot;}}" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">assert</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Processing complete, no problems detected."</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> info_diagnose, (</span>
+<span id="cb25-2">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"There are problems with the model. Check the diagnose output."</span></span>
+<span id="cb25-3">)</span></code></pre></div></div>
+</div>
+</section>
+<section id="trace-plot" class="level2">
+<h2 class="anchored" data-anchor-id="trace-plot">Trace plot</h2>
+<div id="2f9526e6-e182-4334-8c80-ffcbdb180e0d" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:37:12.817783Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:37:12.096162Z&quot;}}" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1">trace <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> az.from_cmdstanpy(posterior<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>fit)</span>
+<span id="cb26-2"></span>
+<span id="cb26-3"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">with</span> plt.style.context(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"arviz-variat"</span>):</span>
+<span id="cb26-4">    az.plot_trace(trace, var_names<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mu"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"phi"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sigma"</span>])</span>
+<span id="cb26-5"></span>
+<span id="cb26-6">plt.show()</span></code></pre></div></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://quangtiencs.com/posts/playground_python/stochastic_volatility_model/index_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="stochastic-volatility" class="level2">
+<h2 class="anchored" data-anchor-id="stochastic-volatility">Stochastic Volatility</h2>
+<div id="9672e1f4df9c446" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:37:13.260672Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:37:12.833613Z&quot;}}" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1">var <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"h"</span></span>
+<span id="cb27-2">volatility <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.exp(fit.draws_pd(var).T)</span>
+<span id="cb27-3">median <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> volatility.quantile(q<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>, axis<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb27-4">low <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> volatility.quantile(q<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>, axis<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb27-5">high <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> volatility.quantile(q<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.95</span>, axis<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb27-6"></span>
+<span id="cb27-7">peaks, properties <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> find_peaks(median, height<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>np.percentile(median, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">95</span>), distance<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>)</span>
+<span id="cb27-8"></span>
+<span id="cb27-9">median.index <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> returns.index</span>
+<span id="cb27-10"></span>
+<span id="cb27-11">fig, ax <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> plt.subplots(figsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>))</span>
+<span id="cb27-12">median.plot(ax<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>ax, label<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Median volatility"</span>)</span>
+<span id="cb27-13">ax.fill_between(</span>
+<span id="cb27-14">    returns.index, low, high, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"tomato"</span>, alpha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.3</span>, label<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"90% volatility interval"</span></span>
+<span id="cb27-15">)</span>
+<span id="cb27-16">ax.plot(</span>
+<span id="cb27-17">    median.index.values[peaks], median.values[peaks], <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"o"</span>, label<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Peaks"</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"blue"</span></span>
+<span id="cb27-18">)</span>
+<span id="cb27-19"></span>
+<span id="cb27-20"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Add annotations for peak dates</span></span>
+<span id="cb27-21"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> i <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> peaks:</span>
+<span id="cb27-22">    peak_date <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> median.index[i].strftime(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"%Y-%m-</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%d</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Format date nicely</span></span>
+<span id="cb27-23">    ax.text(</span>
+<span id="cb27-24">        median.index[i],</span>
+<span id="cb27-25">        median.values[i],</span>
+<span id="cb27-26">        peak_date,</span>
+<span id="cb27-27">        fontsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>,</span>
+<span id="cb27-28">        color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"black"</span>,</span>
+<span id="cb27-29">        ha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"center"</span>,</span>
+<span id="cb27-30">        va<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bottom"</span>,</span>
+<span id="cb27-31">        rotation<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">45</span>,</span>
+<span id="cb27-32">    )</span>
+<span id="cb27-33"></span>
+<span id="cb27-34">plt.legend()</span>
+<span id="cb27-35"></span>
+<span id="cb27-36">plt.ylim([<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, np.percentile(high, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">99.3</span>)])</span>
+<span id="cb27-37">plt.xlabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Date"</span>)</span>
+<span id="cb27-38">plt.ylabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Volatility"</span>)</span>
+<span id="cb27-39">plt.title(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Stochastic Volatility of VN-INDEX"</span>)</span>
+<span id="cb27-40">plt.tight_layout()</span>
+<span id="cb27-41">plt.savefig(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Stochastic_Volatility_VNINDEX.png"</span>)</span>
+<span id="cb27-42">plt.show()</span></code></pre></div></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/qv/trwv90rj57g44kd978yj9cym0000gn/T/ipykernel_66299/2275497795.py:16: UserWarning: This axis already has a converter set and is updating to a potentially incompatible converter
+  ax.plot(</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://quangtiencs.com/posts/playground_python/stochastic_volatility_model/index_files/figure-html/cell-20-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="279f4378f6c632bc" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:37:13.271607Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:37:13.262612Z&quot;}}" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1">median.index.values[peaks]</span></code></pre></div></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>array(['2015-08-26T00:00:00.000000000', '2018-02-07T00:00:00.000000000',
+       '2018-05-22T00:00:00.000000000', '2018-07-03T00:00:00.000000000',
+       '2018-10-11T00:00:00.000000000', '2020-03-12T00:00:00.000000000',
+       '2020-07-28T00:00:00.000000000', '2021-01-28T00:00:00.000000000',
+       '2021-07-06T00:00:00.000000000', '2022-05-13T00:00:00.000000000',
+       '2022-10-07T00:00:00.000000000', '2022-12-02T00:00:00.000000000',
+       '2023-10-26T00:00:00.000000000', '2025-04-10T00:00:00.000000000',
+       '2026-04-08T00:00:00.000000000'], dtype='datetime64[ns]')</code></pre>
+</div>
+</div>
+<div id="acc735e6-e0b1-4a6a-a20b-1cee2b87d3fe" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-08-02T17:37:13.287863Z&quot;,&quot;start_time&quot;:&quot;2026-08-02T17:37:13.279871Z&quot;}}" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1">pd.Series(median.index.values[peaks])</span></code></pre></div></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>0    2015-08-26
+1    2018-02-07
+2    2018-05-22
+3    2018-07-03
+4    2018-10-11
+5    2020-03-12
+6    2020-07-28
+7    2021-01-28
+8    2021-07-06
+9    2022-05-13
+10   2022-10-07
+11   2022-12-02
+12   2023-10-26
+13   2025-04-10
+14   2026-04-08
+dtype: datetime64[ns]</code></pre>
+</div>
+</div>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ol type="1">
+<li>Stan Probabilistic Programming. Stochastic-volatility models. <a href="https://mc-stan.org/docs/stan-users-guide/time-series.html#stochastic-volatility-models" class="uri">https://mc-stan.org/docs/stan-users-guide/time-series.html#stochastic-volatility-models</a></li>
+</ol>
+
+
+</section>
+
+ ]]></description>
+  <category>volatility</category>
+  <guid>https://quangtiencs.com/posts/playground_python/stochastic_volatility_model/</guid>
+  <pubDate>Tue, 29 Apr 2025 17:00:00 GMT</pubDate>
+  <media:content url="https://quangtiencs.com/images/stochastic_volatility_model/opengraph.jpg" medium="image" type="image/jpeg"/>
+</item>
+</channel>
 </rss>

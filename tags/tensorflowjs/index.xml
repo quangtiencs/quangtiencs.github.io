@@ -1,20 +1,79 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tensorflowjs on quangtiencs</title>
-    <link>https://quangtiencs.com/tags/tensorflowjs/</link>
-    <description>Recent content in Tensorflowjs on quangtiencs</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <copyright>quangtiencs ➤ bet on myself &amp; beat the odds</copyright>
-    <lastBuildDate>Fri, 10 Feb 2023 08:00:00 +0700</lastBuildDate>
-    <atom:link href="https://quangtiencs.com/tags/tensorflowjs/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Probabilistic Programming 2023</title>
-      <link>https://quangtiencs.com/posts/probabilistic_programming_2023/</link>
-      <pubDate>Fri, 10 Feb 2023 08:00:00 +0700</pubDate>
-      <guid>https://quangtiencs.com/posts/probabilistic_programming_2023/</guid>
-      <description>Probabilistic Programming 2023, some libraries that I recently used:&#xA;PyMC: well-designed API with concise documentation. It&amp;rsquo;s faster and more customizable than before because the predecessor (the Theno backend) was replaced by the Aesara backend (compiling to C and Jax). BlackJax: for hacking log-density lovers. There&amp;rsquo;re some new algorithms like Stochastic gradient Langevin dynamics. BlackJax is not a complete probabilistic programming language. It integrates well with the PPLs backend by Jax. Stan: a domain-specific language for statistical modeling and one of the fastest samplers.</description>
-    </item>
-  </channel>
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>quangtiencs</title>
+<link>https://quangtiencs.com/tags/tensorflowjs/</link>
+<atom:link href="https://quangtiencs.com/tags/tensorflowjs/index.xml" rel="self" type="application/rss+xml"/>
+<description>Bet on myself &amp; Beat the odds</description>
+<image>
+<url>https://quangtiencs.com/icon/quangtiencs_hawk.png</url>
+<title>quangtiencs</title>
+<link>https://quangtiencs.com/tags/tensorflowjs/</link>
+</image>
+<generator>quarto-1.10.18</generator>
+<lastBuildDate>Thu, 09 Feb 2023 17:00:00 GMT</lastBuildDate>
+<item>
+  <title>Probabilistic Programming 2023</title>
+  <link>https://quangtiencs.com/posts/probabilistic_programming_2023/</link>
+  <description><![CDATA[ 
+
+<!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
+     items here. Included via include-before-body, which Quarto places at the
+     top of the article column, so the header always lines up with the text
+     (with or without a table of contents). Quarto's own navbar is kept
+     but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
+     which the last two icons trigger. Behaviour: nav-scripts.html -->
+<header class="qt-site-header">
+  <a class="qt-wordmark-link" href="../../"><img class="qt-wordmark qt-line-art" src="https://quangtiencs.com/quangtiencs.gif" alt="quangtiencs" width="800" height="148"></a>
+
+  <div class="qt-social">
+      <a href="https://goodreads.com/quangtiencs" aria-label="Goodreads" title="Goodreads"></a>
+      <a href="https://github.com/quangtiencs" aria-label="GitHub" title="GitHub"></a>
+      <a href="https://www.linkedin.com/in/quangtiencs/" aria-label="LinkedIn" title="LinkedIn"></a>
+      <a href="https://substack.com/@quangtiencs" aria-label="Substack" title="Substack"></a>
+      <a href="../../index.xml" aria-label="RSS feed" title="RSS feed"></a>
+      <a href="https://thetalog.com" aria-label="thetalog.com" title="thetalog.com"></a>
+      <a tabindex="0" class="qt-scheme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="bi bi-circle-half"></i></a>
+      <a tabindex="0" class="qt-search" aria-label="Search" title="Search"><i class="bi bi-search"></i></a>
+  </div>
+
+  
+</header>
+
+<!-- Compact title block (replaces Quarto's default): title, one meta line
+     (date · tags linking to /tags/<slug>/), short description. -->
+
+
+
+<p>Probabilistic Programming 2023, some libraries that I recently used:</p>
+<ul>
+<li>PyMC: well-designed API with concise documentation. It’s faster and more customizable than before because the predecessor (the Theno backend) was replaced by the Aesara backend (compiling to C and Jax).</li>
+<li>BlackJax: for hacking log-density lovers. There’re some new algorithms like Stochastic gradient Langevin dynamics. BlackJax is not a complete probabilistic programming language. It integrates well with the PPLs backend by Jax.</li>
+<li>Stan: a domain-specific language for statistical modeling and one of the fastest samplers. Its main focus is on modeling. (just me; sometimes integrating it with the production environment gives me a headache I/O)</li>
+<li>Tensorflow Probability: It’s the first choice if you work with normalizing flow models, bayesian neural networks. It’s very flexible to build a complex model with a modular approach. For me, it’s hard to debug.</li>
+<li>NumPyro: concentrate on Jax. The APIs are easy to learn. It’s still under development.</li>
+</ul>
+<p>There are some candidates that I’m not listing out here: Pyro &amp; Oryx.</p>
+<ul>
+<li>For working in production, friendly with Python: PyMC</li>
+<li>To concentrate on modeling: Stan</li>
+<li>For Stochastic gradient MCMC: BlackJax</li>
+<li>For best performance (and give a headache): TensorFlow Probability :’D</li>
+</ul>
+
+
+
+ ]]></description>
+  <category>playground</category>
+  <category>tensorflow</category>
+  <category>typescript</category>
+  <category>tensorflowjs</category>
+  <guid>https://quangtiencs.com/posts/probabilistic_programming_2023/</guid>
+  <pubDate>Thu, 09 Feb 2023 17:00:00 GMT</pubDate>
+</item>
+</channel>
 </rss>
