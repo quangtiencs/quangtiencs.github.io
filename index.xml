@@ -22,7 +22,7 @@
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
@@ -1035,7 +1035,7 @@ dtype: datetime64[ns]</code></pre>
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
@@ -1080,7 +1080,7 @@ dtype: datetime64[ns]</code></pre>
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
@@ -3423,7 +3423,7 @@ font-style: inherit;"># plt.tight_layout()</span></span></code></pre></div></div
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
@@ -3474,7 +3474,7 @@ font-style: inherit;"># plt.tight_layout()</span></span></code></pre></div></div
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
@@ -8365,7 +8365,7 @@ font-style: inherit;">"y"</span>)</span></code></pre></div></div>
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
@@ -9030,7 +9030,7 @@ font-style: inherit;">'psql'</span>))</span></code></pre></div></div>
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
@@ -9083,7 +9083,7 @@ font-style: inherit;">'psql'</span>))</span></code></pre></div></div>
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
@@ -13344,7 +13344,7 @@ Info Packages marked with ⌃ have new versions available and may be upgradable.
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
@@ -15178,7 +15178,7 @@ Info Packages marked with ⌃ have new versions available and may be upgradable.
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
@@ -17788,7 +17788,7 @@ Info Packages marked with ⌃ have new versions available and may be upgradable.
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
@@ -19931,7 +19931,7 @@ font-style: inherit;">=</span>format)</span></code></pre></div></div>
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
@@ -20581,7 +20581,7 @@ Quantiles
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
@@ -22111,7 +22111,7 @@ font-style: inherit;">"Rate of Return"</span>)</span></code></pre></div></div>
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
@@ -22170,7 +22170,7 @@ font-style: inherit;">"Rate of Return"</span>)</span></code></pre></div></div>
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
@@ -22214,7 +22214,7 @@ font-style: inherit;">"Rate of Return"</span>)</span></code></pre></div></div>
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
@@ -23701,7 +23701,7 @@ font-style: inherit;">main</span>()</span></code></pre></div></div>
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
@@ -24835,7 +24835,7 @@ font-style: inherit;">"Predicted labels"</span>)</span>
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
@@ -24880,7 +24880,7 @@ font-style: inherit;">"Predicted labels"</span>)</span>
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
@@ -24933,7 +24933,7 @@ font-style: inherit;">"Predicted labels"</span>)</span>
   <description><![CDATA[ 
 
 <!-- Site header: wordmark, icon row, SmartMenus bar. Edit links and menu
-     items here. Included via include-before-body, which Quarto places at the
+     items here (except the generated "tools" block). Included via include-before-body, which Quarto places at the
      top of the article column, so the header always lines up with the text
      (with or without a table of contents). Quarto's own navbar is kept
      but hidden (menu.scss): it hosts the search overlay and dark-mode switch,
